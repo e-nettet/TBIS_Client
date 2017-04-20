@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://e-nettet.dk/xml/schemas/2007/07/01/"
+	xmlns:tns="http://e-nettet.dk/xml/schemas/2007/07/01/"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="Amortf.xsd" />
+	<xs:include schemaLocation="DocInf.xsd" />
+	<xs:include schemaLocation="Ejdmid.xsd" />
+	<xs:include schemaLocation="Instit.xsd" />
+	<xs:include schemaLocation="Ktrlkd.xsd" />
+	<xs:include schemaLocation="LaanId.xsd" />
+	<xs:include schemaLocation="Restan.xsd" />
+	<xs:element name="FRestgaeld6" type="tns:FRestgaeld6_Type" />
+	<xs:complexType name="FRestgaeld6_Type">
+		<xs:sequence>
+			<xs:element ref="tns:DOCINF" />
+			<xs:element ref="tns:INSTIT" />
+			<xs:element ref="tns:EJDMID" />
+			<xs:element ref="tns:LAANID" />
+			<xs:element ref="tns:RESTAN" />
+			<xs:element ref="tns:AMORTF" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

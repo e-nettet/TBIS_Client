@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://e-nettet.dk/xml/schemas/2007/07/01/"
+	xmlns:tns="http://e-nettet.dk/xml/schemas/2007/07/01/"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="FeltTyper.xsd" />
+	<xs:include schemaLocation="Bidrg1.xsd" />
+	<xs:include schemaLocation="Termin.xsd" />
+	<xs:include schemaLocation="Fonkod.xsd" />
+	<xs:include schemaLocation="Stopl.xsd" />
+	<xs:include schemaLocation="Stator.xsd" />
+	<xs:include schemaLocation="Rente.xsd" />
+	<xs:include schemaLocation="Rdgaop.xsd" />
+	<xs:element name="LAANBE" type="tns:LAANBE_Type" />
+	<xs:complexType name="LAANBE_Type">
+		<xs:sequence>
+			<xs:element name="Pantebrevshovedstol" type="tns:N17_2" />
+			<xs:element name="Valutakode1" type="tns:AN3" minOccurs="0" />
+			<xs:element name="Obligationshovedstol" type="tns:N17_2"
+				minOccurs="0" />
+			<xs:element name="Valutakode2" type="tns:AN3" minOccurs="0" />
+			<xs:element name="Amortisationskode" type="tns:Kodeliste30" />
+			<xs:element name="Rentetype" type="tns:Kodeliste31"
+				minOccurs="0" />
+			<xs:element name="Laanebestanddelstype"
+				type="tns:Kodeliste32" />
+			<xs:element name="Renteprocent" type="tns:N10_6"
+				minOccurs="0" />
+			<xs:element name="Bidragstype" type="tns:Kodeliste33" />
+			<xs:element name="Laanebestanddel_bemaerkninger"
+				type="tns:AN70" minOccurs="0" />
+			<xs:element name="Udskudt_afdrag" type="tns:N17_2"
+				minOccurs="0" />
+			<xs:element name="Valutakode3" type="tns:AN3" minOccurs="0" />
+			<xs:element name="Afdragsfritlaan_i_nul"
+				type="tns:Kodeliste1" minOccurs="0" />
+			<xs:element name="Renteloft" type="tns:N10_6" minOccurs="0" />
+			<xs:element name="Konverteringsrenteprocent"
+				type="tns:N10_6" minOccurs="0" />
+			<xs:element name="Tillaeg_til_renteprocent" type="tns:N10_6"
+				minOccurs="0" />
+			<xs:element name="Aktuel_rente_fastsat_pr_dato"
+				type="tns:N8" minOccurs="0" />
+			<xs:element name="Naeste_rentefix_pr_dato" type="tns:N8"
+				minOccurs="0" />
+			<xs:element name="Rentefix_frekvens_i_maaneder"
+				type="tns:N3" minOccurs="0" />
+			<xs:element name="Renteloft_fastlaases"
+				type="tns:Kodeliste1" minOccurs="0" />
+			<xs:element ref="tns:BIDRG1" />
+			<xs:element ref="tns:TERMIN" maxOccurs="999" />
+			<xs:element ref="tns:FONKOD" minOccurs="0" maxOccurs="999" />
+			<xs:element ref="tns:STATOR" minOccurs="0" />
+			<xs:element ref="tns:STOPL" minOccurs="0" />
+			<xs:element ref="tns:RENTE" minOccurs="0" />
+			<xs:element ref="tns:RDGAOP" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

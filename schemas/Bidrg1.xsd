@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://e-nettet.dk/xml/schemas/2007/07/01/"
+	xmlns:tns="http://e-nettet.dk/xml/schemas/2007/07/01/"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="FeltTyper.xsd" />
+	<xs:include schemaLocation="Bidrg2.xsd" />
+	<xs:element name="BIDRG1" type="tns:BIDRG1_Type" />
+	<xs:complexType name="BIDRG1_Type">
+		<xs:sequence>
+			<xs:element name="Ydelsesnedsaettelse_pr_termin"
+				type="tns:N17_2" minOccurs="0" />
+			<xs:element name="Valutakode1" type="tns:AN3" minOccurs="0" />
+			<xs:element name="Ydelsesprocent" type="tns:N13_9"
+				minOccurs="0" />
+			<xs:element name="Afdragsprocent" type="tns:N10_6"
+				minOccurs="0" />
+			<xs:element name="Stip_ekstraord_afdrag_pr_termin"
+				type="tns:N17_2" minOccurs="0" />
+			<xs:element name="Valutakode2" type="tns:AN3" minOccurs="0" />
+			<xs:element name="Omregningstabel" type="tns:Kodeliste10"
+				minOccurs="0" />
+			<xs:element name="Omregningskurs" type="tns:N8_4"
+				minOccurs="0" />
+			<xs:element name="Udbetalingsdato" type="tns:N8"
+				minOccurs="0" />
+			<xs:element name="Bidrag_i_ydelsesprocent"
+				type="tns:Kodeliste1" />
+			<xs:element name="Foerste_termin_afdragsfri"
+				type="tns:Kodeliste1" />
+			<xs:element name="Brudt_sidste_termin"
+				type="tns:Kodeliste1" />
+			<xs:element ref="tns:BIDRG2" maxOccurs="99" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

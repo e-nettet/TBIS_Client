@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://e-nettet.dk/xml/schemas/2007/07/01/" targetNamespace="http://e-nettet.dk/xml/schemas/2007/07/01/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="FeltTyper.xsd"/>
+	<xs:element name="KURSOP" type="tns:KURSOP_Type"/>
+	<xs:complexType name="KURSOP_Type">
+		<xs:sequence>
+			<xs:element name="Vejledende_indfrielseskurs" type="tns:N8_4" minOccurs="0"/>
+			<xs:element name="Officiel_kurs" type="tns:N8_4" minOccurs="0"/>
+			<xs:element name="Terminsopsigelseskurs" type="tns:N8_4" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

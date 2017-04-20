@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://e-nettet.dk/xml/schemas/2007/07/01/"
+	xmlns:tns="http://e-nettet.dk/xml/schemas/2007/07/01/"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="FeltTyper.xsd" />
+	<xs:element name="DOCINF" type="tns:DOCINF_Type" />
+	<xs:complexType name="DOCINF_Type">
+			<xs:attribute name="Meddelelsens_navn" type="tns:Meddelelsens_navn" use="required" />
+			<xs:attribute name="Meddelelsens_type" type="tns:Meddelelsens_type" use="required" />
+			<xs:attribute name="Sender_version" type="tns:N3" use="required"/>
+			<xs:attribute name="Modtager_version" type="tns:N3" use="required" />
+			<xs:attribute name="Onsket_version" type="tns:N3" use="required" />
+			<xs:attribute name="informationsstromnavn" type="tns:AN35" use="required" />
+			<xs:attribute name="Meddelelsens_nummer" type="tns:AN35" use="required" />
+			<xs:attribute name="Meddelelsens_funktion" type="tns:Kodeliste5" use="required"/>
+			<xs:attribute name="Dato" type="tns:N8" use="required" />
+			<xs:attribute name="Afsender_partid" type="tns:AN35" use="required" />
+			<xs:attribute name="ID-kode" type="tns:AN8" use="required" />
+			<xs:attribute name="VirksomhedsID" type="tns:AN25" use="optional" />
+			<xs:attribute name="Afdelingsid" type="tns:AN25" use="optional" />
+			<xs:attribute name="Personid" type="tns:AN25" use="optional" />
+			<xs:attribute name="Modtager_partid" type="tns:AN35" use="required" />
+	</xs:complexType>
+</xs:schema>

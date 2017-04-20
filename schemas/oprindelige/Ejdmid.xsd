@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://e-nettet.dk/xml/schemas/2007/07/01/" targetNamespace="http://e-nettet.dk/xml/schemas/2007/07/01/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="FeltTyper.xsd"/>
+	<xs:include schemaLocation="Ktrlkd.xsd"/>
+	<xs:element name="EJDMID" type="tns:EJDMID_Type"/>
+	<xs:complexType name="EJDMID_Type">
+		<xs:sequence>
+			<xs:element name="Ejendomsident" type="tns:AN12"/>
+			<xs:element ref="tns:KTRLKD" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

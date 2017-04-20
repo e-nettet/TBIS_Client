@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://e-nettet.dk/xml/schemas/2007/07/01/"
+	xmlns:tns="http://e-nettet.dk/xml/schemas/2007/07/01/"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="FeltTyper.xsd" />
+	<xs:element name="RENTE" type="tns:RENTE_Type" />
+	<xs:complexType name="RENTE_Type">
+		<xs:sequence>
+			<xs:element name="Oprindelig_loebetid" type="tns:N3"
+				minOccurs="0" />
+			<xs:element name="Afdragsform" type="tns:Kodeliste41"
+				minOccurs="0" />
+			<xs:element name="Refinansieringsgrad" type="tns:N10_6"
+				minOccurs="0" />
+			<xs:element name="Refinansieringsinterval" type="tns:N3"
+				minOccurs="0" />
+			<xs:element name="Type" type="tns:Kodeliste42"
+				minOccurs="0" />
+			<xs:element name="Bidrag_rabat_4_terminer" type="tns:N10_6"
+				minOccurs="0" />
+			<xs:element name="A_conto_afdrag" type="tns:N17_2"
+				minOccurs="0" />
+			<xs:element name="Valutakode1" type="tns:AN3" minOccurs="0" />
+			<xs:element name="Refinansieringsbeloeb" type="tns:N17_2"
+				minOccurs="0" />
+			<xs:element name="Valutakode2" type="tns:AN3" minOccurs="0" />
+			<xs:element name="Skub_foerste_rente_tilpas"
+				type="tns:Kodeliste1" minOccurs="0" />
+			<xs:element name="Profil_skift_termin" type="tns:N3"
+				minOccurs="0" />
+			<xs:element name="Flex_closing_time" type="tns:N1"
+				minOccurs="0" />
+			<xs:element name="Laanekode" type="tns:Kodeliste43"
+				minOccurs="0" />
+			<xs:element name="Min_loebetid" type="tns:N3" minOccurs="0" />
+			<xs:element name="Max_loebetid" type="tns:N3" minOccurs="0" />
+			<xs:element name="Min_fin_loebetid" type="tns:N3"
+				minOccurs="0" />
+			<xs:element name="Max_fin_loebetid" type="tns:N3"
+				minOccurs="0" />
+			<xs:element name="Min_ydelse" type="tns:N17_2"
+				minOccurs="0" />
+			<xs:element name="Valutakode3" type="tns:AN3" minOccurs="0" />
+			<xs:element name="Max_ydelse" type="tns:N17_2"
+				minOccurs="0" />
+			<xs:element name="Valutakode4" type="tns:AN3" minOccurs="0" />
+			<xs:element name="Kommende_ref_loebetid" type="tns:N3"
+				minOccurs="0" />
+			<xs:element name="Kommende_amorttype" type="tns:Kodeliste41"
+				minOccurs="0" />
+			<xs:element name="Kommende_typekode" type="tns:Kodeliste43"
+				minOccurs="0" />
+			<xs:element name="Kommende_type" type="tns:Kodeliste42"
+				minOccurs="0" />
+			<xs:element name="Kommende_loebetid" type="tns:N3"
+				minOccurs="0" />
+			<xs:element name="Kommende_min_loebetid" type="tns:N3"
+				minOccurs="0" />
+			<xs:element name="Kommende_max_loebetid" type="tns:N3"
+				minOccurs="0" />
+			<xs:element name="Kommende_min_ydelse" type="tns:N17_2"
+				minOccurs="0" />
+			<xs:element name="Valutakode5" type="tns:AN3" minOccurs="0" />
+			<xs:element name="Kommende_max_ydelse" type="tns:N17_2"
+				minOccurs="0" />
+			<xs:element name="Valutakode6" type="tns:AN3" minOccurs="0" />
+			<xs:element name="Loebetid" type="tns:N8_4" minOccurs="0" />
+			<xs:element name="Opsagt_refin_beloeb" type="tns:N17_2"
+				minOccurs="0" />
+			<xs:element name="Valutakode7" type="tns:AN3" minOccurs="0" />
+			<xs:element name="Udamoriseringskurs" type="tns:N8_4"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://e-nettet.dk/xml/schemas/2007/07/01/" targetNamespace="http://e-nettet.dk/xml/schemas/2007/07/01/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="FeltTyper.xsd"/>
+	<xs:element name="DOCINFSVAR" type="tns:DOCINFSVAR_Type"/>
+	<xs:complexType name="DOCINFSVAR_Type">
+		<xs:sequence>
+			<xs:element name="Meddelelsens_navn" type="tns:Meddelelsens_navn" minOccurs="0"/>
+			<xs:element name="Meddelelsens_type" type="tns:Meddelelsens_type" minOccurs="0"/>
+			<xs:element name="Sender_version" type="tns:N3"/>
+			<xs:element name="Modtager_version" type="tns:N3" minOccurs="0"/>
+			<xs:element name="Onsket_version" type="tns:N3" minOccurs="0"/>
+			<xs:element name="informationsstromnavn" type="tns:AN35" minOccurs="0"/>
+			<xs:element name="Meddelelsens_nummer" type="tns:AN35"/>
+			<xs:element name="Meddelelsesnr_for_foresporgselen" type="tns:AN35"/>
+			<xs:element name="Meddelelsens_funktion" type="tns:Kodeliste5"/>
+			<xs:element name="Meddelelsens-status" type="tns:Kodeliste26" minOccurs="0"/>
+			<xs:element name="Niveaudeling" type="tns:AN35" minOccurs="0"/>
+			<xs:element name="Dato" type="tns:N8"/>
+			<xs:element name="Afsender_partid" type="tns:AN35"/>
+			<xs:element name="ID-kode" type="tns:AN8"/>
+			<xs:element name="VirksomhedsID" type="tns:AN25" minOccurs="0"/>
+			<xs:element name="Afdelingsid" type="tns:AN25" minOccurs="0"/>
+			<xs:element name="Personid" type="tns:AN25" minOccurs="0"/>
+			<xs:element name="Modtager_partid" type="tns:AN35"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

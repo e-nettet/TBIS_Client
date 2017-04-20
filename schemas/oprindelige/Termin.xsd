@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://e-nettet.dk/xml/schemas/2007/07/01/" targetNamespace="http://e-nettet.dk/xml/schemas/2007/07/01/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="FeltTyper.xsd"/>
+	<xs:element name="TERMIN" type="tns:TERMIN_type"/>
+	<xs:complexType name="TERMIN_type">
+		<xs:sequence>
+			<xs:element name="Restgaeldsdato" type="tns:N8"/>
+			<xs:element name="Pantebrevsrestgaeld" type="tns:N17_2"/>
+			<xs:element name="Valutakode1" type="tns:AN3" minOccurs="0"/>
+			<xs:element name="Obligationsrestgaeld" type="tns:N17_2" minOccurs="0"/>
+			<xs:element name="Valutakode2" type="tns:AN3" minOccurs="0"/>
+			<xs:element name="Opkraevet_endnu_ikke_betalt_terminydelse" type="tns:N17_2" minOccurs="0"/>
+			<xs:element name="Valutakode3" type="tns:AN3" minOccurs="0"/>
+			<xs:element name="Renter" type="tns:N17_2"/>
+			<xs:element name="Valutakode4" type="tns:AN3" minOccurs="0"/>
+			<xs:element name="Afdrag" type="tns:N17_2"/>
+			<xs:element name="Valutakode5" type="tns:AN3" minOccurs="0"/>
+			<xs:element name="Bidrag" type="tns:N17_2" minOccurs="0"/>
+			<xs:element name="Valutakode6" type="tns:AN3" minOccurs="0"/>
+			<xs:element name="Afdragsbidrag" type="tns:N17_2" minOccurs="0"/>
+			<xs:element name="Valutakode7" type="tns:AN3" minOccurs="0"/>
+			<xs:element name="Statsafgift" type="tns:N17_2" minOccurs="0"/>
+			<xs:element name="Valutakode8" type="tns:AN3" minOccurs="0"/>
+			<xs:element name="Debitors_andel_af_ydelse" type="tns:N17_2" minOccurs="0"/>
+			<xs:element name="Valutakode9" type="tns:AN3" minOccurs="0"/>
+			<xs:element name="Obligationsafdrag" type="tns:N17_2" minOccurs="0"/>
+			<xs:element name="Valutakode10" type="tns:AN3" minOccurs="0"/>
+			<xs:element name="Obligationsrente" type="tns:N17_2" minOccurs="0"/>
+			<xs:element name="Valutakode11" type="tns:AN3" minOccurs="0"/>
+			<xs:element name="Restloebetid" type="tns:N3"/>
+			<xs:element name="Kreditor_termins_dato" type="tns:N8" minOccurs="0"/>
+			<xs:element name="Opsigelse_frist_dato" type="tns:N8" minOccurs="0"/>
+			<xs:element name="Indekseret_kontanthovedstol" type="tns:N17_2" minOccurs="0"/>
+			<xs:element name="Valutakode12" type="tns:AN3" minOccurs="0"/>
+			<xs:element name="Indeksfaktor_sidste_termin" type="tns:N8_3" minOccurs="0"/>
+			<xs:element name="Indeksfaktor_aktuel_termin" type="tns:N8_3" minOccurs="0"/>
+			<xs:element name="Indeksfaktor_naeste_termin" type="tns:N8_3" minOccurs="0"/>
+			<xs:element name="Indeksdagfaktor_aktuel_termin" type="tns:N8_3" minOccurs="0"/>
+			<xs:element name="Indeksfaktor_sidste_termin_stoettet_byggeri" type="tns:N8_3" minOccurs="0"/>
+			<xs:element name="Indeksfaktor_aktuel_termin_stoettet_byggeri" type="tns:N8_3" minOccurs="0"/>
+			<xs:element name="Indeksfaktor_naeste_termin_stoettet_byggeri" type="tns:N8_3" minOccurs="0"/>
+			<xs:element name="Indeksdagfaktor_aktuel_termin_stoettet_byggeri" type="tns:N8_3" minOccurs="0"/>
+			<xs:element name="Vejede_loebetid" type="tns:N5_2" minOccurs="0"/>
+			<xs:element name="Vejede_rentepocent" type="tns:N10_6" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

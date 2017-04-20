@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://e-nettet.dk/xml/schemas/2007/07/01/"
+	xmlns:tns="http://e-nettet.dk/xml/schemas/2007/07/01/"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="DocInf_svar.xsd" />
+	<xs:include schemaLocation="Fjltxt.xsd" />
+	<xs:include schemaLocation="Ejdmid_svar.xsd" />
+	<xs:include schemaLocation="Laanop.xsd" />
+	<xs:element name="SRestgaeld63" type="tns:SRestgaeld63_Type" />
+	<xs:complexType name="SRestgaeld63_Type">
+		<xs:sequence>
+			<xs:element ref="tns:DOCINFSVAR" />
+			<xs:element ref="tns:FJLTXT" minOccurs="0" maxOccurs="9" />
+			<xs:element ref="tns:EJDMIDSVAR" minOccurs="0" />
+			<xs:element ref="tns:LAANOP" minOccurs="0" maxOccurs="9999" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

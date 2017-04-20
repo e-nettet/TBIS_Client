@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://e-nettet.dk/xml/schemas/2007/07/01/"
+	xmlns:tns="http://e-nettet.dk/xml/schemas/2007/07/01/"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="FeltTyper.xsd" />
+	<xs:element name="MATOPL" type="tns:MATOPL_Type" />
+	<xs:complexType name="MATOPL_Type">
+		<xs:sequence>
+			<xs:element name="Matrikelbetegnelse_numeriskdel"
+				type="tns:N4" />
+			<xs:element name="Matrikelbetegnelse_alfanumeriskdel"
+				type="tns:AN4" minOccurs="0" />
+			<xs:element name="Ejerlavbetegnelse" type="tns:AN42" />
+			<xs:element name="Ejerlejligheds_nummer" type="tns:AN4"
+				minOccurs="0" />
+			<xs:element name="Matrikel-delnummer" type="tns:AN5"
+				minOccurs="0" />
+			<xs:element name="Ideel_anpart_nr" type="tns:Kodeliste1" />
+			<xs:element name="Hovedmatrikel" type="tns:Kodeliste1" />
+			<xs:element name="Bygning_paa_lejet_grund"
+				type="tns:Kodeliste1" />
+			<xs:element name="Areal" type="tns:N15" minOccurs="0" />
+			<xs:element name="Vejareal" type="tns:N15" minOccurs="0" />
+			<xs:element name="Kommunekode" type="tns:N3" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

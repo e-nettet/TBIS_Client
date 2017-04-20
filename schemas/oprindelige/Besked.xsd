@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <!-- XSD -->
+    <!-- XSD|Toolbox Gateway Besked|-->
+    <!-- $Revision: 1.0 $ -->
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://e-nettet.dk/ToolboxGateway/2011/04/01/" xmlns:tns="http://e-nettet.dk/ToolboxGateway/2011/04/01/" elementFormDefault="qualified" attributeFormDefault="unqualified" xml:lang="DA">
+	<element name="Besked" type="tns:BeskedType" />
+
+	<complexType name="BeskedType">
+		<annotation>
+			<documentation>Denne type repræsenterer en besked, der kan forstås af en Toolbox Gateway.</documentation>
+		</annotation>
+		<sequence>
+			<element name="Header" type="tns:HeaderType" />
+			<element name="Body" type="tns:BodyType" />
+		</sequence>
+	</complexType>
+
+	<complexType name="HeaderType">
+		<annotation>
+			<documentation>En Toolbox Gateway Besked skal altid indeholde en header. Denne header skal indeholde den nødvendige information for at Toolbox Gateway'en kan processere forespørgsler og svar.</documentation>
+		</annotation>
+		<sequence>
+			<element name="Sagsreference">
+				<annotation>
+					<documentation>Denne attribut skal indeholde kundens egen sagsreference. Forespørgsler vedrørende samme sag skal indeholde samme sagsreference for korrekt at kunne registrere kundens forbrug.</documentation>
+				</annotation>
+				<simpleType>
+					<restriction base="string">
+						<maxLength value="256" />
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="Kommunenummer">
+                <annotation>
+                	<documentation>Denne attribut skal indeholde en ejendoms kommunenummer og bruges sammen med ejendomsnummeret til at identificere den ejendom, beskeden omhandler.</documentation>
+                </annotation>
+                <simpleType>
+					<restriction base="int"></restriction>
+				</simpleType>
+			</element>
+			<element name="Ejendomsnummer">
+                <annotation>
+                	<documentation>Denne attribut skal indeholde en ejendoms ejendomsnummer og bruges sammen med kommunenummeret til at identificere den ejendom, beskeden omhandler.</documentation>
+                </annotation>
+                <simpleType>
+					<restriction base="int"></restriction>
+				</simpleType>
+			</element>
+            <element name="AnvendBase64Encode" nillable="true" minOccurs="0">
+                <annotation>
+                    <documentation>Base64Encode</documentation>
+                </annotation>
+                <simpleType>
+                    <restriction base="boolean"></restriction>
+                </simpleType>
+            </element>
+		</sequence>
+	</complexType>
+
+	<complexType name="BodyType" mixed="true">
+		<annotation>
+			<documentation>En Toolbox Gateway Besked skal altid indeholde en body. Ved indkommende beskeder skal body indeholde en forespørgsel til den endelige service, og ved svar vil Toolbox Gateway'en sørge for, at body indeholder svaret fra selvsamme service. Hvis der optræder fejl i Toolbox Gateway'en i forbindelse med processering af beskeder, vil body indeholde præcist et enkelt ToolboxGatewayFejl element, og intet andet.</documentation>
+		</annotation>
+		<sequence>
+			<any namespace="##any" processContents="lax" minOccurs="0" />
+		</sequence>
+	</complexType>
+</schema>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://e-nettet.dk/xml/schemas/2007/07/01/" targetNamespace="http://e-nettet.dk/xml/schemas/2007/07/01/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="FeltTyper.xsd"/>
+	<xs:include schemaLocation="Kursop.xsd"/>
+	<xs:element name="FONKOD" type="tns:FONKOD_Type"/>
+	<xs:complexType name="FONKOD_Type">
+		<xs:sequence>
+			<xs:element name="Fondskode" type="tns:AN12" minOccurs="0"/>
+			<xs:element name="Obligationshovedstol" type="tns:N17_2" minOccurs="0"/>
+			<xs:element name="Valutakode1" type="tns:AN3" minOccurs="0"/>
+			<xs:element name="Obligationsrestgaeld" type="tns:N17_2" minOccurs="0"/>
+			<xs:element name="Valutakode2" type="tns:AN3" minOccurs="0"/>
+			<xs:element name="Restgaeldsdato" type="tns:N8" minOccurs="0"/>
+			<xs:element name="Indekseret_obligationshovedstol" type="tns:N17_2" minOccurs="0"/>
+			<xs:element name="Valutakode3" type="tns:AN3" minOccurs="0"/>
+			<xs:element name="Nominel_rente_procent" type="tns:N10_6" minOccurs="0"/>
+			<xs:element name="Fondskode_loebetid" type="tns:N2" minOccurs="0"/>
+			<xs:element name="Kreditor_terminsantal" type="tns:N2" minOccurs="0"/>
+			<xs:element name="Konvertibel_kode" type="tns:Kodeliste34" minOccurs="0"/>
+			<xs:element name="Naeste_obligationsudloebsdato" type="tns:N8" minOccurs="0"/>
+			<xs:element name="Dato_for_renteloftsudloeb" type="tns:N8" minOccurs="0"/>
+			<xs:element name="Renteindex" type="tns:AN15" minOccurs="0"/>
+			<xs:element name="Gennemsnitsprincip" type="tns:Kodeliste51" minOccurs="0"/>
+			<xs:element name="Korrektion_for_pengemarkedeskonvention" type="tns:Kodeliste1" minOccurs="0"/>
+			<xs:element ref="tns:KURSOP"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

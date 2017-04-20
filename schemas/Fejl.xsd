@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!-- $Revision: 1.0 $ -->
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://e-nettet.dk/ToolboxGateway/2011/04/01/" xmlns:tns="http://e-nettet.dk/ToolboxGateway/2011/04/01/" elementFormDefault="qualified" attributeFormDefault="unqualified" xml:lang="DA">
+	<element name="Fejl" type="tns:FejlType" />
+
+	<complexType name="FejlType">
+		<annotation>
+			<documentation>Denne type repræsenterer fejl, der kan opstå under processeringen af beskeder, der løber igennem Toolbox Gateway.</documentation>
+		</annotation>
+		<sequence>
+			<element name="Type">
+				<annotation>
+					<documentation>En fejl er af en given type, der overordnet angiver, hvad der er gået galt under processeringen af en besked.</documentation>
+				</annotation>
+				<simpleType>
+					<restriction base="string">
+						<enumeration value="besked">
+							<annotation>
+								<documentation>Fejl af denne type angiver, at der er fundet fejl i enten den indkomne eller udgående besked. Det er muligt at behandle fejl af denne type ved at reformulere sendte beskeder.</documentation>
+							</annotation>
+						</enumeration>
+						<enumeration value="kommunikation">
+							<annotation>
+								<documentation>Fejl af denne type angiver, at der skete en fejl i kommunikationen med det eksterne system. Man anbefales at prøve at sende beskeden igen, når det det eksterne system er tilbage i drift.</documentation>
+							</annotation>
+						</enumeration>
+						<enumeration value="gateway">
+							<annotation>
+								<documentation>Fejl af denne type angiver interne fejl i Toolbox Gateway'en. Sådanne fejl bedes man indrapportere så hurtigt som muligt, da behandlingen af sådanne fejl kræver support af det kørende system.</documentation>
+							</annotation>
+						</enumeration>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="Id">
+				<annotation>
+					<documentation>Til hver fejl er associeret en unik identifikator i form af en UUID. Denne identifikator skal benyttes ved support henvendelser.</documentation>
+				</annotation>
+				<simpleType>
+					<restriction base="string">
+						<pattern value="([a-f]|\d){8}-([a-f]|\d){4}-([a-f]|\d){4}-([a-f]|\d){4}-([a-f]|\d){12}" />
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="Beskrivelse" type="string">
+				<annotation>
+					<documentation>En kort overordnet beskrivelse af fejlen.</documentation>
+				</annotation>
+			</element>
+			<element name="Kommentarer" type="tns:FejlKommentarerType" minOccurs="0">
+				<annotation>
+					<documentation>Hvis det er muligt at rapportere ekstra information i forbindelse med en fejl, vil disse være at finde som en liste af kommentarer i dette element.</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="FejlKommentarerType">
+		<sequence>
+			<element name="Kommentar" type="string" minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+</schema>

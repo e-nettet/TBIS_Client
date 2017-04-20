@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://e-nettet.dk/xml/schemas/2007/07/01/"
+	xmlns:tns="http://e-nettet.dk/xml/schemas/2007/07/01/"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="FeltTyper.xsd" />
+	<xs:element name="ADR" type="tns:ADR_Type" />
+	<xs:complexType name="ADR_Type">
+		<xs:sequence>
+			<xs:element name="Efternavn" type="tns:AN35" />
+			<xs:element name="Mellemnavn" type="tns:AN35" minOccurs="0" />
+			<xs:element name="Fornavn" type="tns:AN35" minOccurs="0" />
+			<xs:element name="Adresse" type="tns:AN35" />
+			<xs:element name="Postnummer" type="tns:AN9" minOccurs="0" />
+			<xs:element name="Bynavn" type="tns:AN35" />
+			<xs:element name="Land" type="tns:AN3" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

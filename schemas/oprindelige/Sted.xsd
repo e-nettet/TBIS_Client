@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://e-nettet.dk/xml/schemas/2007/07/01/"
+	xmlns:tns="http://e-nettet.dk/xml/schemas/2007/07/01/"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="FeltTyper.xsd" />
+	<xs:include schemaLocation="BBR.xsd" />
+	<xs:include schemaLocation="Matopl.xsd" />
+	<xs:include schemaLocation="Ejdmbm.xsd" />
+	<xs:element name="STED" type="tns:STED_Type" />
+	<xs:complexType name="STED_Type">
+		<xs:sequence>
+			<xs:element name="Vejnavn" type="tns:AN40" />
+			<xs:element name="Vej_nr" type="tns:AN6" minOccurs="0" />
+			<xs:element name="Etage" type="tns:AN4" minOccurs="0" />
+			<xs:element name="Lejlighedsnummer" type="tns:AN6"
+				minOccurs="0" />
+			<xs:element name="Bynavn" type="tns:AN35" />
+			<xs:element name="Postnummer" type="tns:AN9" minOccurs="0" />
+			<xs:element name="Land" type="tns:AN3" />
+			<xs:element ref="tns:EJDMBM" minOccurs="0" maxOccurs="99" />
+			<xs:element ref="tns:BBR" />
+			<xs:element ref="tns:MATOPL" minOccurs="1" maxOccurs="999" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

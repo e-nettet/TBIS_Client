@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://e-nettet.dk/xml/schemas/2007/07/01/"
+	xmlns:tns="http://e-nettet.dk/xml/schemas/2007/07/01/"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="FeltTyper.xsd"/>
+	<xs:include schemaLocation="Laanbm.xsd"/>
+	<xs:include schemaLocation="Laanbe.xsd"/>
+	<xs:include schemaLocation="Restan_svar.xsd"/>
+	<xs:include schemaLocation="Adr.xsd"/>
+	<xs:element name="LAANOP" type="tns:LAANOP_Type"/>
+	<xs:complexType name="LAANOP_Type">
+		<xs:sequence>
+			<xs:element name="Laaneidentifikation" type="tns:AN12"/>
+			<xs:element name="Kreditorbetegnelse" type="tns:Kodeliste4"/>
+			<xs:element name="Laanetype" type="tns:Kodeliste29"/>
+			<xs:element name="Debitor_terminsantal" type="tns:N2"/>
+			<xs:element name="Debitor_opkraevningsterminer" type="tns:N2"/>
+			<xs:element name="Minimumsbidrag" type="tns:N17_2" minOccurs="0"/>
+			<xs:element name="Valutakode1" type="tns:AN3" minOccurs="0"/>
+			<xs:element name="Maksimumsbidrag" type="tns:N17_2" minOccurs="0"/>
+			<xs:element name="Valutakode2" type="tns:AN3" minOccurs="0"/>
+			<xs:element name="Morarenter_kr" type="tns:N17_2" minOccurs="0"/>
+			<xs:element name="Valutakode3" type="tns:AN3" minOccurs="0"/>
+			<xs:element name="Morarente_dato" type="tns:N8" minOccurs="0"/>
+			<xs:element name="Prioritetsgraense" type="tns:N3" minOccurs="0"/>
+			<xs:element name="Reservefondsandel_ombyt" type="tns:N17_2" minOccurs="0"/>
+			<xs:element name="Valutakode4" type="tns:AN3" minOccurs="0"/>
+			<xs:element name="Reservefondsandel_indfri" type="tns:N17_2" minOccurs="0"/>
+			<xs:element name="Valutakode5" type="tns:AN3" minOccurs="0"/>
+			<xs:element name="Fradragskonto" type="tns:N17_2" minOccurs="0"/>
+			<xs:element name="Valutakode6" type="tns:AN3" minOccurs="0"/>
+			<xs:element name="Kursgevinst_omfattet" type="tns:Kodeliste1"/>
+			<xs:element name="Kursgevinstoplysninger_ej_medsendt" type="tns:Kodeliste3" minOccurs="0"/>
+			<xs:element name="Kursgevinstbeskatningsdato" type="tns:N8" minOccurs="0"/>
+			<xs:element name="Kursgevinst_ved_indfrielse" type="tns:N17_2" minOccurs="0"/>
+			<xs:element name="Valutakode7" type="tns:AN3" minOccurs="0"/>
+			<xs:element name="Kursgevinst_ved_ejerskifte" type="tns:N17_2" minOccurs="0"/>
+			<xs:element name="Valutakode8" type="tns:AN3" minOccurs="0"/>
+			<xs:element name="Haeftelsestype" type="tns:Kodeliste7"/>
+			<xs:element name="Indfries_ved_ejerskifte" type="tns:Kodeliste2"/>
+			<xs:element name="Antal_forekomster_af_laanebestanddele" type="tns:N2"/>
+			<xs:element name="Forbrugt_afdragsfrihed" type="tns:N6_2" minOccurs="0"/>
+			<xs:element name="Laan_med_afdragsfrieperioder" type="tns:Kodeliste1"/>
+			<xs:element ref="tns:RESTANSVAR" minOccurs="0"/>
+			<xs:element ref="tns:LAANBM" minOccurs="0" maxOccurs="99"/>
+			<xs:element ref="tns:ADR" maxOccurs="99"/>
+			<xs:element ref="tns:LAANBE" maxOccurs="99"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
