@@ -72,7 +72,7 @@ namespace HentRestgaeld
                         laanenummer  = textBoxLaanenummer.Text;
                         kontrolkode = textBoxKontrolkode.Text;
                         modtagerPartID = GetSelectedPartID();
-                        FRestgaeld6_Type f = RESTGAELD_Utils.GetFRestgaeld6_Type(modtagerPartID, pantidentifikation, kontrolkode, Kodeliste4.NOR, laanenummer);
+                        FRestgaeld6.FRestgaeld6_Type f = RESTGAELD_Utils.GetFRestgaeld6_Type(modtagerPartID, pantidentifikation, kontrolkode, FRestgaeld6.Kodeliste4.NOR, laanenummer);
                         query = RESTGAELD_Utils.GetClassAsXMLString(f);
                         if (!backgroundWorkerHentRestgaeld.IsBusy) { backgroundWorkerHentRestgaeld.RunWorkerAsync(); }
                     }
