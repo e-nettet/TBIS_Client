@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no" ?>
+<!-- XSD -->
+<!-- XSD|SForbrug|-->
+<xs:schema id="SForbrug" targetNamespace="http://www.realkreditnettet.dk/SForbrug" elementFormDefault="qualified"
+	xmlns="http://www.realkreditnettet.dk/SForbrug" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<!-- Ja/Nej type -->
+	<xs:simpleType name="JaNej">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Ja" />
+			<xs:enumeration value="Nej" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="SForbrug">
+		<xs:complexType>
+			<xs:sequence>
+				<!-- Hvis Modtaget er "Ja" er de indsendte forbrug modtaget korrekt
+				og skal ikke indsendes igen.
+				Hvis Modtaget er "Nej" er ingen af de indsendte forbrug modtaget, 
+				og alle skal indsendes på ny. Det samme sker hvis der slet ikke modtages svar -->
+				<xs:element name="Modtaget" type="JaNej" minOccurs="1" maxOccurs="1" />
+				<!-- I tilfælde af "Nej" i modtaget kan der her være en meddelelse med beskrivelse
+				af fejlen. Meddelelse vil være tom når Modtaget er "Ja" -->
+				<xs:element name="Meddelelse" type="xs:string" minOccurs="0" maxOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

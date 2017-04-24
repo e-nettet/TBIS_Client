@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no" ?>
+<!-- XSD -->
+<!-- XSD|SAlle6|-->
+<xs:schema id="SAlle6" targetNamespace="http://www.realkreditnettet.dk/SAlle6" elementFormDefault="qualified"
+	xmlns="http://www.realkreditnettet.dk/SAlle6" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<!-- XML schema svare til applikationsformat SSE/98308/USM/019 Release 1.1 -->
+	<!-- ************************************ -->
+	<!-- *    Først egendefinerede typer:   * -->
+	<!-- ************************************ -->
+	<!-- Meddelelsens navn -->
+	<xs:simpleType name="Meddelelsens_navn">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Z02" />
+			<xs:maxLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Meddelelsens type -->
+	<xs:simpleType name="Meddelelsens_type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="MORDOC" />
+			<xs:maxLength value="6" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Kodelister -->
+	<!-- Kodeliste 5 -->
+	<xs:simpleType name="Kodeliste5">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="9" />
+			<!-- Original -->
+			<xs:enumeration value="53" />
+			<!-- Test -->
+			<xs:maxLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Kodeliste 26 -->
+	<xs:simpleType name="Kodeliste26">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1" />
+			<!-- Accepteret -->
+			<xs:enumeration value="3" />
+			<!-- Data mangler for et eller flere institutter -->
+			<xs:enumeration value="8" />
+			<!-- Afvist -->
+			<xs:enumeration value="11" />
+			<!-- Ikke tilgængeligt -->
+			<xs:enumeration value="Z01" />
+			<!-- Ingen nye informationer siden angivne dato -->
+			<xs:enumeration value="Z02" />
+			<!-- Afvist: Ugyldig dato i forespørgsel -->
+			<xs:maxLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Numeriske typer -->
+	<!-- 3 cifret tal -->
+	<xs:simpleType name="N3">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- 8 cifret tal -->
+	<xs:simpleType name="N8">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="8" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- 8 cifret tal med 4 decimaler -->
+	<xs:simpleType name="N8_4">
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="8" />
+			<xs:fractionDigits value="4" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Alfabetiske typer -->
+	<!--Strengtype med højst 3 tegn -->
+	<xs:simpleType name="AN3">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!--Strengtype med højst 6 tegn -->
+	<xs:simpleType name="AN6">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="6" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!--Strengtype med højst 8 tegn -->
+	<xs:simpleType name="AN8">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="8" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!--Strengtype med højst 12 tegn -->
+	<xs:simpleType name="AN12">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="12" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!--Strengtype med højst 25 tegn -->
+	<xs:simpleType name="AN25">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="25" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!--Strengtype med højst 35 tegn -->
+	<xs:simpleType name="AN35">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="35" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!--Strengtype med højst 70 tegn -->
+	<xs:simpleType name="AN70">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="70" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!--Strengtype med højst 280 tegn -->
+	<xs:simpleType name="AN280">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="280" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ************************************ -->
+	<!-- *      Record definitionerne       * -->
+	<!-- ************************************ -->
+	<!-- DOCINF -->
+	<xs:complexType name="DOCINF">
+		<xs:sequence />
+		<xs:attribute name="Meddelelsens_navn" type="Meddelelsens_navn" />
+		<xs:attribute name="Meddelelsens_type" type="Meddelelsens_type" />
+		<xs:attribute name="Sender_version" type="N3" use="required" />
+		<xs:attribute name="Modtager_version" type="N3" />
+		<xs:attribute name="Onsket_version" type="N3" />
+		<xs:attribute name="Informationsstromsnavn" type="AN35" />
+		<xs:attribute name="Meddelelsens_nummer" type="AN35" use="required" />
+		<xs:attribute name="Meddelelsesnr_for_foresporgselen" type="AN35" use="required" />
+		<xs:attribute name="Meddelelsens_funktion" type="Kodeliste5" use="required" />
+		<xs:attribute name="Meddelelsens-status" type="Kodeliste26" />
+		<xs:attribute name="Niveaudeling" type="AN35" />
+		<xs:attribute name="Dato" type="N8" use="required" />
+		<!-- CCYYMMDD -->
+		<xs:attribute name="Afsender_partid" type="AN35" use="required" />
+		<xs:attribute name="ID-kode" type="AN8" use="required" />
+		<xs:attribute name="VirksomhedsID" type="AN25" />
+		<xs:attribute name="Afdelingsid" type="AN25" />
+		<xs:attribute name="Personid" type="AN25" />
+		<xs:attribute name="Modtager_partid" type="AN35" use="required" />
+	</xs:complexType>
+	<!-- FJLTXT -->
+	<xs:complexType name="FJLTXT">
+		<xs:sequence />
+		<xs:attribute name="Fejlkode" type="AN70" use="required" />
+		<xs:attribute name="Fejltekst" type="AN280" />
+	</xs:complexType>
+	<!-- UDDATO -->
+	<xs:complexType name="UDDATO">
+		<xs:sequence></xs:sequence>
+		<xs:attribute name="Dato_for_udtraek" type="N8" use="required" />
+	</xs:complexType>
+	<!-- FONKOD -->
+	<xs:complexType name="FONKOD">
+		<xs:sequence>
+			<xs:element name="KURSOP" type="KURSOP" maxOccurs="1" minOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="Fondskode" type="AN12" use="required" />
+	</xs:complexType>
+	<!-- KURSOP -->
+	<xs:complexType name="KURSOP">
+		<xs:sequence></xs:sequence>
+		<xs:attribute name="Kurs_1700" type="N8_4" use="required" />
+		<xs:attribute name="Dato_kursopl" type="N8" use="required" />
+		<!-- CCYYMMDD -->
+		<xs:attribute name="Kurs_1530" type="N8_4" />
+		<!-- Anvendes pt ikke -->
+		<xs:attribute name="Dato_kursopl_1530" type="N8" />
+		<!-- CCYYMMDD -->
+		<xs:attribute name="Valutakode" type="AN3" />
+	</xs:complexType>
+	<!-- ************************************ -->
+	<!-- *   Toplevel meddelelsen bliver    * -->
+	<!-- ************************************ -->
+	<xs:element name="SAlle6">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="DOCINF" type="DOCINF" maxOccurs="1" minOccurs="1" />
+				<xs:element name="FJLTXT" type="FJLTXT" maxOccurs="9" minOccurs="0" />
+				<xs:element name="UDDATO" type="UDDATO" maxOccurs="1" minOccurs="0" />
+				<!-- maxOccurs er ændret fra 9999 til unbounded, da det høje tal giver problemer i visse parsere. -->
+				<xs:element name="FONKOD" type="FONKOD" maxOccurs="unbounded" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

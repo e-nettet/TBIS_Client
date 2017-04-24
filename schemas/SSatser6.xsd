@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no" ?>
+<!-- XSD -->
+<!-- XSD|SSatser6|-->
+<xs:schema id="SSatser6" targetNamespace="http://www.realkreditnettet.dk/SSatser6" elementFormDefault="qualified"
+	xmlns="http://www.realkreditnettet.dk/SSatser6" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<!-- XML schema svare til applikationsformat SSE/98308/USM/021 Release 1.4 -->
+	<!-- ************************************ -->
+	<!-- *    Først egendefinerede typer:   * -->
+	<!-- ************************************ -->
+	<!-- Meddelelsens navn -->
+	<xs:simpleType name="Meddelelsens_navn">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Z04" />
+			<xs:maxLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Meddelelsens type -->
+	<xs:simpleType name="Meddelelsens_type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="MORDOC" />
+			<xs:maxLength value="6" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Kodelister -->
+	<!-- Kodeliste 4 -->
+	<xs:simpleType name="Kodeliste4">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PRI" />
+			<!-- Private pantebreve -->
+			<xs:enumeration value="EJP" />
+			<!-- Ejerpantebrev -->
+			<xs:enumeration value="SKA" />
+			<!-- Skadesloesbrev -->
+			<xs:enumeration value="SPK" />
+			<!-- Sparekasselaan -->
+			<xs:enumeration value="STA" />
+			<!-- Statslaan -->
+			<xs:enumeration value="STK" />
+			<!-- Statskassen -->
+			<xs:enumeration value="BRF" />
+			<!-- BRF kredit -->
+			<xs:enumeration value="DLR" />
+			<!-- Dansk landbrugs realkreditfond -->
+			<xs:enumeration value="DK" />
+			<!-- Danske kredit -->
+			<xs:enumeration value="HKK" />
+			<!-- Husejernes kreditkasse -->
+			<xs:enumeration value="LRF" />
+			<!-- Landsbankernes reallaanefond -->
+			<xs:enumeration value="N" />
+			<!-- Nykredit -->
+			<xs:enumeration value="RD" />
+			<!-- Realkredit danmark -->
+			<xs:enumeration value="TOT" />
+			<!-- Totalkredit -->
+			<xs:enumeration value="UNI" />
+			<!-- Unikredit -->
+			<xs:enumeration value="FK" />
+			<!-- Forenede kreditforeninger -->
+			<xs:enumeration value="GI" />
+			<!-- Grundejernes investeringsfond -->
+			<xs:enumeration value="IHF" />
+			<!-- Industriens hypotekfond -->
+			<xs:enumeration value="IRF" />
+			<!-- Industriens realkreditfond -->
+			<xs:enumeration value="JK" />
+			<!-- Jyllands realkreditfond -->
+			<xs:enumeration value="KI" />
+			<!-- Kreditforeningen for industrielle ejendomme -->
+			<xs:enumeration value="PRF" />
+			<!-- Provinsbankerne reallaanefond -->
+			<xs:enumeration value="ALL" />
+			<!-- Alle realkreditinstitutter -->
+			<xs:enumeration value="BGK" />
+			<!-- BG kredit -->
+			<xs:enumeration value="NOR" />
+			<!-- Nordea kredit -->
+			<xs:maxLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Kodeliste 5 -->
+	<xs:simpleType name="Kodeliste5">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="9" />
+			<!-- Original -->
+			<xs:enumeration value="53" />
+			<!-- Test -->
+			<xs:maxLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Kodeliste 11 -->
+	<xs:simpleType name="Kodeliste11">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Z77" />
+			<!-- Bidrag -->
+			<xs:enumeration value="Z78" />
+			<!-- Stiftelsesprovision -->
+			<xs:enumeration value="Z79" />
+			<!-- Kurtage -->
+			<xs:enumeration value="Z80" />
+			<!-- Garantiprovision -->
+			<xs:enumeration value="Z98" />
+			<!-- Kursskæring -->
+			<xs:maxLength value="4" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Kodeliste 12 -->
+	<xs:simpleType name="Kodeliste12">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="30" />
+			<!-- Helaarsbolig -->
+			<xs:enumeration value="31" />
+			<!-- Fritidshus -->
+			<xs:enumeration value="32" />
+			<!-- Landbrug -->
+			<xs:enumeration value="33" />
+			<!-- Privat udlejning -->
+			<xs:enumeration value="34" />
+			<!-- Byerhverv -->
+			<xs:enumeration value="35" />
+			<!-- Hoteller -->
+			<xs:enumeration value="36" />
+			<!-- Sociale og kulturelle ejendomme -->
+			<xs:enumeration value="37" />
+			<!-- Ubebyggede grunde -->
+			<xs:enumeration value="38" />
+			<!-- Alle -->
+			<xs:enumeration value="74" />
+			<!-- Privat -->
+			<xs:enumeration value="75" />
+			<!-- Erhverv -->
+			<xs:enumeration value="76" />
+			<!-- Stoettet byggeri -->
+			<xs:enumeration value="84" />
+			<!-- Kontor og forretning -->
+			<xs:enumeration value="85" />
+			<!-- Industri og haandvaerk -->
+			<xs:enumeration value="86" />
+			<!-- Erhverv ioevrigt -->
+			<xs:enumeration value="87" />
+			<!-- Gartneri -->
+			<xs:enumeration value="88" />
+			<!-- Skovbrug -->
+			<xs:enumeration value="89" />
+			<!-- Minkfarme -->
+			<xs:enumeration value="90" />
+			<!-- Dambrug -->
+			<xs:enumeration value="91" />
+			<!-- Private andelsboliger -->
+			<xs:enumeration value="92" />
+			<!-- Ungdomsboliger -->
+			<xs:enumeration value="93" />
+			<!-- Aeldreboliger -->
+			<xs:enumeration value="94" />
+			<!-- Almene boliger -->
+			<xs:enumeration value="95" />
+			<!-- Offentligt stoettet byfornyelse -->
+			<xs:enumeration value="96" />
+			<!-- Kollektive energiforsyningsanlaeg -->
+			<xs:enumeration value="97" />
+			<!-- Andre ejendomme -->
+			<xs:enumeration value="AA" />
+			<!-- Boliglandbrug -->
+			<xs:enumeration value="AB" />
+			<!-- Fritidslandbrug -->
+			<xs:enumeration value="AC" />
+			<!-- Deltidslandbrug -->
+			<xs:maxLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Kodeliste 13 -->
+	<xs:simpleType name="Kodeliste13">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="29" />
+			<!-- Konvertering -->
+			<xs:enumeration value="30" />
+			<!-- Ejerskifte -->
+			<xs:enumeration value="31" />
+			<!-- Tillaegslaan -->
+			<xs:enumeration value="32" />
+			<!-- Oevrige laaneformaal -->
+			<xs:enumeration value="33" />
+			<!-- Nyopfoerelse -->
+			<xs:enumeration value="34" />
+			<!-- Om- og tilbygning -->
+			<xs:enumeration value="35" />
+			<!-- Aal/fisk -->
+			<xs:enumeration value="36" />
+			<!-- Aeg/hoens -->
+			<xs:enumeration value="37" />
+			<!-- Lader/maskinhuse -->
+			<xs:enumeration value="38" />
+			<!-- Boliger -->
+			<xs:enumeration value="39" />
+			<!-- Drivhuse -->
+			<xs:enumeration value="40" />
+			<!-- Ejendomsovertagelse -->
+			<xs:enumeration value="41" />
+			<!-- Slagtefjerkrae -->
+			<xs:enumeration value="42" />
+			<!-- Grundforbedring -->
+			<xs:enumeration value="43" />
+			<!-- Hoesttabslaan -->
+			<xs:enumeration value="44" />
+			<!-- Omlaegningsordning inkonvertible laan -->
+			<xs:enumeration value="45" />
+			<!-- Koeb af tillaegsjord eller ejendom nr 2 -->
+			<xs:enumeration value="46" />
+			<!-- Kvaegstalde -->
+			<xs:enumeration value="47" />
+			<!-- Loesoereanskaffelse -->
+			<xs:enumeration value="48" />
+			<!-- Miljoe -->
+			<xs:enumeration value="49" />
+			<!-- Ombytning af DLR laan -->
+			<xs:enumeration value="50" />
+			<!-- Pelsdyrfarm -->
+			<xs:enumeration value="51" />
+			<!-- Gaeldssaneringslaan -->
+			<xs:enumeration value="52" />
+			<!-- Refinansiering -->
+			<xs:enumeration value="53" />
+			<!-- Svinestalde -->
+			<xs:enumeration value="54" />
+			<!-- YJ-laan 1995 ordning -->
+			<xs:enumeration value="55" />
+			<!-- YJ-laan 1995 ordning supplerende -->
+			<xs:enumeration value="56" />
+			<!-- YJ-laan 2000 ordning -->
+			<xs:enumeration value="57" />
+			<!-- YJ-laan 2000 ordning supplerende -->
+			<xs:maxLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Kodeliste 14 -->
+	<xs:simpleType name="Kodeliste14"> <!-- Laanetypekoder -->
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="IM" /> <!-- Indekslaan med offentlig stoette -->
+			<xs:enumeration value="IO" /> <!-- Indekslaan uden offentlig stoette -->
+			<xs:enumeration value="NM" /> <!-- Nominel laan med offentlig stoette -->
+			<xs:enumeration value="NO" /> <!-- Nominel laan uden offentlig stoette -->
+			<xs:enumeration value="K" /> <!-- Kontantlaan -->
+			<xs:enumeration value="O" /> <!-- Obligationslaan -->
+			<xs:enumeration value="OM" /> <!-- Obligationslaan - mixlaan -->
+			<xs:enumeration value="KM" /> <!-- Kontantlaan - mixlaan -->
+			<xs:enumeration value="KO" /> <!-- Kontantlaan baseret paa obligationsudstedelse -->
+			<xs:enumeration value="RF" /> <!-- Reservefondslaan udstedt af realkreditinstitut -->
+			<xs:enumeration value="P" /> <!-- Private pantebreve -->
+			<xs:enumeration value="RP" /> <!-- Rentetilpasningslaan -->
+			<xs:enumeration value="A" /> <!-- Andet laan -->
+			<xs:enumeration value="S" /> <!-- Seriejordbrugslaan uden afdragsbidrag -->
+			<xs:enumeration value="SA" /> <!-- Seriejordbrugslaan med afdragsbidrag -->
+			<xs:enumeration value="J" /> <!-- Staaende jordbrugslaan uden afdragsbidrag -->
+			<xs:enumeration value="JA" /> <!-- Staaende jordbrugslaan med afdragsbidrag -->
+			<xs:enumeration value="KS" /> <!-- Kontant serielaan -->
+			<xs:enumeration value="KR" /> <!-- Kontant annuitet med rentetilpasning -->
+			<xs:enumeration value="KA" /> <!-- Kontant annuitet -->
+			<xs:enumeration value="U" /> <!-- Udlandslaan -->
+			<xs:enumeration value="OS" /> <!-- Obligation serie -->
+			<xs:enumeration value="OA" /> <!-- Obligation annuitet -->
+			<xs:enumeration value="VOM" /> <!-- Variabel forrentet obligationslaan med renteloft -->		
+			<xs:enumeration value="VOU" /> <!-- Variabelt forrentet obligationslaan uden renteloft -->
+			<xs:enumeration value="VOF" /> <!-- Variabel forrentet obligationslån med rentefald -->		
+			<xs:maxLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Kodeliste 15 -->
+	<xs:simpleType name="Kodeliste15">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="HL" />
+			<!-- Hoesttabslaan -->
+			<xs:enumeration value="IN" />
+			<!-- Omlaegningsordning inkonvertible laan -->
+			<xs:enumeration value="GS" />
+			<!-- Gaeldssaneringslaan -->
+			<xs:enumeration value="YJ" />
+			<!-- Yngre jordbrugsordning -->
+			<xs:enumeration value="US" />
+			<!-- Uspecificeret -->
+			<xs:maxLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Kodeliste 16 -->
+	<xs:simpleType name="Kodeliste16">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="21" />
+			<!-- Gaeldssaneringslaan -->
+			<xs:enumeration value="0" />
+			<!-- Uspecificeret -->
+			<xs:enumeration value="1" />
+			<!-- YJ ordning 1985 -->
+			<xs:enumeration value="2" />
+			<!-- YJ ordning 1991 -->
+			<xs:enumeration value="3" />
+			<!-- YJ ordning 1995 -->
+			<xs:enumeration value="4" />
+			<!-- YJ ordning 4 anno 2000 -->
+			<xs:enumeration value="5" />
+			<!--  YJ ordning 2000-->
+			<xs:enumeration value="11" />
+			<!-- Hoesttab med ydelsestilskud -->
+			<xs:enumeration value="12" />
+			<!-- Hoesttab uden ydelsestilskud -->
+			<xs:maxLength value="4" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Kodeliste 17 -->
+	<xs:simpleType name="Kodeliste17">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1" />
+			<!-- Hovedstol -->
+			<xs:enumeration value="2" />
+			<!-- Restgaeld -->
+			<xs:enumeration value="3" />
+			<!-- Indekseret restgaeld -->
+			<xs:enumeration value="4" />
+			<!-- Fast beloeb -->
+			<xs:enumeration value="5" />
+			<!-- Obligationshovedstol -->
+			<xs:enumeration value="6" />
+			<!-- Obligationsrestgaeld -->
+			<xs:enumeration value="7" />
+			<!-- Ydelse -->
+			<xs:enumeration value="8" />
+			<!-- Indekseret obligationsrestgaeld -->
+			<xs:enumeration value="9" />
+			<!-- Kontantrestgaeld -->
+			<xs:enumeration value="10" />
+			<!-- Kontanthovedstol -->
+			<xs:enumeration value="11" />
+			<!-- Fast fradrag -->
+			<xs:enumeration value="12" />
+			<!-- Fast tillaeg -->
+			<xs:enumeration value="13" />
+			<!-- Kursvaerdi -->
+			<xs:enumeration value="14" />
+			<!-- Den del af laanet som ikke anvendes til indfrielse af eksisterende laan -->
+			<xs:maxLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Kodeliste 26 -->
+	<xs:simpleType name="Kodeliste26">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1" />
+			<!-- Accepteret -->
+			<xs:enumeration value="3" />
+			<!-- Data mangler for et eller flere institutter -->
+			<xs:enumeration value="8" />
+			<!-- Afvist -->
+			<xs:enumeration value="11" />
+			<!-- Ikke tilgængeligt -->
+			<xs:enumeration value="Z01" />
+			<!-- Ingen nye informationer siden angivne dato -->
+			<xs:enumeration value="Z02" />
+			<!-- Afvist: Ugyldig dato i forespørgsel -->
+			<xs:maxLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Kodeliste 47 -->
+	<xs:simpleType name="Kodeliste47">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Z01" />
+			<!-- Prioritetskunde -->
+			<xs:enumeration value="Z02" />
+			<!-- Kernekunde -->
+			<xs:enumeration value="Z03" />
+			<!-- Egne -->
+			<xs:enumeration value="Z04" />
+			<!-- Andre -->
+			<xs:enumeration value="Z05" />
+			<!-- Alle -->
+			<xs:maxLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Numeriske typer -->
+	<!-- 1 cifret tal -->
+	<xs:simpleType name="N1">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="1" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- 3 cifret tal -->
+	<xs:simpleType name="N3">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- 8 cifret tal -->
+	<xs:simpleType name="N8">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="8" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- 10 cifret tal med 6 decimaler -->
+	<xs:simpleType name="N10_6">
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="10" />
+			<xs:fractionDigits value="6" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- 17 cifret tal med 2 decimaler -->
+	<xs:simpleType name="N17_2">
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="17" />
+			<xs:fractionDigits value="2" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Alfabetiske typer -->
+	<!--Strengtype med højst 3 tegn -->
+	<xs:simpleType name="AN3">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!--Strengtype med højst 6 tegn -->
+	<xs:simpleType name="AN6">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="6" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!--Strengtype med højst 8 tegn -->
+	<xs:simpleType name="AN8">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="8" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!--Strengtype med højst 25 tegn -->
+	<xs:simpleType name="AN25">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="25" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!--Strengtype med højst 35 tegn -->
+	<xs:simpleType name="AN35">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="35" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!--Strengtype med højst 70 tegn -->
+	<xs:simpleType name="AN70">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="70" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!--Strengtype med højst 280 tegn -->
+	<xs:simpleType name="AN280">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="280" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ************************************ -->
+	<!-- *      Record definitionerne       * -->
+	<!-- ************************************ -->
+	<!-- DOCINF -->
+	<xs:complexType name="DOCINF">
+		<xs:sequence />
+		<xs:attribute name="Meddelelsens_navn" type="Meddelelsens_navn" />
+		<xs:attribute name="Meddelelsens_type" type="Meddelelsens_type" />
+		<xs:attribute name="Sender_version" type="N3" use="required" />
+		<xs:attribute name="Modtager_version" type="N3" />
+		<xs:attribute name="Onsket_version" type="N3" />
+		<xs:attribute name="Informationsstromsnavn" type="AN35" />
+		<xs:attribute name="Meddelelsens_nummer" type="AN35" use="required" />
+		<xs:attribute name="Meddelelsesnr_for_foresporgselen" type="AN35" use="required" />
+		<xs:attribute name="Meddelelsens_funktion" type="Kodeliste5" use="required" />
+		<xs:attribute name="Meddelelsens-status" type="Kodeliste26" />
+		<xs:attribute name="Niveaudeling" type="AN35" />
+		<xs:attribute name="Dato" type="N8" use="required" />
+		<!-- CCYYMMDD -->
+		<xs:attribute name="Afsender_partid" type="AN35" use="required" />
+		<xs:attribute name="ID-kode" type="AN8" use="required" />
+		<xs:attribute name="VirksomhedsID" type="AN25" />
+		<xs:attribute name="Afdelingsid" type="AN25" />
+		<xs:attribute name="Personid" type="AN25" />
+		<xs:attribute name="Modtager_partid" type="AN35" use="required" />
+	</xs:complexType>
+	<!-- FJLTXT -->
+	<xs:complexType name="FJLTXT">
+		<xs:sequence />
+		<xs:attribute name="Fejlkode" type="AN70" use="required" />
+		<xs:attribute name="Fejltekst" type="AN280" />
+	</xs:complexType>
+	<!-- INSTIT -->
+	<xs:complexType name="INSTIT">
+		<xs:sequence>
+			<xs:element name="GYLDAT" type="GYLDAT" maxOccurs="1" minOccurs="1" />
+			<!-- maxOccurs er ændret fra 9999 til unbounded, da det høje tal giver problemer i visse parsere. -->
+			<xs:element name="SATSTY" type="SATSTY" maxOccurs="unbounded" minOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="Institut" type="Kodeliste4" use="required" />
+	</xs:complexType>
+	<!-- GYLDAT -->
+	<xs:complexType name="GYLDAT">
+		<xs:sequence></xs:sequence>
+		<xs:attribute name="Gyldig_fra_dato" type="N8" use="required" />
+		<!-- CCYYMMDD -->
+	</xs:complexType>
+	<!-- SATSTY -->
+	<xs:complexType name="SATSTY">
+		<xs:sequence>
+			<xs:element name="VALUTA" type="VALUTA" maxOccurs="99" minOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="Satstype" type="Kodeliste11" use="required" />
+	</xs:complexType>
+	<!-- VALUTA -->
+	<xs:complexType name="VALUTA">
+		<xs:sequence>
+			<xs:element name="ANTAL" type="ANTAL" maxOccurs="1" minOccurs="1" />
+			<xs:element name="FOROMR" type="FOROMR" maxOccurs="99" minOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="Valutakode" type="AN3" use="required" />
+	</xs:complexType>
+	<!-- ANTAL -->
+	<xs:complexType name="ANTAL">
+		<xs:sequence></xs:sequence>
+		<xs:attribute name="Decimaler_i_sats" type="N1" />
+	</xs:complexType>
+	<!-- FOROMR -->
+	<xs:complexType name="FOROMR">
+		<xs:sequence>
+			<xs:element name="RABAT" type="RABAT" maxOccurs="1" minOccurs="0" />
+			<xs:element name="FRMAAL" type="FRMAAL" maxOccurs="99" minOccurs="1" />
+			<!-- FORMAAL er en variant record udelad attributter istedet for record  -->
+		</xs:sequence>
+		<xs:attribute name="Forretningsomraade" type="Kodeliste12" use="required" />
+	</xs:complexType>
+	<!-- RABAT -->
+	<xs:complexType name="RABAT">
+		<xs:sequence></xs:sequence>
+		<xs:attribute name="Rabat_2_debitor_terminer" type="N10_6" />
+		<xs:attribute name="Rabat_4_debitor_terminer" type="N10_6" />
+	</xs:complexType>
+	<!-- FRMAAL -->
+	<xs:complexType name="FRMAAL">
+		<xs:sequence>
+			<xs:element name="LAANTY" type="LAANTY" maxOccurs="99" minOccurs="1" />
+			<!-- LAANTY er en variant record udelad attributter istedet for record -->
+		</xs:sequence>
+		<xs:attribute name="Laaneformaal" type="Kodeliste13" />
+	</xs:complexType>
+	<!-- LAANTY -->
+	<xs:complexType name="LAANTY">
+		<xs:sequence>
+			<xs:element name="LAANOR" type="LAANOR" maxOccurs="99" minOccurs="1" />
+			<!-- LAANOR er en variant record udelad attributter istedet for record -->
+		</xs:sequence>
+		<xs:attribute name="Laanetype" type="Kodeliste14" />
+	</xs:complexType>
+	<!-- LAANOR -->
+	<xs:complexType name="LAANOR">
+		<xs:sequence>
+			<xs:element name="STATOR" type="STATOR" maxOccurs="99" minOccurs="1" />
+			<!-- STATOR er en variant record udelad attributter istedet for record -->
+		</xs:sequence>
+		<xs:attribute name="Laaneordning" type="Kodeliste15" />
+	</xs:complexType>
+	<!-- STATOR -->
+	<xs:complexType name="STATOR">
+		<xs:sequence>
+			<xs:element name="HOVINT" type="HOVINT" maxOccurs="99" minOccurs="1" />
+			<!-- HOVINT er en variant record udelad attributter istedet for record -->
+		</xs:sequence>
+		<xs:attribute name="Statsordning" type="Kodeliste16" />
+	</xs:complexType>
+	<!-- HOVINT -->
+	<xs:complexType name="HOVINT">
+		<xs:sequence>
+			<xs:element name="LAANIN" type="LAANIN" maxOccurs="99" minOccurs="1" />
+			<!-- LAANIN er en variant record udelad attributter istedet for record -->
+		</xs:sequence>
+		<xs:attribute name="Min" type="N17_2" />
+		<xs:attribute name="Max" type="N17_2" />
+		<xs:attribute name="Valutakode" type="AN3" />
+	</xs:complexType>
+	<!-- LAANIN -->
+	<xs:complexType name="LAANIN">
+		<xs:sequence>
+			<xs:element name="KUNTYP" type="KUNTYP" maxOccurs="99" minOccurs="1" />
+			<!-- KUNTYP er en variant record udelad attributter istedet for record -->
+		</xs:sequence>
+		<xs:attribute name="Min" type="N3" />
+		<xs:attribute name="Max" type="N3" />
+	</xs:complexType>
+	<!-- KUNTYP -->
+	<xs:complexType name="KUNTYP">
+		<xs:sequence>
+			<xs:element name="SATS" type="SATS" maxOccurs="1" minOccurs="1" />
+			<xs:element name="MINIMU" type="MINIMU" maxOccurs="1" minOccurs="0" />
+			<xs:element name="MAXIMU" type="MAXIMU" maxOccurs="1" minOccurs="0" />
+			<xs:element name="BEREGN" type="BEREGN" maxOccurs="1" minOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="Kundetype" type="Kodeliste47" />
+	</xs:complexType>
+	<!-- SATS -->
+	<xs:complexType name="SATS">
+		<xs:sequence></xs:sequence>
+		<xs:attribute name="Sats" type="N10_6" use="required" />
+	</xs:complexType>
+	<!-- MINIMU -->
+	<xs:complexType name="MINIMU">
+		<xs:sequence></xs:sequence>
+		<xs:attribute name="Beloeb" type="N17_2" />
+		<xs:attribute name="Valutakode" type="AN3" />
+	</xs:complexType>
+	<!-- MAXIMU -->
+	<xs:complexType name="MAXIMU">
+		<xs:sequence></xs:sequence>
+		<xs:attribute name="Beloeb" type="N17_2" />
+		<xs:attribute name="Valutakode" type="AN3" />
+	</xs:complexType>
+	<!-- BEREGN -->
+	<xs:complexType name="BEREGN">
+		<xs:sequence></xs:sequence>
+		<xs:attribute name="Bidrag_beregnes_af" type="Kodeliste17" use="required" />
+	</xs:complexType>
+	<!-- ************************************ -->
+	<!-- *   Toplevel meddelelsen bliver    * -->
+	<!-- ************************************ -->
+	<xs:element name="SSatser6">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="DOCINF" type="DOCINF" maxOccurs="1" minOccurs="1" />
+				<xs:element name="FJLTXT" type="FJLTXT" maxOccurs="9" minOccurs="0" />
+				<xs:element name="INSTIT" type="INSTIT" maxOccurs="99" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

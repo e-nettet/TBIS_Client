@@ -1,0 +1,191 @@
+<!-- Numeriske typer -->
+<!-- 1 cifret tal -->
+<xs:simpleType name="N1">
+	<xs:restriction base="xs:integer">
+		<xs:totalDigits value="1" />
+	</xs:restriction>
+</xs:simpleType>
+<!-- 2 cifret tal -->
+<xs:simpleType name="N2">
+	<xs:restriction base="xs:integer">
+		<xs:totalDigits value="2" />
+	</xs:restriction>
+</xs:simpleType>
+<!-- 3 cifret tal -->
+<xs:simpleType name="N3">
+	<xs:restriction base="xs:integer">
+		<xs:totalDigits value="3" />
+	</xs:restriction>
+</xs:simpleType>
+<!-- 4 cifret tal -->
+<xs:simpleType name="N4">
+	<xs:restriction base="xs:integer">
+		<xs:totalDigits value="4" />
+	</xs:restriction>
+</xs:simpleType>
+<!-- 5 cifret tal med 2 decimaler -->
+<xs:simpleType name="N5_2">
+	<xs:restriction base="xs:decimal">
+		<xs:totalDigits value="5" />
+		<xs:fractionDigits value="2" />
+	</xs:restriction>
+</xs:simpleType>
+<!-- 6 cifret tal med 2 decimaler -->
+<xs:simpleType name="N6_2">
+	<xs:restriction base="xs:decimal">
+		<xs:totalDigits value="6" />
+		<xs:fractionDigits value="2" />
+	</xs:restriction>
+</xs:simpleType>
+<!-- 6 cifret tal med 3 decimaler -->
+<xs:simpleType name="N6_3">
+	<xs:restriction base="xs:decimal">
+		<xs:totalDigits value="6" />
+		<xs:fractionDigits value="3" />
+	</xs:restriction>
+</xs:simpleType>
+<!-- 7 cifret tal med 3 decimaler -->
+<xs:simpleType name="N7_3">
+	<xs:restriction base="xs:decimal">
+		<xs:totalDigits value="7" />
+		<xs:fractionDigits value="3" />
+	</xs:restriction>
+</xs:simpleType>
+<!-- 8 cifret tal -->
+<xs:simpleType name="N8">
+	<xs:restriction base="xs:integer">
+		<xs:totalDigits value="8" />
+	</xs:restriction>
+</xs:simpleType>
+<!-- 8 cifret tal med 3 decimaler -->
+<xs:simpleType name="N8_3">
+	<xs:restriction base="xs:decimal">
+		<xs:totalDigits value="8" />
+		<xs:fractionDigits value="3" />
+	</xs:restriction>
+</xs:simpleType>
+<!-- 8 cifret tal med 4 decimaler -->
+<xs:simpleType name="N8_4">
+	<xs:restriction base="xs:decimal">
+		<xs:totalDigits value="8" />
+		<xs:fractionDigits value="4" />
+	</xs:restriction>
+</xs:simpleType>
+<!-- 10 cifret tal -->
+<xs:simpleType name="N10">
+	<xs:restriction base="xs:integer">
+		<xs:totalDigits value="10" />
+	</xs:restriction>
+</xs:simpleType>
+<!-- 10 cifret tal med 6 decimaler -->
+<xs:simpleType name="N10_6">
+	<xs:restriction base="xs:decimal">
+		<xs:totalDigits value="10" />
+		<xs:fractionDigits value="6" />
+	</xs:restriction>
+</xs:simpleType>
+<!-- 13 cifret tal med 9 decimaler -->
+<xs:simpleType name="N13_9">
+	<xs:restriction base="xs:decimal">
+		<xs:totalDigits value="13" />
+		<xs:fractionDigits value="9" />
+	</xs:restriction>
+</xs:simpleType>
+<!-- 15 cifret tal -->
+<xs:simpleType name="N15">
+	<xs:restriction base="xs:integer">
+		<xs:totalDigits value="15" />
+	</xs:restriction>
+</xs:simpleType>
+<!-- 17 cifret tal med 2 decimaler -->
+<xs:simpleType name="N17_2">
+	<xs:restriction base="xs:decimal">
+		<xs:totalDigits value="17" />
+		<xs:fractionDigits value="2" />
+	</xs:restriction>
+</xs:simpleType>
+<!-- Alfabetiske typer -->
+<!--Strengtype med højst 3 tegn -->
+<xs:simpleType name="AN3">
+	<xs:restriction base="xs:string">
+		<xs:maxLength value="3" />
+	</xs:restriction>
+</xs:simpleType>
+<!--Strengtype med højst 4 tegn -->
+<xs:simpleType name="AN4">
+	<xs:restriction base="xs:string">
+		<xs:maxLength value="4" />
+	</xs:restriction>
+</xs:simpleType>
+<!--Strengtype med højst 5 tegn -->
+<xs:simpleType name="AN5">
+	<xs:restriction base="xs:string">
+		<xs:maxLength value="5" />
+	</xs:restriction>
+</xs:simpleType>
+<!--Strengtype med højst 6 tegn -->
+<xs:simpleType name="AN6">
+	<xs:restriction base="xs:string">
+		<xs:maxLength value="6" />
+	</xs:restriction>
+</xs:simpleType>
+<!--Strengtype med højst 8 tegn -->
+<xs:simpleType name="AN8">
+	<xs:restriction base="xs:string">
+		<xs:maxLength value="8" />
+	</xs:restriction>
+</xs:simpleType>
+<!--Strengtype med højst 9 tegn -->
+<xs:simpleType name="AN9">
+	<xs:restriction base="xs:string">
+		<xs:maxLength value="9" />
+	</xs:restriction>
+</xs:simpleType>
+<!--Strengtype med højst 12 tegn -->
+<xs:simpleType name="AN12">
+	<xs:restriction base="xs:string">
+		<xs:maxLength value="12" />
+	</xs:restriction>
+</xs:simpleType>
+<!--Strengtype med højst 15 tegn -->
+<xs:simpleType name="AN15">
+	<xs:restriction base="xs:string">
+		<xs:maxLength value="15" />
+	</xs:restriction>
+</xs:simpleType>
+<!--Strengtype med højst 25 tegn -->
+<xs:simpleType name="AN25">
+	<xs:restriction base="xs:string">
+		<xs:maxLength value="25" />
+	</xs:restriction>
+</xs:simpleType>
+<!--Strengtype med højst 35 tegn -->
+<xs:simpleType name="AN35">
+	<xs:restriction base="xs:string">
+		<xs:maxLength value="35" />
+	</xs:restriction>
+</xs:simpleType>
+<!--Strengtype med højst 40 tegn -->
+<xs:simpleType name="AN40">
+	<xs:restriction base="xs:string">
+		<xs:maxLength value="40" />
+	</xs:restriction>
+</xs:simpleType>
+<!--Strengtype med højst 42 tegn -->
+<xs:simpleType name="AN42">
+	<xs:restriction base="xs:string">
+		<xs:maxLength value="42" />
+	</xs:restriction>
+</xs:simpleType>
+<!--Strengtype med højst 70 tegn -->
+<xs:simpleType name="AN70">
+	<xs:restriction base="xs:string">
+		<xs:maxLength value="70" />
+	</xs:restriction>
+</xs:simpleType>
+<!--Strengtype med højst 280 tegn -->
+<xs:simpleType name="AN280">
+	<xs:restriction base="xs:string">
+		<xs:maxLength value="280" />
+	</xs:restriction>
+</xs:simpleType>

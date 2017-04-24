@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no" ?>
+<!-- XSD -->
+<!-- XSD|SPriser6|-->
+<xs:schema id="SPriser6" targetNamespace="http://www.realkreditnettet.dk/SPriser6" elementFormDefault="qualified"
+	xmlns="http://www.realkreditnettet.dk/SPriser6" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<!-- ************************************ -->
+	<!-- *          egendefinerede typer:   * -->
+	<!-- ************************************ -->
+	<!-- Meddelelsens navn -->
+	<xs:simpleType name="Meddelelsens_navn">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Z05" />
+			<xs:maxLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Meddelelsens type -->
+	<xs:simpleType name="Meddelelsens_type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="MORDOC" />
+			<xs:maxLength value="6" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Kodelister -->
+	<!-- Kodeliste 4 -->
+	<xs:simpleType name="Kodeliste4">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PRI" />
+			<!-- Private pantebreve -->
+			<xs:enumeration value="EJP" />
+			<!-- Ejerpantebrev -->
+			<xs:enumeration value="SKA" />
+			<!-- Skadesloesbrev -->
+			<xs:enumeration value="SPK" />
+			<!-- Sparekasselaan -->
+			<xs:enumeration value="STA" />
+			<!-- Statslaan -->
+			<xs:enumeration value="STK" />
+			<!-- Statskassen -->
+			<xs:enumeration value="BRF" />
+			<!-- BRF kredit -->
+			<xs:enumeration value="DLR" />
+			<!-- Dansk landbrugs realkreditfond -->
+			<xs:enumeration value="DK" />
+			<!-- Danske kredit -->
+			<xs:enumeration value="HKK" />
+			<!-- Husejernes kreditkasse -->
+			<xs:enumeration value="LRF" />
+			<!-- Landsbankernes reallaanefond -->
+			<xs:enumeration value="N" />
+			<!-- Nykredit -->
+			<xs:enumeration value="RD" />
+			<!-- Realkredit danmark -->
+			<xs:enumeration value="TOT" />
+			<!-- Totalkredit -->
+			<xs:enumeration value="UNI" />
+			<!-- Unikredit -->
+			<xs:enumeration value="FK" />
+			<!-- Forenede kreditforeninger -->
+			<xs:enumeration value="GI" />
+			<!-- Grundejernes investeringsfond -->
+			<xs:enumeration value="IHF" />
+			<!-- Industriens hypotekfond -->
+			<xs:enumeration value="IRF" />
+			<!-- Industriens realkreditfond -->
+			<xs:enumeration value="JK" />
+			<!-- Jyllands realkreditfond -->
+			<xs:enumeration value="KI" />
+			<!-- Kreditforeningen for industrielle ejendomme -->
+			<xs:enumeration value="PRF" />
+			<!-- Provinsbankerne reallaanefond -->
+			<xs:enumeration value="ALL" />
+			<!-- Alle realkreditinstitutter -->
+			<xs:enumeration value="BGK" />
+			<!-- BG kredit -->
+			<xs:enumeration value="NOR" />
+			<!-- Nordea kredit -->
+			<xs:maxLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Kodeliste 5 -->
+	<xs:simpleType name="Kodeliste5">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="9" />
+			<!-- Original -->
+			<xs:enumeration value="53" />
+			<!-- Test -->
+			<xs:maxLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Kodeliste 12 -->
+	<xs:simpleType name="Kodeliste12">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="30" />
+			<!-- Helaarsbolig -->
+			<xs:enumeration value="31" />
+			<!-- Fritidshus -->
+			<xs:enumeration value="32" />
+			<!-- Landbrug -->
+			<xs:enumeration value="33" />
+			<!-- Privat udlejning -->
+			<xs:enumeration value="34" />
+			<!-- Byerhverv -->
+			<xs:enumeration value="35" />
+			<!-- Hoteller -->
+			<xs:enumeration value="36" />
+			<!-- Sociale og kulturelle ejendomme -->
+			<xs:enumeration value="37" />
+			<!-- Ubebyggede grunde -->
+			<xs:enumeration value="38" />
+			<!-- Alle -->
+			<xs:enumeration value="74" />
+			<!-- Privat -->
+			<xs:enumeration value="75" />
+			<!-- Erhverv -->
+			<xs:enumeration value="76" />
+			<!-- Stoettet byggeri -->
+			<xs:enumeration value="84" />
+			<!-- Kontor og forretning -->
+			<xs:enumeration value="85" />
+			<!-- Industri og haandvaerk -->
+			<xs:enumeration value="86" />
+			<!-- Erhverv ioevrigt -->
+			<xs:enumeration value="87" />
+			<!-- Gartneri -->
+			<xs:enumeration value="88" />
+			<!-- Skovbrug -->
+			<xs:enumeration value="89" />
+			<!-- Minkfarme -->
+			<xs:enumeration value="90" />
+			<!-- Dambrug -->
+			<xs:enumeration value="91" />
+			<!-- Private andelsboliger -->
+			<xs:enumeration value="92" />
+			<!-- Ungdomsboliger -->
+			<xs:enumeration value="93" />
+			<!-- Aeldreboliger -->
+			<xs:enumeration value="94" />
+			<!-- Almene boliger -->
+			<xs:enumeration value="95" />
+			<!-- Offentligt stoettet byfornyelse -->
+			<xs:enumeration value="96" />
+			<!-- Kollektive energiforsyningsanlaeg -->
+			<xs:enumeration value="97" />
+			<!-- Andre ejendomme -->
+			<xs:enumeration value="AA" />
+			<!-- Boliglandbrug -->
+			<xs:enumeration value="AB" />
+			<!-- Fritidslandbrug -->
+			<xs:enumeration value="AC" />
+			<!-- Deltidslandbrug -->
+			<xs:maxLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Kodeliste 21 -->
+	<xs:simpleType name="Kodeliste21">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1" />
+			<!-- Laanesagsgebyr -->
+			<xs:enumeration value="2" />
+			<!-- Notering af kurskontrakt -->
+			<xs:enumeration value="3" />
+			<!-- Gebyr for fastkursaftale -->
+			<xs:enumeration value="4" />
+			<!-- Obligationsoverfoersel til VP -->
+			<xs:enumeration value="5" />
+			<!-- Gaeldsovertagelse -->
+			<xs:enumeration value="6" />
+			<!-- Indfrielsesgebyr -->
+			<xs:enumeration value="7" />
+			<!-- Gebyr for indfrielsestilbud -->
+			<xs:enumeration value="8" />
+			<!-- Gebyr for vudering -->
+			<xs:enumeration value="9" />
+			<!-- Notering af transport -->
+			<xs:enumeration value="10" />
+			<!-- Sletning af retsanmaerkning -->
+			<xs:enumeration value="11" />
+			<!-- Tinglysningsekspedition -->
+			<xs:enumeration value="12" />
+			<!-- Gebyr for elektronisk restgaeldsforespoergsel -->
+			<xs:enumeration value="13" />
+			<!-- Gebyr for elektronisk indfrielsestilbud -->
+			<xs:enumeration value="14" />
+			<!-- Vuderings- og ekspeditionsgebyr -->
+			<xs:enumeration value="15" />
+			<!-- Gebyr for overtagelsestilbud -->
+			<xs:enumeration value="16" />
+			<!-- Gebyr for ikke accepteret laanesag -->
+			<xs:enumeration value="17" />
+			<!-- Fastrenteaftale, aendringsgebyr -->
+			<xs:enumeration value="18" />
+			<!-- Fastrenteaftale, opgoerelsesgebyr -->
+			<xs:enumeration value="19" />
+			<!-- Misligholdelse af fastkursaftale -->
+			<xs:enumeration value="20" />
+			<!-- Pantebrevspaategning -->
+			<xs:enumeration value="21" />
+			<!-- Gebyr bankgaranti for manglende pantebrev -->
+			<xs:enumeration value="22" />
+			<!-- Gebyr for forlaengelse af bankgaranti -->
+			<xs:enumeration value="23" />
+			<!-- Skaeringsopgoerelse -->
+			<xs:enumeration value="24" />
+			<!-- Gebyr for indfrielsesopgoerelse -->
+			<xs:enumeration value="25" />
+			<!-- Gebyr for straksindfrielsestilbud -->
+			<xs:enumeration value="26" />
+			<!-- Ekstraordinaert afdrag -->
+			<xs:enumeration value="27" />
+			<!-- Omprioriteringsgebyr -->
+			<xs:enumeration value="28" />
+			<!-- Annullering af igangvaerende omprioritering -->
+			<xs:enumeration value="29" />
+			<!-- Indfrielse af fremmede laan -->
+			<xs:enumeration value="30" />
+			<!-- Indfrielse af privat pantebrev med opsigelse -->
+			<xs:enumeration value="31" />
+			<!-- Refinansieringsgebyr -->
+			<xs:enumeration value="32" />
+			<!-- Profilskifte af flexlaan TM -->
+			<xs:enumeration value="33" />
+			<!-- Ekstra aarsopgoerelse -->
+			<xs:enumeration value="34" />
+			<!-- Afdragsforloeb/amortiseringstabel/ydelsesforloeb -->
+			<xs:enumeration value="35" />
+			<!-- Genudskrivning af pantebrev -->
+			<xs:enumeration value="36" />
+			<!-- Kopi af pantebrev -->
+			<xs:enumeration value="37" />
+			<!-- Kopi af afregninger -->
+			<xs:enumeration value="38" />
+			<!-- Kopier/Udskrifter -->
+			<xs:enumeration value="39" />
+			<!-- Gebyr for forespoergsel -->
+			<xs:enumeration value="40" />
+			<!-- Saerlige ydelser -->
+			<xs:enumeration value="41" />
+			<!-- Vudering ved relaksation -->
+			<xs:enumeration value="42" />
+			<!-- Relaksation -->
+			<xs:enumeration value="43" />
+			<!-- Opdeling af aeldre laan -->
+			<xs:enumeration value="44" />
+			<!-- Behandling af deponering/tilbageholdelse -->
+			<xs:enumeration value="45" />
+			<!-- Ekspeditionsgebyr til hypotekbanken -->
+			<xs:enumeration value="46" />
+			<!-- Gebyr for ikke accepteret laanesag -->
+			<xs:enumeration value="47" />
+			<!-- Moderationgebyr/rykning -->
+			<xs:enumeration value="48" />
+			<!-- Gebyr for ekstraordinaert eftersyn -->
+			<xs:enumeration value="49" />
+			<!-- Administration af deponering -->
+			<xs:enumeration value="50" />
+			<!-- Tinglysningsservice inkl en indfrielser/rykninger -->
+			<xs:enumeration value="51" />
+			<!-- Tinglysningsservice inkl to indfrielser/rykninger -->
+			<xs:enumeration value="52" />
+			<!-- Tinglysningsservice inkl tre eller flere indfrielser/rykninger -->
+			<xs:enumeration value="53" />
+			<!-- Kursovervaagning -->
+			<xs:enumeration value="54" />
+			<!-- Inkassogebyr -->
+			<xs:enumeration value="55" />
+			<!-- Erindringsbrev -->
+			<xs:enumeration value="56" />
+			<!-- Paakravsgebyr -->
+			<xs:enumeration value="57" />
+			<!-- 1. Rykkergebyr -->
+			<xs:enumeration value="58" />
+			<!-- 2. Rykkergebyr -->
+			<xs:enumeration value="59" />
+			<!-- Henstandsbevilling -->
+			<xs:enumeration value="60" />
+			<!-- Misligholdelsesgebyr -->
+			<xs:enumeration value="63" />
+			<!-- Gebyr for elektronisk skaeringsopgoerelse -->
+			<xs:enumeration value="64" />
+			<!-- Gebyr for vudering ved afslag paa laan -->
+			<xs:enumeration value="65" />
+			<!-- Forhaandslaan vedroerende jordkoeb eller frigivelse ved dokumentation -->
+			<xs:enumeration value="66" />
+			<!-- Forhaandslaan vedroerende investeringer som kraever besigtigelse -->
+			<xs:enumeration value="67" />
+			<!-- Forespoergseler vedroerende sikkerhedsgrundlag, f.eks. afhaendelse af besaetning/driftsinventar, salg af maelkekvote m.v. -->
+			<xs:enumeration value="68" />
+			<!-- Vuderingsgebyr ved vudering for andre realkreditinstitutter -->
+			<xs:enumeration value="69" />
+			<!-- Gebyr for telefonforespoergsel -->
+			<xs:enumeration value="70" />
+			<!-- Gebyr for tingbogsattest -->
+			<xs:enumeration value="71" />
+			<!-- Gebyr for nedbringelsestilbud -->
+			<xs:enumeration value="72" />
+			<!-- Effektueringsgebyr -->
+			<xs:enumeration value="73" />
+			<!-- Gebyr for aendring af eksisterende tilbud -->
+			<xs:enumeration value="74" />
+			<!-- Gebyr for yderligere tilbud i samme ejendom -->
+			<xs:maxLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Kodeliste 22 -->
+	<xs:simpleType name="Kodeliste22">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1" />
+			<!-- Laan -->
+			<xs:enumeration value="2" />
+			<!-- Sag -->
+			<xs:enumeration value="3" />
+			<!-- Brev -->
+			<xs:enumeration value="4" />
+			<!-- Kopi -->
+			<xs:enumeration value="5" />
+			<!-- Gang -->
+			<xs:enumeration value="6" />
+			<!-- Ejendom -->
+			<xs:enumeration value="7" />
+			<!-- Termin -->
+			<xs:enumeration value="8" />
+			<!-- Pantebrev -->
+			<xs:enumeration value="9" />
+			<!-- Delpantebrev -->
+			<xs:maxLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Kodeliste 26 -->
+	<xs:simpleType name="Kodeliste26">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1" />
+			<!-- Accepteret -->
+			<xs:enumeration value="3" />
+			<!-- Data mangler for et eller flere institutter -->
+			<xs:enumeration value="8" />
+			<!-- Afvist -->
+			<xs:enumeration value="11" />
+			<!-- Ikke tilgængeligt -->
+			<xs:enumeration value="Z01" />
+			<!-- Ingen nye informationer siden angivne dato -->
+			<xs:enumeration value="Z02" />
+			<!-- Afvist: Ugyldig dato i forespørgsel -->
+			<xs:maxLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Kodeliste 47 -->
+	<xs:simpleType name="Kodeliste47">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Z01" />
+			<!-- Prioritetskunde -->
+			<xs:enumeration value="Z02" />
+			<!-- Kernekunde -->
+			<xs:enumeration value="Z03" />
+			<!-- Egne -->
+			<xs:enumeration value="Z04" />
+			<!-- Andre -->
+			<xs:enumeration value="Z05" />
+			<!-- Alle -->
+			<xs:maxLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Numeriske typer -->
+	<!-- 3 cifret tal -->
+	<xs:simpleType name="N3">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- 8 cifret tal -->
+	<xs:simpleType name="N8">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="8" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- 17 cifret tal med 2 decimaler -->
+	<xs:simpleType name="N17_2">
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="17" />
+			<xs:fractionDigits value="2" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Alfabetiske typer -->
+	<!--Strengtype med højst 3 tegn -->
+	<xs:simpleType name="AN3">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!--Strengtype med højst 8 tegn -->
+	<xs:simpleType name="AN8">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="8" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!--Strengtype med højst 25 tegn -->
+	<xs:simpleType name="AN25">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="25" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!--Strengtype med højst 35 tegn -->
+	<xs:simpleType name="AN35">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="35" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!--Strengtype med højst 70 tegn -->
+	<xs:simpleType name="AN70">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="70" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!--Strengtype med højst 280 tegn -->
+	<xs:simpleType name="AN280">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="280" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ************************************ -->
+	<!-- *      Record definitionerne       * -->
+	<!-- ************************************ -->
+	<!-- DOCINF -->
+	<xs:complexType name="DOCINF">
+		<xs:sequence />
+		<xs:attribute name="Meddelelsens_navn" type="Meddelelsens_navn" />
+		<xs:attribute name="Meddelelsens_type" type="Meddelelsens_type" />
+		<xs:attribute name="Sender_version" type="N3" use="required" />
+		<xs:attribute name="Modtager_version" type="N3" />
+		<xs:attribute name="Onsket_version" type="N3" />
+		<xs:attribute name="Informationsstromsnavn" type="AN35" />
+		<xs:attribute name="Meddelelsens_nummer" type="AN35" use="required" />
+		<xs:attribute name="Meddelelsesnr_for_foresporgselen" type="AN35" use="required" />
+		<xs:attribute name="Meddelelsens_funktion" type="Kodeliste5" use="required" />
+		<xs:attribute name="Meddelelsens-status" type="Kodeliste26" />
+		<xs:attribute name="Niveaudeling" type="AN35" />
+		<xs:attribute name="Dato" type="N8" use="required" />
+		<!-- CCYYMMDD -->
+		<xs:attribute name="Afsender_partid" type="AN35" use="required" />
+		<xs:attribute name="ID-kode" type="AN8" use="required" />
+		<xs:attribute name="VirksomhedsID" type="AN25" />
+		<xs:attribute name="Afdelingsid" type="AN25" />
+		<xs:attribute name="Personid" type="AN25" />
+		<xs:attribute name="Modtager_partid" type="AN35" use="required" />
+	</xs:complexType>
+	<!-- FJLTXT -->
+	<xs:complexType name="FJLTXT">
+		<xs:sequence />
+		<xs:attribute name="Fejlkode" type="AN70" use="required" />
+		<xs:attribute name="Fejltekst" type="AN280" />
+	</xs:complexType>
+	<!-- INSTIT -->
+	<xs:complexType name="INSTIT">
+		<xs:sequence>
+			<xs:element name="GYLDAT" type="GYLDAT" maxOccurs="1" minOccurs="1" />
+			<xs:element name="FOROMR" type="FOROMR" maxOccurs="99" minOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="Institut" type="Kodeliste4" use="required" />
+	</xs:complexType>
+	<!-- GYLDAT -->
+	<xs:complexType name="GYLDAT">
+		<xs:sequence />
+		<xs:attribute name="Priser_gaelder_fra" type="N8" use="required" />
+	</xs:complexType>
+	<!-- FOROMR -->
+	<xs:complexType name="FOROMR">
+		<xs:sequence>
+			<xs:element name="KUNTYP" type="KUNTYP" maxOccurs="99" minOccurs="0" />
+		</xs:sequence>
+		<xs:attribute name="Forretningsomraade" type="Kodeliste12" use="required" />
+	</xs:complexType>
+	<!-- KUNTYP -->
+	<xs:complexType name="KUNTYP">
+		<!-- KUNTYP er en variant record se applikationsformat beskrivelse for en forklaring -->
+		<xs:sequence>
+			<!-- maxOccurs er ændret fra 9999 til unbounded, da det høje tal giver problemer i visse parsere. -->
+			<xs:element name="GEBTYP" type="GEBTYP" maxOccurs="unbounded" minOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="Kundetype" type="Kodeliste47" />
+	</xs:complexType>
+	<!-- GEBTYP -->
+	<xs:complexType name="GEBTYP">
+		<xs:sequence>
+			<xs:element name="PRIS" type="PRIS" maxOccurs="99" minOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="Gebyrtype" type="Kodeliste21" use="required" />
+	</xs:complexType>
+	<!-- PRIS -->
+	<xs:complexType name="PRIS">
+		<xs:sequence />
+		<xs:attribute name="Gebyr_pr" type="Kodeliste22" use="required" />
+		<xs:attribute name="Beloeb" type="N17_2" use="required" />
+		<xs:attribute name="Valutakode" type="AN3" />
+	</xs:complexType>
+	<!-- ************************************ -->
+	<!-- *   Toplevel meddelelsen bliver    * -->
+	<!-- ************************************ -->
+	<xs:element name="SPriser6">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="DOCINF" type="DOCINF" maxOccurs="1" minOccurs="1" />
+				<xs:element name="FJLTXT" type="FJLTXT" maxOccurs="9" minOccurs="0" />
+				<xs:element name="INSTIT" type="INSTIT" maxOccurs="99" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

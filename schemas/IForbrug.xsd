@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no" ?>
+<!-- XSD -->
+<!-- XSD|IForbrug|-->
+<xs:schema id="IForbrug" targetNamespace="http://www.realkreditnettet.dk/IForbrug" elementFormDefault="qualified"
+	xmlns="http://www.realkreditnettet.dk/IForbrug" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<!--Strengtype med højst 35 tegn -->
+	<xs:simpleType name="AN35">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="35" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!--Strengtype med højst 65 tegn -->
+	<xs:simpleType name="AN65">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="65" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!--Strengtype med højst 100 tegn -->
+	<xs:simpleType name="AN100">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="100" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="IForbrug">
+		<xs:complexType>
+			<xs:sequence>
+				<!-- En beskrivelse, som kun skal anvendes, hvis der indsendes fra flere systemer gennem
+				en toolbox. Valgfri/Aftales med RKnet. -->
+				<xs:element name="Beskrivelse" type="AN35" minOccurs="0" maxOccurs="1" />
+				<xs:element name="Forbrugene" minOccurs="0" maxOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Forbrug" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<!-- Part Id for den, der afsender oplysninger. Aftales med RKnet -->
+										<xs:element name="Afsender" minOccurs="1" maxOccurs="1" type="AN65" />
+										<!-- Part Id for den, der modtager oplysninger, dvs. den der skal betale. -->
+										<xs:element name="Modtager" type="AN65" minOccurs="1" maxOccurs="1" />
+										<!-- Streng, der identificerer typen af forbruget. Aftales med RKnet -->
+										<xs:element name="Information" type="AN35" minOccurs="1" maxOccurs="1" />
+										<!-- Tidspunkt for afsendelse af information. To forbrug må ikke have ens 
+										kombination af Afsender, Modtager og Tidspunkt -->
+										<xs:element name="Tidspunkt" type="xs:dateTime" minOccurs="1" maxOccurs="1" />
+										<!-- Antallet af bytes der sendes. Valgfri. -->
+										<xs:element name="Bytes" type="xs:positiveInteger" minOccurs="0" maxOccurs="1" />
+										<!-- En kode, der kan anvendes ved behandling af forbruget. Valgfri/Aftales med RKnet. -->
+										<xs:element name="Kode" type="xs:integer" minOccurs="0" maxOccurs="1" />
+										<!-- En tekst, der kan anvendes ved behandling af forbruget. Valgfri/Aftales med RKnet. -->
+										<xs:element name="Tekst" type="AN100" minOccurs="0" maxOccurs="1" />
+										<!-- Detaljer om forbruget. Skal anvendes ved visse informationer. Aftales med RKnet. -->
+										<xs:element name="Detaljer" minOccurs="0" maxOccurs="1">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Detalje" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<!-- Detaljens identifikation -->
+																<xs:element name="Id" type="AN35" minOccurs="1" maxOccurs="1" />
+																<!-- Detaljens værdi -->
+																<xs:element name="Vaerdi" type="xs:string" minOccurs="1" maxOccurs="1" />
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

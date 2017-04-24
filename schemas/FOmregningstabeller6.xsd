@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no" ?>
+<!-- XSD -->
+<!-- XSD|FOmregningstabeller6|-->
+<xs:schema id="FOmregningstabeller6" targetNamespace="http://www.realkreditnettet.dk/FOmregningstabeller6" elementFormDefault="qualified" xmlns="http://www.realkreditnettet.dk/FOmregningstabeller6" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<!-- XML schema svare til applikationsformat SSE/98308/USM/014 Release 1.1 -->
+	<!-- ************************************ -->
+	<!-- *          egendefinerede typer:   * -->
+	<!-- ************************************ -->
+	<!-- Meddelelsens navn -->
+	<xs:simpleType name="Meddelelsens_navn">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Z03" />
+			<xs:maxLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Meddelelsens type -->
+	<xs:simpleType name="Meddelelsens_type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="REQDOC" />
+			<xs:maxLength value="6" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Kodelister -->
+	<!-- Kodeliste 5 -->
+	<xs:simpleType name="Kodeliste5">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="9" />
+			<!-- Original -->
+			<xs:enumeration value="53" />
+			<!-- Test -->
+			<xs:maxLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Kodeliste 24 -->
+	<xs:simpleType name="Kodeliste24">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="A" />
+			<!-- Omregningskurser for aeldre annuitetslaan -->
+			<xs:enumeration value="B" />
+			<!-- Omregningskurser for aeldre serielaan -->
+			<xs:enumeration value="IK" />
+			<!-- Omregningskurser for aeldre inkonverterbare annuitets- og serielaan -->
+			<xs:enumeration value="C" />
+			<!-- Omregningskurser for andre pantebreve -->
+			<xs:enumeration value="CL" />
+			<!-- Omregningskurser for andre pantebreve (landbrugsejendomme) -->
+			<xs:enumeration value="S" />
+			<!-- Omregningskurser for staaende laan med fast rente -->
+			<xs:enumeration value="AB-I" />
+			<!-- Omregningskurser for sikre private indekspantebreve -->
+			<xs:enumeration value="C-I" />
+			<!-- Omregningskurser for usikre private indekspantebreve -->
+			<xs:enumeration value="SIK" />
+			<!-- Omregningskurser for inkonverterbare staaende laan med fast rente -->
+			<xs:enumeration value="U" />
+			<!-- Omregningskurser for ældre anuitetslaan (som tabel A, men med nominel rente paa 6 procent) -->
+			<xs:enumeration value="ALLE" />
+			<!-- Alle tabeller -->
+			<xs:maxLength value="4" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Numeriske typer -->
+	<!-- 3 cifret tal -->
+	<xs:simpleType name="N3">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- 8 cifret tal -->
+	<xs:simpleType name="N8">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="8" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Alfabetiske typer -->
+	<!--Strengtype med højst 8 tegn -->
+	<xs:simpleType name="AN8">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="8" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!--Strengtype med højst 25 tegn -->
+	<xs:simpleType name="AN25">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="25" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!--Strengtype med højst 35 tegn -->
+	<xs:simpleType name="AN35">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="35" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- ************************************ -->
+	<!-- *      Record definitionerne       * -->
+	<!-- ************************************ -->
+	<!-- DOCINF -->
+	<xs:complexType name="DOCINF">
+		<xs:sequence></xs:sequence>
+		<xs:attribute name="Meddelelsens_navn" type="Meddelelsens_navn" />
+		<xs:attribute name="Meddelelsens_type" type="Meddelelsens_type" />
+		<xs:attribute name="Sender_version" type="N3" use="required" />
+		<xs:attribute name="Modtager_version" type="N3" />
+		<xs:attribute name="Onsket_version" type="N3" />
+		<xs:attribute name="Informationsstromsnavn" type="AN35" />
+		<xs:attribute name="Meddelelsens_nummer" type="AN35" use="required" />
+		<xs:attribute name="Meddelelsens_funktion" type="Kodeliste5" use="required" />
+		<xs:attribute name="Dato" type="N8" use="required" />
+		<!-- CCYYMMDD -->
+		<xs:attribute name="Afsender_partid" type="AN35" use="required" />
+		<xs:attribute name="ID-kode" type="AN8" use="required" />
+		<xs:attribute name="VirksomhedsID" type="AN25" />
+		<xs:attribute name="Afdelingsid" type="AN25" />
+		<xs:attribute name="Personid" type="AN25" />
+		<xs:attribute name="Modtager_partid" type="AN35" use="required" />
+	</xs:complexType>
+	<!-- GYLDAT -->
+	<xs:complexType name="GYLDAT">
+		<xs:sequence></xs:sequence>
+		<xs:attribute name="Gyldig_fra_dato" type="N8" use="required" />
+		<!-- CCYYMMDD -->
+	</xs:complexType>
+	<!-- TABEL -->
+	<xs:complexType name="TABEL">
+		<xs:sequence></xs:sequence>
+		<xs:attribute name="Tabelnavn" type="Kodeliste24" use="required" />
+	</xs:complexType>
+	<!-- ************************************ -->
+	<!-- *   Toplevel meddelelsen bliver    * -->
+	<!-- ************************************ -->
+	<xs:element name="FOmregningstabeller6">
+		<xs:complexType >
+			<xs:sequence>
+				<xs:element name="DOCINF" type="DOCINF" maxOccurs="1" minOccurs="1" />
+				<xs:element name="GYLDAT" type="GYLDAT" maxOccurs="1" minOccurs="1" />
+				<xs:element name="TABEL" type="TABEL" maxOccurs="99" minOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

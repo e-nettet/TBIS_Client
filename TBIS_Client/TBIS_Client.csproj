@@ -77,6 +77,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FOmregningstabeller6.cs" />
     <Compile Include="FormHentData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +94,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="SOmregningstabeller6.cs" />
     <Compile Include="SRESTGAELD.cs" />
     <Compile Include="WizardTabcontrol.cs">
       <SubType>Component</SubType>
