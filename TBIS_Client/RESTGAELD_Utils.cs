@@ -5,6 +5,8 @@ using System.Text;
 using System.IO;
 using System.Xml.Serialization;
 using System.Threading.Tasks;
+using SRestgaeld63;
+using FRestgaeld6;
 
 namespace HentRestgaeld
 {
@@ -39,7 +41,7 @@ namespace HentRestgaeld
             return (t);
         }
 
-        public static FRestgaeld6_Type GetFRestgaeld6_Type(string modtager_partid, string ejendomsident, string kontrolkode, Kodeliste4 institut, string laaneidentifikation)
+        public static FRestgaeld6_Type GetFRestgaeld6_Type(string modtager_partid, string ejendomsident, string kontrolkode, FRestgaeld6.Kodeliste4 institut, string laaneidentifikation)
         {
             FRestgaeld6_Type f = new FRestgaeld6_Type();
             f.DOCINF = new DOCINF_Type()
@@ -48,10 +50,10 @@ namespace HentRestgaeld
                 Dato = GetDateAs_YYYYMMDD(),
                 IDkode = "J000110",
                 informationsstromnavn = "F[rkn] Restgaeld 6 XML",
-                Meddelelsens_funktion = Kodeliste5.Item53,
-                Meddelelsens_navn = Meddelelsens_navn.Z06,
+                Meddelelsens_funktion = FRestgaeld6.Kodeliste5.Item53,
+                Meddelelsens_navn = FRestgaeld6.Meddelelsens_navn.Z06,
                 Meddelelsens_nummer = "123456", // Tilsyneladende uden betydning
-                Meddelelsens_type = Meddelelsens_type.REQDOC,
+                Meddelelsens_type = FRestgaeld6.Meddelelsens_type.REQDOC,
                 Modtager_partid = modtager_partid,
                 Modtager_version = "063",
                 Onsket_version = "063",
@@ -73,12 +75,12 @@ namespace HentRestgaeld
             f.LAANID = new LAANID_Type() { Laaneidentifikation = laaneidentifikation };
             f.RESTAN = new RESTAN_Type()
             {
-                Onskes_restanceoplysninger = Kodeliste1.Ja,
+                Onskes_restanceoplysninger = FRestgaeld6.Kodeliste1.Ja,
                 Onskes_restanceoplysningerSpecified = true
             };
             f.AMORTF = new AMORTF_Type()
             {
-                Onskes_amortoplysninger = Kodeliste1.Ja,
+                Onskes_amortoplysninger = FRestgaeld6.Kodeliste1.Ja,
                 Onskes_amortoplysningerSpecified = true
             };
             return (f);
