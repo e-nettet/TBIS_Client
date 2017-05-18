@@ -17,8 +17,6 @@ namespace HentRestgaeld
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormHentData());
-            //Application.Run(new FormTest());
-
         }
     }
 }

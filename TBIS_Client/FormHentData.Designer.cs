@@ -34,37 +34,33 @@
             this.buttonTilbage = new System.Windows.Forms.Button();
             this.backgroundWorkerValidateParty = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorkerHentRestgaeld = new System.ComponentModel.BackgroundWorker();
-            this.wizardTabcontrol1 = new HentRestgaeld.WizardTabcontrol();
-            this.tabPageLogin = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBoxPassword = new System.Windows.Forms.TextBox();
-            this.textBoxPartID = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBoxMiljoe = new System.Windows.Forms.ComboBox();
-            this.tabPagePantident = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBoxKontrolkode = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBoxLaanenummer = new System.Windows.Forms.TextBox();
-            this.textBoxPantnummer = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBoxRealkreditinstitut = new System.Windows.Forms.ComboBox();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.backgroundWorkerOmregningskurstabeller = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorkerEgneKurser = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorkerAlleKurser = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorkerPriser = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorkerSatser = new System.ComponentModel.BackgroundWorker();
+            this.tabPageInput = new System.Windows.Forms.TabPage();
+            this.userControlRestgaeldInput1 = new HentRestgaeld.UserControlRestgaeldInput();
+            this.tabPageResult = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.linkLabelInput = new System.Windows.Forms.LinkLabel();
             this.linkLabelOutput = new System.Windows.Forms.LinkLabel();
+            this.tabPageChoice = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBoxDataType = new System.Windows.Forms.ComboBox();
+            this.tabPageLogin = new System.Windows.Forms.TabPage();
+            this.userControlLogon1 = new HentRestgaeld.UserControlLogon();
+            this.wizardTabcontrol1 = new HentRestgaeld.WizardTabcontrol();
+            this.userControlOmregningstabelInput1 = new HentRestgaeld.UserControlOmregningstabelInput();
             this.statusStrip1.SuspendLayout();
-            this.wizardTabcontrol1.SuspendLayout();
-            this.tabPageLogin.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tabPagePantident.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabPageInput.SuspendLayout();
+            this.tabPageResult.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tabPageChoice.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.tabPageLogin.SuspendLayout();
+            this.wizardTabcontrol1.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -72,10 +68,9 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 646);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 294);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(3, 0, 37, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1261, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(562, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -88,10 +83,9 @@
             // buttonNext
             // 
             this.buttonNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonNext.Location = new System.Drawing.Point(1016, 553);
-            this.buttonNext.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.buttonNext.Location = new System.Drawing.Point(470, 268);
             this.buttonNext.Name = "buttonNext";
-            this.buttonNext.Size = new System.Drawing.Size(200, 55);
+            this.buttonNext.Size = new System.Drawing.Size(75, 23);
             this.buttonNext.TabIndex = 1;
             this.buttonNext.Text = "&Næste";
             this.buttonNext.UseVisualStyleBackColor = true;
@@ -100,10 +94,9 @@
             // buttonTilbage
             // 
             this.buttonTilbage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonTilbage.Location = new System.Drawing.Point(800, 553);
-            this.buttonTilbage.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.buttonTilbage.Location = new System.Drawing.Point(389, 268);
             this.buttonTilbage.Name = "buttonTilbage";
-            this.buttonTilbage.Size = new System.Drawing.Size(200, 55);
+            this.buttonTilbage.Size = new System.Drawing.Size(75, 23);
             this.buttonTilbage.TabIndex = 0;
             this.buttonTilbage.Text = "&Tilbage";
             this.buttonTilbage.UseVisualStyleBackColor = true;
@@ -120,293 +113,97 @@
             // 
             this.backgroundWorkerHentRestgaeld.WorkerReportsProgress = true;
             this.backgroundWorkerHentRestgaeld.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorkerHentRestgaeld_DoWork);
-            this.backgroundWorkerHentRestgaeld.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BackgroundWorkerHentRestgaeld_ProgressChanged);
-            this.backgroundWorkerHentRestgaeld.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackgroundWorkerHentRestgaeld_RunWorkerCompleted);
+            this.backgroundWorkerHentRestgaeld.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BackgroundWorker_ProgressChanged);
+            this.backgroundWorkerHentRestgaeld.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackgroundWorker_RunWorkerCompleted);
             // 
-            // wizardTabcontrol1
+            // backgroundWorkerOmregningskurstabeller
             // 
-            this.wizardTabcontrol1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.wizardTabcontrol1.Controls.Add(this.tabPageLogin);
-            this.wizardTabcontrol1.Controls.Add(this.tabPagePantident);
-            this.wizardTabcontrol1.Controls.Add(this.tabPage1);
-            this.wizardTabcontrol1.Location = new System.Drawing.Point(32, 29);
-            this.wizardTabcontrol1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.wizardTabcontrol1.Name = "wizardTabcontrol1";
-            this.wizardTabcontrol1.SelectedIndex = 0;
-            this.wizardTabcontrol1.Size = new System.Drawing.Size(1197, 510);
-            this.wizardTabcontrol1.TabIndex = 2;
+            this.backgroundWorkerOmregningskurstabeller.WorkerReportsProgress = true;
+            this.backgroundWorkerOmregningskurstabeller.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerOmregningskurstabeller_DoWork);
+            this.backgroundWorkerOmregningskurstabeller.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BackgroundWorker_ProgressChanged);
+            this.backgroundWorkerOmregningskurstabeller.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackgroundWorker_RunWorkerCompleted);
             // 
-            // tabPageLogin
+            // backgroundWorkerEgneKurser
             // 
-            this.tabPageLogin.Controls.Add(this.tableLayoutPanel1);
-            this.tabPageLogin.Location = new System.Drawing.Point(4, 40);
-            this.tabPageLogin.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.tabPageLogin.Name = "tabPageLogin";
-            this.tabPageLogin.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.tabPageLogin.Size = new System.Drawing.Size(1189, 466);
-            this.tabPageLogin.TabIndex = 0;
-            this.tabPageLogin.Text = "Login";
-            this.tabPageLogin.UseVisualStyleBackColor = true;
+            this.backgroundWorkerEgneKurser.WorkerReportsProgress = true;
             // 
-            // tableLayoutPanel1
+            // backgroundWorkerAlleKurser
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxPassword, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxPartID, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.comboBoxMiljoe, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(16, 14);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 7;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1144, 277);
-            this.tableLayoutPanel1.TabIndex = 1;
+            this.backgroundWorkerAlleKurser.WorkerReportsProgress = true;
             // 
-            // label4
+            // backgroundWorkerPriser
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 0);
-            this.label4.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 31);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Miljø";
+            this.backgroundWorkerPriser.WorkerReportsProgress = true;
             // 
-            // textBoxPassword
+            // backgroundWorkerSatser
             // 
-            this.textBoxPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxPassword.Location = new System.Drawing.Point(580, 127);
-            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(556, 38);
-            this.textBoxPassword.TabIndex = 2;
-            this.textBoxPassword.UseSystemPasswordChar = true;
+            this.backgroundWorkerSatser.WorkerReportsProgress = true;
             // 
-            // textBoxPartID
+            // tabPageInput
             // 
-            this.textBoxPartID.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxPartID.Location = new System.Drawing.Point(580, 67);
-            this.textBoxPartID.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.textBoxPartID.Name = "textBoxPartID";
-            this.textBoxPartID.Size = new System.Drawing.Size(556, 38);
-            this.textBoxPartID.TabIndex = 1;
+            this.tabPageInput.Controls.Add(this.userControlOmregningstabelInput1);
+            this.tabPageInput.Controls.Add(this.userControlRestgaeldInput1);
+            this.tabPageInput.Location = new System.Drawing.Point(4, 22);
+            this.tabPageInput.Margin = new System.Windows.Forms.Padding(1);
+            this.tabPageInput.Name = "tabPageInput";
+            this.tabPageInput.Padding = new System.Windows.Forms.Padding(1);
+            this.tabPageInput.Size = new System.Drawing.Size(530, 224);
+            this.tabPageInput.TabIndex = 4;
+            this.tabPageInput.Text = "tabPageInput";
+            this.tabPageInput.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // userControlRestgaeldInput1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 120);
-            this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(134, 31);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Password";
+            this.userControlRestgaeldInput1.AutoSize = true;
+            this.userControlRestgaeldInput1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.userControlRestgaeldInput1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlRestgaeldInput1.Kontrolkode = null;
+            this.userControlRestgaeldInput1.Laanenummer = null;
+            this.userControlRestgaeldInput1.Location = new System.Drawing.Point(1, 1);
+            this.userControlRestgaeldInput1.Margin = new System.Windows.Forms.Padding(1);
+            this.userControlRestgaeldInput1.Name = "userControlRestgaeldInput1";
+            this.userControlRestgaeldInput1.Pantnummer = null;
+            this.userControlRestgaeldInput1.Realkreditinstitut = FRestgaeld6.Kodeliste4.PRI;
+            this.userControlRestgaeldInput1.Size = new System.Drawing.Size(528, 222);
+            this.userControlRestgaeldInput1.TabIndex = 1;
+            this.userControlRestgaeldInput1.Load += new System.EventHandler(this.userControlRestgaeldInput1_Load);
             // 
-            // label1
+            // tabPageResult
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 60);
-            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 31);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "PartID";
-            // 
-            // comboBoxMiljoe
-            // 
-            this.comboBoxMiljoe.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxMiljoe.FormattingEnabled = true;
-            this.comboBoxMiljoe.Location = new System.Drawing.Point(580, 7);
-            this.comboBoxMiljoe.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.comboBoxMiljoe.Name = "comboBoxMiljoe";
-            this.comboBoxMiljoe.Size = new System.Drawing.Size(556, 39);
-            this.comboBoxMiljoe.TabIndex = 0;
-            this.comboBoxMiljoe.SelectedIndexChanged += new System.EventHandler(this.ComboBoxMiljoe_SelectedIndexChanged);
-            // 
-            // tabPagePantident
-            // 
-            this.tabPagePantident.Controls.Add(this.tableLayoutPanel2);
-            this.tabPagePantident.Location = new System.Drawing.Point(4, 40);
-            this.tabPagePantident.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.tabPagePantident.Name = "tabPagePantident";
-            this.tabPagePantident.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.tabPagePantident.Size = new System.Drawing.Size(1189, 466);
-            this.tabPagePantident.TabIndex = 1;
-            this.tabPagePantident.Text = "Pantid";
-            this.tabPagePantident.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.textBoxKontrolkode, 1, 3);
-            this.tableLayoutPanel2.Controls.Add(this.label10, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.label6, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.textBoxLaanenummer, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.textBoxPantnummer, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label9, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.comboBoxRealkreditinstitut, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(16, 14);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 7;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1144, 420);
-            this.tableLayoutPanel2.TabIndex = 2;
-            // 
-            // textBoxKontrolkode
-            // 
-            this.textBoxKontrolkode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxKontrolkode.Location = new System.Drawing.Point(580, 187);
-            this.textBoxKontrolkode.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.textBoxKontrolkode.Name = "textBoxKontrolkode";
-            this.textBoxKontrolkode.Size = new System.Drawing.Size(556, 38);
-            this.textBoxKontrolkode.TabIndex = 3;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(8, 180);
-            this.label10.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(159, 31);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "Kontrolkode";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 120);
-            this.label6.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(172, 31);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Lånenummer";
-            // 
-            // textBoxLaanenummer
-            // 
-            this.textBoxLaanenummer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxLaanenummer.Location = new System.Drawing.Point(580, 127);
-            this.textBoxLaanenummer.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.textBoxLaanenummer.Name = "textBoxLaanenummer";
-            this.textBoxLaanenummer.Size = new System.Drawing.Size(556, 38);
-            this.textBoxLaanenummer.TabIndex = 2;
-            // 
-            // textBoxPantnummer
-            // 
-            this.textBoxPantnummer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxPantnummer.Location = new System.Drawing.Point(580, 67);
-            this.textBoxPantnummer.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.textBoxPantnummer.Name = "textBoxPantnummer";
-            this.textBoxPantnummer.Size = new System.Drawing.Size(556, 38);
-            this.textBoxPantnummer.TabIndex = 1;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 60);
-            this.label9.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(394, 31);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "Ejendomsnummer/Pantnummer";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 0);
-            this.label3.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(217, 31);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Realkreditinstitut";
-            // 
-            // comboBoxRealkreditinstitut
-            // 
-            this.comboBoxRealkreditinstitut.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxRealkreditinstitut.FormattingEnabled = true;
-            this.comboBoxRealkreditinstitut.Location = new System.Drawing.Point(580, 7);
-            this.comboBoxRealkreditinstitut.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.comboBoxRealkreditinstitut.Name = "comboBoxRealkreditinstitut";
-            this.comboBoxRealkreditinstitut.Size = new System.Drawing.Size(556, 39);
-            this.comboBoxRealkreditinstitut.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.tableLayoutPanel3);
-            this.tabPage1.Location = new System.Drawing.Point(4, 40);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.tabPage1.Size = new System.Drawing.Size(1189, 466);
-            this.tabPage1.TabIndex = 2;
-            this.tabPage1.Text = "tabPageResult";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPageResult.Controls.Add(this.tableLayoutPanel3);
+            this.tabPageResult.Location = new System.Drawing.Point(4, 22);
+            this.tabPageResult.Name = "tabPageResult";
+            this.tabPageResult.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageResult.Size = new System.Drawing.Size(530, 224);
+            this.tabPageResult.TabIndex = 2;
+            this.tabPageResult.Text = "tabPageResult";
+            this.tabPageResult.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel3.AutoSize = true;
+            this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.linkLabelInput, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.linkLabelOutput, 0, 1);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(19, 17);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(7, 7);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1141, 417);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(179, 61);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // linkLabelInput
             // 
             this.linkLabelInput.AutoSize = true;
-            this.linkLabelInput.Location = new System.Drawing.Point(8, 0);
-            this.linkLabelInput.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.linkLabelInput.Location = new System.Drawing.Point(3, 0);
             this.linkLabelInput.Name = "linkLabelInput";
-            this.linkLabelInput.Size = new System.Drawing.Size(173, 31);
+            this.linkLabelInput.Size = new System.Drawing.Size(67, 13);
             this.linkLabelInput.TabIndex = 0;
             this.linkLabelInput.TabStop = true;
             this.linkLabelInput.Text = "Forespørgsel";
@@ -415,39 +212,142 @@
             // linkLabelOutput
             // 
             this.linkLabelOutput.AutoSize = true;
-            this.linkLabelOutput.Location = new System.Drawing.Point(8, 60);
-            this.linkLabelOutput.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.linkLabelOutput.Location = new System.Drawing.Point(3, 25);
             this.linkLabelOutput.Name = "linkLabelOutput";
-            this.linkLabelOutput.Size = new System.Drawing.Size(70, 31);
+            this.linkLabelOutput.Size = new System.Drawing.Size(29, 13);
             this.linkLabelOutput.TabIndex = 1;
             this.linkLabelOutput.TabStop = true;
             this.linkLabelOutput.Text = "Svar";
             this.linkLabelOutput.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel_LinkClicked);
             // 
-            // FormHentRestgaeld
+            // tabPageChoice
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.tabPageChoice.Controls.Add(this.tableLayoutPanel4);
+            this.tabPageChoice.Location = new System.Drawing.Point(4, 22);
+            this.tabPageChoice.Margin = new System.Windows.Forms.Padding(1);
+            this.tabPageChoice.Name = "tabPageChoice";
+            this.tabPageChoice.Padding = new System.Windows.Forms.Padding(1);
+            this.tabPageChoice.Size = new System.Drawing.Size(530, 224);
+            this.tabPageChoice.TabIndex = 3;
+            this.tabPageChoice.Text = "tabPageChoice";
+            this.tabPageChoice.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.label5, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.comboBoxDataType, 1, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(4, 4);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 2;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(522, 216);
+            this.tableLayoutPanel4.TabIndex = 2;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(1, 0);
+            this.label5.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(97, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Hvad vil du hente?";
+            // 
+            // comboBoxDataType
+            // 
+            this.comboBoxDataType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxDataType.FormattingEnabled = true;
+            this.comboBoxDataType.Location = new System.Drawing.Point(264, 3);
+            this.comboBoxDataType.Name = "comboBoxDataType";
+            this.comboBoxDataType.Size = new System.Drawing.Size(255, 21);
+            this.comboBoxDataType.TabIndex = 0;
+            // 
+            // tabPageLogin
+            // 
+            this.tabPageLogin.Controls.Add(this.userControlLogon1);
+            this.tabPageLogin.Location = new System.Drawing.Point(4, 22);
+            this.tabPageLogin.Name = "tabPageLogin";
+            this.tabPageLogin.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageLogin.Size = new System.Drawing.Size(530, 224);
+            this.tabPageLogin.TabIndex = 0;
+            this.tabPageLogin.Text = "Login";
+            this.tabPageLogin.UseVisualStyleBackColor = true;
+            // 
+            // userControlLogon1
+            // 
+            this.userControlLogon1.AutoSize = true;
+            this.userControlLogon1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlLogon1.Location = new System.Drawing.Point(3, 3);
+            this.userControlLogon1.Margin = new System.Windows.Forms.Padding(1);
+            this.userControlLogon1.Miljoe = HentRestgaeld.Miljoe.Test;
+            this.userControlLogon1.Name = "userControlLogon1";
+            this.userControlLogon1.PartID = null;
+            this.userControlLogon1.Password = null;
+            this.userControlLogon1.Size = new System.Drawing.Size(524, 218);
+            this.userControlLogon1.TabIndex = 0;
+            this.userControlLogon1.Load += new System.EventHandler(this.userControlLogon1_Load);
+            // 
+            // wizardTabcontrol1
+            // 
+            this.wizardTabcontrol1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.wizardTabcontrol1.Controls.Add(this.tabPageLogin);
+            this.wizardTabcontrol1.Controls.Add(this.tabPageChoice);
+            this.wizardTabcontrol1.Controls.Add(this.tabPageInput);
+            this.wizardTabcontrol1.Controls.Add(this.tabPageResult);
+            this.wizardTabcontrol1.Location = new System.Drawing.Point(12, 12);
+            this.wizardTabcontrol1.Name = "wizardTabcontrol1";
+            this.wizardTabcontrol1.SelectedIndex = 0;
+            this.wizardTabcontrol1.Size = new System.Drawing.Size(538, 250);
+            this.wizardTabcontrol1.TabIndex = 2;
+            // 
+            // userControlOmregningstabelInput1
+            // 
+            this.userControlOmregningstabelInput1.AutoSize = true;
+            this.userControlOmregningstabelInput1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.userControlOmregningstabelInput1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlOmregningstabelInput1.GyldigFraDato = new System.DateTime(((long)(0)));
+            this.userControlOmregningstabelInput1.Location = new System.Drawing.Point(1, 1);
+            this.userControlOmregningstabelInput1.Name = "userControlOmregningstabelInput1";
+            this.userControlOmregningstabelInput1.Size = new System.Drawing.Size(528, 222);
+            this.userControlOmregningstabelInput1.TabIndex = 2;
+            // 
+            // FormHentData
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1261, 668);
+            this.ClientSize = new System.Drawing.Size(562, 316);
             this.Controls.Add(this.buttonTilbage);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.wizardTabcontrol1);
             this.Controls.Add(this.statusStrip1);
-            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.Name = "FormHentRestgaeld";
+            this.Name = "FormHentData";
             this.Text = "Hent restgæld";
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            this.wizardTabcontrol1.ResumeLayout(false);
-            this.tabPageLogin.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.tabPagePantident.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            this.tabPage1.ResumeLayout(false);
+            this.tabPageInput.ResumeLayout(false);
+            this.tabPageInput.PerformLayout();
+            this.tabPageResult.ResumeLayout(false);
+            this.tabPageResult.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.tabPageChoice.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
+            this.tabPageLogin.ResumeLayout(false);
+            this.tabPageLogin.PerformLayout();
+            this.wizardTabcontrol1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -455,34 +355,30 @@
 
         #endregion
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private WizardTabcontrol wizardTabcontrol1;
-        private System.Windows.Forms.TabPage tabPageLogin;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TextBox textBoxPassword;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxPartID;
-        private System.Windows.Forms.TabPage tabPagePantident;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.TextBox textBoxKontrolkode;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button buttonNext;
         private System.Windows.Forms.Button buttonTilbage;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.TextBox textBoxPantnummer;
-        private System.Windows.Forms.TextBox textBoxLaanenummer;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBoxRealkreditinstitut;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBoxMiljoe;
         private System.ComponentModel.BackgroundWorker backgroundWorkerValidateParty;
         private System.ComponentModel.BackgroundWorker backgroundWorkerHentRestgaeld;
+        private System.ComponentModel.BackgroundWorker backgroundWorkerOmregningskurstabeller;
+        private System.ComponentModel.BackgroundWorker backgroundWorkerEgneKurser;
+        private System.ComponentModel.BackgroundWorker backgroundWorkerAlleKurser;
+        private System.ComponentModel.BackgroundWorker backgroundWorkerPriser;
+        private System.ComponentModel.BackgroundWorker backgroundWorkerSatser;
+        private System.Windows.Forms.TabPage tabPageInput;
+        private System.Windows.Forms.TabPage tabPageResult;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.LinkLabel linkLabelInput;
         private System.Windows.Forms.LinkLabel linkLabelOutput;
+        private System.Windows.Forms.TabPage tabPageChoice;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.ComboBox comboBoxDataType;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TabPage tabPageLogin;
+        private WizardTabcontrol wizardTabcontrol1;
+        private UserControlRestgaeldInput userControlRestgaeldInput1;
+        private UserControlLogon userControlLogon1;
+        private UserControlOmregningstabelInput userControlOmregningstabelInput1;
     }
 }
 

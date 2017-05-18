@@ -14,7 +14,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>G:\arkiv\J - Systemudviklingsprojekter\J020 - Kvalitetssikring af restgæld herunder restgæld version 6.3\</PublishUrl>
+    <PublishUrl>G:\arkiv\J - Systemudviklingsprojekter\J020 - Kvalitetssikring af restgæld herunder restgæld version 6.3\HentRestgaeld\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -24,7 +24,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>7</ApplicationRevision>
+    <ApplicationRevision>9</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -85,10 +85,12 @@
       <DependentUpon>FormHentData.cs</DependentUpon>
     </Compile>
     <Compile Include="FRESTGAELD.cs" />
+    <Compile Include="Omregningstabller_Utils.cs" />
     <Compile Include="Part.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RESTGAELD_Utils.cs" />
+    <Compile Include="RKNetUtils.cs" />
     <Compile Include="Service References\ServiceReferenceTBIS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -96,6 +98,24 @@
     </Compile>
     <Compile Include="SOmregningstabeller6.cs" />
     <Compile Include="SRESTGAELD.cs" />
+    <Compile Include="UserControlLogon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlLogon.Designer.cs">
+      <DependentUpon>UserControlLogon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlOmregningstabelInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlOmregningstabelInput.Designer.cs">
+      <DependentUpon>UserControlOmregningstabelInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlRestgaeldInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlRestgaeldInput.Designer.cs">
+      <DependentUpon>UserControlRestgaeldInput.cs</DependentUpon>
+    </Compile>
     <Compile Include="WizardTabcontrol.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -116,6 +136,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserControlLogon.resx">
+      <DependentUpon>UserControlLogon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlOmregningstabelInput.resx">
+      <DependentUpon>UserControlOmregningstabelInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlRestgaeldInput.resx">
+      <DependentUpon>UserControlRestgaeldInput.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="HentRestgaeld_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -159,7 +188,9 @@
     <None Include="Service References\ServiceReferenceTBIS\Main.wsdl" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
