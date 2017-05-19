@@ -51,16 +51,9 @@ namespace HentRestgaeld
             toolStripStatusLabel1.Text = message.Substring(0,  Math.Min(message.Length, 100));
         }
 
-        private void HideInputUsercontrols()
-        {
-            userControlOmregningstabelInput1.Visible = false;
-            userControlRestgaeldInput1.Visible = false;
-        }
-
         private void ButtonNext_Click(object sender, EventArgs e)
         {
             EnableButtons(false);
-            HideInputUsercontrols();
             switch (wizardTabcontrol1.SelectedIndex)
             {
                 case 0:
@@ -70,19 +63,16 @@ namespace HentRestgaeld
                     }
                 case 1:
                     {
-                        dataType = (DataType)comboBoxDataType.SelectedIndex;
                         SetMessage("OK");
                         switch (dataType)
                         {
                             case DataType.Restgaeld:
                                 {
-                                    userControlRestgaeldInput1.Visible = dataType.Equals(DataType.Restgaeld);
                                     wizardTabcontrol1.SelectedIndex += 1;
                                     break;
                                 } 
                             case DataType.Omregningskurstabller:
                                 {
-                                    userControlOmregningstabelInput1.Visible = dataType.Equals(DataType.Omregningskurstabller);
                                     wizardTabcontrol1.SelectedIndex += 1;
                                     break;
                                 }
@@ -255,13 +245,11 @@ namespace HentRestgaeld
 
         }
 
-        private void userControlLogon1_Load(object sender, EventArgs e)
+        private void comboBoxDataType_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void userControlRestgaeldInput1_Load(object sender, EventArgs e)
-        {
+            dataType = (DataType)comboBoxDataType.SelectedIndex;
+            userControlOmregningstabelInput1.Visible = (dataType == DataType.Omregningskurstabller);
+            userControlRestgaeldInput1.Visible = (dataType == DataType.Restgaeld);
 
         }
     }

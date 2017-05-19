@@ -60,7 +60,7 @@ namespace HentRestgaeld
 
         private void TextBoxLaanenummer_TextChanged(object sender, EventArgs e)
         {
-            Laanenummer = textBoxPantnummer.Text;
+            Laanenummer = textBoxLaanenummer.Text;
         }
 
         private void TextBoxKontrolkode_TextChanged(object sender, EventArgs e)
