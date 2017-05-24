@@ -2,6 +2,12 @@
 using System.Text;
 using System.IO;
 using System.Xml.Serialization;
+<<<<<<< HEAD
+=======
+using System.Threading.Tasks;
+using SRestgaeld63;
+using FRestgaeld6;
+>>>>>>> 9032b84ebd9601e660563dc6e5b4e654211c4e44
 
 namespace HentRestgaeld
 {
@@ -18,8 +24,33 @@ namespace HentRestgaeld
 
         public static FRestgaeld6.FRestgaeld6_Type GetFRestgaeld6_Type(string modtager_partid, string ejendomsident, string kontrolkode, FRestgaeld6.Kodeliste4 institut, string laaneidentifikation)
         {
+<<<<<<< HEAD
             FRestgaeld6.FRestgaeld6_Type f = new FRestgaeld6.FRestgaeld6_Type();
             f.DOCINF = new FRestgaeld6.DOCINF_Type()
+=======
+            StringWriter stringwriter = new System.IO.StringWriter();
+            XmlSerializer serializer = new XmlSerializer(o.GetType());
+            serializer.Serialize(stringwriter, o);
+            string s = GetFormattedQuery( stringwriter.ToString());
+            return (s);
+        }
+
+        private static string GetFormattedQuery(string s) // Fjerner linjer og tabulatorer, da RKNET ikke kan lide dem
+        {
+            string t = s;
+            t = t.Replace(System.Environment.NewLine, "");
+            t = t.Replace(">\n", ">"); // Newline følger åbenbart ikke altid standarden...
+            t = t.Replace(">\r\n", ">"); // Newline følger åbenbart ikke altid standarden...
+            t = t.Replace(">\t", ">");
+            while (t.IndexOf("> ") >= 0) { t = t.Replace("> ", ">"); }
+            return (t);
+        }
+
+        public static FRestgaeld6_Type GetFRestgaeld6_Type(string modtager_partid, string ejendomsident, string kontrolkode, FRestgaeld6.Kodeliste4 institut, string laaneidentifikation)
+        {
+            FRestgaeld6_Type f = new FRestgaeld6_Type();
+            f.DOCINF = new DOCINF_Type()
+>>>>>>> 9032b84ebd9601e660563dc6e5b4e654211c4e44
             {
                 Afsender_partid = "mangler",
                 Dato = RKNetUtils.GetDateAs_YYYYMMDD(),
@@ -123,5 +154,31 @@ namespace HentRestgaeld
             return (s);
         }
 
+<<<<<<< HEAD
+=======
+        public static FRestgaeld6.Kodeliste4 PartToKodeliste4(Part part)
+        {
+            switch (part.beskrivelse)
+            {
+                case "BRF":
+                    return FRestgaeld6.Kodeliste4.BRF;
+                case "DLR":
+                    return FRestgaeld6.Kodeliste4.DLR;
+                case "LRF":
+                    return FRestgaeld6.Kodeliste4.LRF;
+                case "N":
+                    return FRestgaeld6.Kodeliste4.N;
+                case "RD":
+                    return FRestgaeld6.Kodeliste4.RD;
+                case "TOT":
+                    return FRestgaeld6.Kodeliste4.TOT;
+                case "NOR":
+                default:
+                    return FRestgaeld6.Kodeliste4.NOR;
+            }
+        }
+
+
+>>>>>>> 9032b84ebd9601e660563dc6e5b4e654211c4e44
     }
 }

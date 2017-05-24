@@ -59,7 +59,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -136,6 +136,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+<<<<<<< HEAD
     <EmbeddedResource Include="UserControlLogon.resx">
       <DependentUpon>UserControlLogon.cs</DependentUpon>
     </EmbeddedResource>
@@ -146,6 +147,8 @@
       <DependentUpon>UserControlRestgaeldInput.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="HentRestgaeld_TemporaryKey.pfx" />
+=======
+>>>>>>> 9032b84ebd9601e660563dc6e5b4e654211c4e44
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
