@@ -73,7 +73,7 @@ namespace HentRestgaeld
                         laanenummer  = textBoxLaanenummer.Text;
                         kontrolkode = textBoxKontrolkode.Text;
                         modtagerPartID = GetSelectedPartID();
-                        FRestgaeld6_Type f = RESTGAELD_Utils.GetFRestgaeld6_Type(modtagerPartID, pantidentifikation, kontrolkode, Kodeliste4.NOR, laanenummer);
+                        FRestgaeld6_Type f = RESTGAELD_Utils.GetFRestgaeld6_Type(modtagerPartID, pantidentifikation, kontrolkode, RESTGAELD_Utils.PartToKodeliste4(partList[comboBoxRealkreditinstitut.SelectedIndex]), laanenummer);
                         query = RESTGAELD_Utils.GetClassAsXMLString(f);
                         if (!backgroundWorkerHentRestgaeld.IsBusy) { backgroundWorkerHentRestgaeld.RunWorkerAsync(); }
                     }

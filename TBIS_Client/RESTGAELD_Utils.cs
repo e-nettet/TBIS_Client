@@ -98,6 +98,28 @@ namespace HentRestgaeld
             return (s);
         }
 
+        public static FRestgaeld6.Kodeliste4 PartToKodeliste4(Part part)
+        {
+            switch (part.beskrivelse)
+            {
+                case "BRF":
+                    return FRestgaeld6.Kodeliste4.BRF;
+                case "DLR":
+                    return FRestgaeld6.Kodeliste4.DLR;
+                case "LRF":
+                    return FRestgaeld6.Kodeliste4.LRF;
+                case "N":
+                    return FRestgaeld6.Kodeliste4.N;
+                case "RD":
+                    return FRestgaeld6.Kodeliste4.RD;
+                case "TOT":
+                    return FRestgaeld6.Kodeliste4.TOT;
+                case "NOR":
+                default:
+                    return FRestgaeld6.Kodeliste4.NOR;
+            }
+        }
+
 
     }
 }
