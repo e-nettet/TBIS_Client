@@ -64,7 +64,6 @@ namespace HentRestgaeld
                     }
                 case 1:
                     {
-<<<<<<< HEAD
                         SetMessage("OK");
                         switch (dataType)
                         {
@@ -91,16 +90,6 @@ namespace HentRestgaeld
                     {
                         GetData();
                         break;
-=======
-                        realkreditinstitut = partList[comboBoxRealkreditinstitut.SelectedIndex].beskrivelse;
-                        pantidentifikation = textBoxPantnummer.Text;
-                        laanenummer  = textBoxLaanenummer.Text;
-                        kontrolkode = textBoxKontrolkode.Text;
-                        modtagerPartID = GetSelectedPartID();
-                        FRestgaeld6_Type f = RESTGAELD_Utils.GetFRestgaeld6_Type(modtagerPartID, pantidentifikation, kontrolkode, RESTGAELD_Utils.PartToKodeliste4(partList[comboBoxRealkreditinstitut.SelectedIndex]), laanenummer);
-                        query = RESTGAELD_Utils.GetClassAsXMLString(f);
-                        if (!backgroundWorkerHentRestgaeld.IsBusy) { backgroundWorkerHentRestgaeld.RunWorkerAsync(); }
->>>>>>> 9032b84ebd9601e660563dc6e5b4e654211c4e44
                     }
                 default: break;
             }
