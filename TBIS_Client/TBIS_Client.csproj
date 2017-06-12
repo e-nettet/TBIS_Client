@@ -24,7 +24,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>9</ApplicationRevision>
+    <ApplicationRevision>10</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -77,6 +77,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alle_Utils.cs" />
+    <Compile Include="fpriser6.cs" />
+    <Compile Include="fsatser6.cs" />
+    <Compile Include="Priser_Utils.cs" />
+    <Compile Include="Egne_Utils.cs" />
+    <Compile Include="falle6.cs" />
+    <Compile Include="fegne6.cs" />
     <Compile Include="FOmregningstabeller6.cs" />
     <Compile Include="FormHentData.cs">
       <SubType>Form</SubType>
@@ -86,35 +93,63 @@
     </Compile>
     <Compile Include="FRESTGAELD.cs" />
     <Compile Include="Omregningstabller_Utils.cs" />
-    <Compile Include="Part.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RESTGAELD_Utils.cs" />
-    <Compile Include="RKNetUtils.cs" />
+    <Compile Include="Restgaeld_Utils.cs" />
+    <Compile Include="RKNet_Utils.cs" />
+    <Compile Include="salle6.cs" />
+    <Compile Include="Satser_Utils.cs" />
+    <Compile Include="segne6.cs" />
     <Compile Include="Service References\ServiceReferenceTBIS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="SOmregningstabeller6.cs" />
+    <Compile Include="spriser6.cs" />
     <Compile Include="SRESTGAELD.cs" />
+    <Compile Include="ssatser6.cs" />
+    <Compile Include="UserControlAlle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlAlle.Designer.cs">
+      <DependentUpon>UserControlAlle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlEgne.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlEgne.Designer.cs">
+      <DependentUpon>UserControlEgne.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControlLogon.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControlLogon.Designer.cs">
       <DependentUpon>UserControlLogon.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControlOmregningstabelInput.cs">
+    <Compile Include="UserControlOmregningstabel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControlOmregningstabelInput.Designer.cs">
-      <DependentUpon>UserControlOmregningstabelInput.cs</DependentUpon>
+    <Compile Include="UserControlOmregningstabel.Designer.cs">
+      <DependentUpon>UserControlOmregningstabel.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControlRestgaeldInput.cs">
+    <Compile Include="UserControlPriser.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControlRestgaeldInput.Designer.cs">
-      <DependentUpon>UserControlRestgaeldInput.cs</DependentUpon>
+    <Compile Include="UserControlPriser.Designer.cs">
+      <DependentUpon>UserControlPriser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlRestgaeld.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlRestgaeld.Designer.cs">
+      <DependentUpon>UserControlRestgaeld.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlSatser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlSatser.Designer.cs">
+      <DependentUpon>UserControlSatser.cs</DependentUpon>
     </Compile>
     <Compile Include="WizardTabcontrol.cs">
       <SubType>Component</SubType>
@@ -136,14 +171,26 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserControlAlle.resx">
+      <DependentUpon>UserControlAlle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlEgne.resx">
+      <DependentUpon>UserControlEgne.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlLogon.resx">
       <DependentUpon>UserControlLogon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControlOmregningstabelInput.resx">
-      <DependentUpon>UserControlOmregningstabelInput.cs</DependentUpon>
+    <EmbeddedResource Include="UserControlOmregningstabel.resx">
+      <DependentUpon>UserControlOmregningstabel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControlRestgaeldInput.resx">
-      <DependentUpon>UserControlRestgaeldInput.cs</DependentUpon>
+    <EmbeddedResource Include="UserControlPriser.resx">
+      <DependentUpon>UserControlPriser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlRestgaeld.resx">
+      <DependentUpon>UserControlRestgaeld.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlSatser.resx">
+      <DependentUpon>UserControlSatser.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="HentRestgaeld_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">

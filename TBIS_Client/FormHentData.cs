@@ -1,29 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Forms;
 using FRestgaeld6;
 using HentRestgaeld.ServiceReferenceTBIS;
-using FRestgaeld6;
 
 namespace HentRestgaeld
 {
     public enum Miljoe { Test, Produktion}
-    public enum DataType { Restgaeld, Omregningskurstabller, EgneKurser, AlleKurser, Satser, Priser }
 
     public partial class FormHentData : Form
     {
         private ValidatePartyResponse validatePartyResponse;
-
         private DataType dataType;
-        private FRestgaeld6.Kodeliste4 realkreditinstitut;
         private TransactionReponse transactionResponse;
+        private RKNet_Utils rknet_utils;
         string outputpath;
         string inputpath;
-
-        public Kodeliste4 Realkreditinstitut { get => realkreditinstitut; set => realkreditinstitut = value; }
-
+        
         public FormHentData()
         {
             InitializeComponent();
@@ -65,60 +59,19 @@ namespace HentRestgaeld
                 case 1:
                     {
                         SetMessage("OK");
-                        switch (dataType)
-                        {
-                            case DataType.Restgaeld:
-                                {
-                                    wizardTabcontrol1.SelectedIndex += 1;
-                                    break;
-                                } 
-                            case DataType.Omregningskurstabller:
-                                {
-                                    wizardTabcontrol1.SelectedIndex += 1;
-                                    break;
-                                }
-                            default:
-                                {
-                                    SetMessage("Not implemented");
-                                    break;
-                                }
-                        }
+                        wizardTabcontrol1.SelectedIndex += 1;
                         EnableButtons(true);
                         break;
                     }
                 case 2:
                     {
-                        GetData();
+                        if (!backgroundWorkerHentData.IsBusy) { backgroundWorkerHentData.RunWorkerAsync(); };
                         break;
                     }
                 default: break;
             }
         }
 
-        private void GetData()
-        {
-            switch ((DataType)comboBoxDataType.SelectedIndex)
-            {
-                case DataType.AlleKurser:
-                    if (backgroundWorkerAlleKurser.IsBusy) { backgroundWorkerAlleKurser.RunWorkerAsync(); };
-                    break;
-                case DataType.EgneKurser:
-                    if (!backgroundWorkerEgneKurser.IsBusy) { backgroundWorkerEgneKurser.RunWorkerAsync(); };
-                    break;
-                case DataType.Omregningskurstabller:
-                    if (!backgroundWorkerOmregningskurstabeller.IsBusy) { backgroundWorkerOmregningskurstabeller.RunWorkerAsync(); };
-                    break;
-                case DataType.Priser:
-                    if (!backgroundWorkerPriser.IsBusy) { backgroundWorkerPriser.RunWorkerAsync(); };
-                    break;
-                case DataType.Restgaeld:
-                    if (!backgroundWorkerHentRestgaeld.IsBusy) { backgroundWorkerHentRestgaeld.RunWorkerAsync(); };
-                    break;
-                case DataType.Satser:break;
-                default:break;
-            }
-            
-        }
         private string GetEndpointAddress()
         {
             string s;
@@ -189,19 +142,23 @@ namespace HentRestgaeld
             toolStripStatusLabel1.Text = e.UserState.ToString();
         }
 
-        private void BackgroundWorkerHentRestgaeld_DoWork(object sender, DoWorkEventArgs e)
+        private void BackgroundWorkerHentData_DoWork(object sender, DoWorkEventArgs e)
         {
-            backgroundWorkerHentRestgaeld.ReportProgress(0, "Henter restgæld");
+            backgroundWorkerHentData.ReportProgress(0, "Henter data");
             try
             {
-                inputpath = FileUtils.SaveToTempAndReturnFilepath(userControlRestgaeldInput1.GetQuery(userControlLogon1.Miljoe));
                 ServiceReferenceTBIS.MainClient client = GetMainClient();
                 transactionResponse = 
-                    client.doTransaction(userControlLogon1.PartID, userControlLogon1.Password, "F [rkn] Restgaeld 6 XML", 
-                    userControlRestgaeldInput1.GetModtagerPart(userControlLogon1.Miljoe), userControlRestgaeldInput1.GetQuery(userControlLogon1.Miljoe));
-                backgroundWorkerHentRestgaeld.ReportProgress(0, transactionResponse.backEndStatusText);
+                    client.doTransaction(
+                        userControlLogon1.PartID, 
+                        userControlLogon1.Password, 
+                        rknet_utils.GetInfoFlowName(),
+                        rknet_utils.GetModtagerpart(),
+                        rknet_utils.GetQuery())
+                    ;
+                backgroundWorkerHentData.ReportProgress(0, transactionResponse.backEndStatusText);
             }
-            catch (Exception f) { backgroundWorkerHentRestgaeld.ReportProgress(0, f.Message); }
+            catch (Exception f) { backgroundWorkerHentData.ReportProgress(0, f.Message); }
         }
 
         private void BackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -211,6 +168,7 @@ namespace HentRestgaeld
 
         private void BackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            inputpath = FileUtils.SaveToTempAndReturnFilepath(rknet_utils.GetQuery());
             linkLabelInput.Links.Clear();
             linkLabelInput.Links.Add(0, linkLabelInput.Text.Length, inputpath);
 
@@ -218,7 +176,11 @@ namespace HentRestgaeld
             linkLabelOutput.Links.Clear();
             linkLabelOutput.Links.Add(0, linkLabelOutput.Text.Length, outputpath);
 
-            if (!(transactionResponse.backEndStatusCode== 0)){ toolStripStatusLabel1.Text = "Fejl under hent data. Statuskode: " + transactionResponse.backEndStatusCode.ToString(); }
+            if (!(transactionResponse.backEndStatusCode== 0))
+            {
+                toolStripStatusLabel1.Text = 
+                    transactionResponse.backEndStatusCode.ToString() + " " + transactionResponse.backEndStatusText;
+            }
             wizardTabcontrol1.SelectedIndex += 1;
             EnableButtons(true);
         }
@@ -228,30 +190,38 @@ namespace HentRestgaeld
             Process.Start(e.Link.LinkData as string);
         }
 
-        private void backgroundWorkerOmregningskurstabeller_DoWork(object sender, DoWorkEventArgs e)
-        {
-            backgroundWorkerOmregningskurstabeller.ReportProgress(0, "Henter omregningskurstabeller");
-            try
-            {
-                string query = Omregningstabller_Utils.GetQueryString(userControlLogon1.Miljoe, userControlLogon1.PartID, userControlOmregningstabelInput1.GyldigFraDato);
-                inputpath = FileUtils.SaveToTempAndReturnFilepath(query);
-                ServiceReferenceTBIS.MainClient client = GetMainClient();
-                transactionResponse =
-                    client.doTransaction(userControlLogon1.PartID, userControlLogon1.Password, "F [rkn] Tabeller 6 XML",
-                    Omregningstabller_Utils.GetModtagerPart(userControlLogon1.Miljoe), query);
-                backgroundWorkerHentRestgaeld.ReportProgress(0, transactionResponse.backEndStatusText);
-            }
-            catch (Exception f) { backgroundWorkerHentRestgaeld.ReportProgress(0, f.Message); }
-
-
-        }
-
         private void comboBoxDataType_SelectedIndexChanged(object sender, EventArgs e)
         {
             dataType = (DataType)comboBoxDataType.SelectedIndex;
-            userControlOmregningstabelInput1.Visible = (dataType == DataType.Omregningskurstabller);
-            userControlRestgaeldInput1.Visible = (dataType == DataType.Restgaeld);
-
+            tabPageInput.Controls.Clear();
+            switch (dataType) 
+            {
+                case DataType.AllePapirer:
+                    tabPageInput.Controls.Add(new UserControlAlle(userControlLogon1.Miljoe, userControlLogon1.PartID, userControlLogon1.Jnummer));
+                    rknet_utils = ((UserControlAlle)tabPageInput.Controls[0]).Alle_utils;
+                    break;
+                case DataType.EgnePapirer: 
+                    tabPageInput.Controls.Add(new UserControlEgne(userControlLogon1.Miljoe, userControlLogon1.PartID, userControlLogon1.Jnummer));
+                    rknet_utils = ((UserControlEgne)tabPageInput.Controls[0]).egne_utils;
+                    break;
+                case DataType.Omregningskurstabller:
+                    tabPageInput.Controls.Add(new UserControlOmregningstabel(userControlLogon1.Miljoe, userControlLogon1.PartID, userControlLogon1.Jnummer));
+                    rknet_utils = ((UserControlOmregningstabel)tabPageInput.Controls[0]).Omregningstabller_Utils;
+                    break;
+                case DataType.Priser: 
+                    tabPageInput.Controls.Add(new UserControlPriser(userControlLogon1.Miljoe, userControlLogon1.PartID, userControlLogon1.Jnummer));
+                    rknet_utils = ((UserControlPriser)tabPageInput.Controls[0]).Priser_utils;
+                    break;
+                case DataType.Restgaeld:
+                    tabPageInput.Controls.Add(new UserControlRestgaeld(userControlLogon1.Miljoe, userControlLogon1.PartID, userControlLogon1.Jnummer));
+                    rknet_utils = ((UserControlRestgaeld)tabPageInput.Controls[0]).restgaeld_utils;
+                    break;
+                case DataType.Satser:
+                    tabPageInput.Controls.Add(new UserControlSatser(userControlLogon1.Miljoe, userControlLogon1.PartID, userControlLogon1.Jnummer));
+                    rknet_utils = ((UserControlSatser)tabPageInput.Controls[0]).Satser_utils;
+                    break; 
+                default: break;
+            }
         }
     }
 }

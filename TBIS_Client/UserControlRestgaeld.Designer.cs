@@ -1,6 +1,6 @@
 ﻿namespace HentRestgaeld
 {
-    partial class UserControlRestgaeldInput
+    partial class UserControlRestgaeld
     {
         /// <summary> 
         /// Required designer variable.

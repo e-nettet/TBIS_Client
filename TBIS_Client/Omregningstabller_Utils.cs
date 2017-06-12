@@ -6,16 +6,21 @@ using System.Threading.Tasks;
 
 namespace HentRestgaeld
 {
-    public static class Omregningstabller_Utils
+    public class Omregningstabller_Utils:RKNet_Utils
     {
-        public static string GetQueryString(Miljoe miljoe, string afsenderpartid, DateTime gyldigFraDato)
+        private DateTime gyldigFraDato;
+
+        public DateTime GyldigFraDato { get => gyldigFraDato; set => gyldigFraDato = value; }
+
+        public Omregningstabller_Utils(Miljoe miljoe, string afsender_partid, string jnummer)
         {
-            FOmregningstabeller6.FOmregningstabeller6 f = GetFOmregningstabeller6(miljoe, afsenderpartid, gyldigFraDato);
-            string s = RKNetUtils.GetClassAsXMLString(f);
-            return (s);
+            this.Miljoe = miljoe;
+            this.Afsender_partid = afsender_partid;
+            this.Jnummer = jnummer;
+            this.Datatype = DataType.Omregningskurstabller;
         }
 
-        public static FOmregningstabeller6.FOmregningstabeller6 GetFOmregningstabeller6(Miljoe miljoe, string afsenderpartid, DateTime gyldigFraDato)
+        public FOmregningstabeller6.FOmregningstabeller6 GetFOmregningstabeller6()
         {
             FOmregningstabeller6.FOmregningstabeller6 fOmregningstabeller6 = new FOmregningstabeller6.FOmregningstabeller6();
             fOmregningstabeller6.DOCINF = new FOmregningstabeller6.DOCINF()
@@ -27,20 +32,20 @@ namespace HentRestgaeld
                 Sender_version = "060",
                 Modtager_version = "060",
                 Onsket_version = "060",
-                Informationsstromsnavn = "F [rkn] Tabeller 6 XML",
+                Informationsstromsnavn = GetInfoFlowName(),
                 Meddelelsens_nummer = "123456", // Tilsyneladende uden betydning
                 Meddelelsens_funktion = FOmregningstabeller6.Kodeliste5.Item53,
-                Dato = RKNetUtils.GetDateAs_YYYYMMDD(),
-                Afsender_partid = afsenderpartid,
+                Dato = GetDateAs_YYYYMMDD(),
+                Afsender_partid = Afsender_partid,
                 IDkode = "",
                 VirksomhedsID = "",
                 Afdelingsid = "",
                 Personid = "",
-                Modtager_partid = GetModtagerPart(miljoe),
+                Modtager_partid = GetModtagerpart()
             };
             fOmregningstabeller6.GYLDAT = new FOmregningstabeller6.GYLDAT()
             {
-                Gyldig_fra_dato = RKNetUtils.GetDateAs_YYYYMMDD(gyldigFraDato)
+                Gyldig_fra_dato = GetDateAs_YYYYMMDD(gyldigFraDato)
             };
             fOmregningstabeller6.TABEL = new FOmregningstabeller6.TABEL[1];
             fOmregningstabeller6.TABEL[0] = new FOmregningstabeller6.TABEL()
@@ -52,22 +57,16 @@ namespace HentRestgaeld
             return (fOmregningstabeller6);
         }
 
-        public static string GetModtagerPart(Miljoe miljoe)
+        public override string GetQuery()
         {
-            string s;
-            switch (miljoe)
-            {
-                case (Miljoe.Produktion):
-                    s = "5790000611072:14";
-                    break;
-                case (Miljoe.Test):
-                    s = "5790000611072:14";
-                    break;
-                default:
-                    s = "";
-                    break;
-            }
+            FOmregningstabeller6.FOmregningstabeller6 f = GetFOmregningstabeller6();
+            string s = GetClassAsXMLString(f);
             return (s);
+        }
+
+        public override string GetModtagerpart()
+        {
+            return (GetDSPartid());
         }
     }
 }

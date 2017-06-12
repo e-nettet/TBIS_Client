@@ -23,7 +23,9 @@ namespace FPriser6 {
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.realkreditnettet.dk/FPriser6")]
     [System.Xml.Serialization.XmlRootAttribute(Namespace="http://www.realkreditnettet.dk/FPriser6", IsNullable=false)]
     public partial class FPriser6 {
-        
+        [XmlAttribute(AttributeName = "schemaLocation", Namespace = "http://www.w3.org/2001/XMLSchema-instance")]
+        public string schemaLocation = "http://www.realkreditnettet.dk/FPriser6 FPriser6.xsd";
+
         private DOCINF dOCINFField;
         
         private INSTIT[] iNSTITField;

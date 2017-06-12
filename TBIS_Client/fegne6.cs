@@ -23,7 +23,9 @@ namespace FEgne6 {
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://www.realkreditnettet.dk/FEgne6")]
     [System.Xml.Serialization.XmlRootAttribute(Namespace="http://www.realkreditnettet.dk/FEgne6", IsNullable=false)]
     public partial class FEgne6 {
-        
+        [XmlAttribute(AttributeName = "schemaLocation", Namespace = "http://www.w3.org/2001/XMLSchema-instance")]
+        public string schemaLocation = "http://www.realkreditnettet.dk/FEgne6 FEgne6.xsd";
+
         private DOCINF dOCINFField;
         
         private INSTIT iNSTITField;
