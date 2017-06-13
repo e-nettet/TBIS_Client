@@ -32,22 +32,18 @@ namespace HentRestgaeld
 
                 DOCINF = new FPriser6.DOCINF()
                 {
-                    Sender_version = "061",
+                    Sender_version = "060",
                     Meddelelsens_nummer = "123456", // Tilsyneladende uden betydning
-                    //Meddelelsens_funktion = FPriser6.k.Item9,
                     Dato = GetDateAs_YYYYMMDD(dato),
                     Afsender_partid = Afsender_partid,
                     IDkode = Jnummer,
                     Modtager_partid = GetModtagerPart(Miljoe),
                     Informationsstromsnavn = GetInfoFlowName(),
-                    //Meddelelsens_navn = FPriser6. Meddelelsens_navn.Z01,
                     Meddelelsens_navnSpecified = true,
-                    //Meddelelsens_type = FPriser6. Meddelelsens_type.REQDOC,
                     Meddelelsens_typeSpecified = true,
                     Modtager_version = "060",
                     Onsket_version = "060",
                 }
-
             };
             f.INSTIT = new FPriser6.INSTIT[1];
             f.INSTIT[0] = new INSTIT()

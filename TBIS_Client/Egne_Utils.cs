@@ -42,8 +42,8 @@ namespace HentRestgaeld
                     Meddelelsens_navnSpecified = true,
                     Meddelelsens_type = FEgne6.Meddelelsens_type.REQDOC,
                     Meddelelsens_typeSpecified = true,
-                    Modtager_version = "060",
-                    Onsket_version = "060",
+                    Modtager_version = "061",
+                    Onsket_version = "061",
                 },
                 INSTIT = new FEgne6.INSTIT()
                 {
