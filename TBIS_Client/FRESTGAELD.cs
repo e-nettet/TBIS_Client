@@ -553,7 +553,9 @@ namespace FRestgaeld6 {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://e-nettet.dk/xml/schemas/2007/07/01/")]
     [System.Xml.Serialization.XmlRootAttribute("FRestgaeld6", Namespace="http://e-nettet.dk/xml/schemas/2007/07/01/", IsNullable=false)]
     public partial class FRestgaeld6_Type {
-        
+        [XmlAttribute(AttributeName = "schemaLocation", Namespace = "http://www.w3.org/2001/XMLSchema-instance")]
+        public string schemaLocation = "http://www.realkreditnettet.dk/FRestgaeld6 FRestgaeld6.xsd";
+
         private DOCINF_Type dOCINFField;
         
         private INSTIT_Type iNSTITField;
