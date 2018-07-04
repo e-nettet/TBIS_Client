@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Forms;
-using FRestgaeld6;
 using HentRestgaeld.ServiceReferenceTBIS;
 
 namespace HentRestgaeld
@@ -15,8 +14,8 @@ namespace HentRestgaeld
         private DataType dataType;
         private TransactionReponse transactionResponse;
         private RKNet_Utils rknet_utils;
-        string outputpath;
-        string inputpath;
+        private string outputpath;
+        private string inputpath;
         
         public FormHentData()
         {
@@ -58,6 +57,7 @@ namespace HentRestgaeld
                     }
                 case 1:
                     {
+                        InsertUserControlOnTabPageInput();
                         SetMessage("OK");
                         wizardTabcontrol1.SelectedIndex += 1;
                         EnableButtons(true);
@@ -98,13 +98,6 @@ namespace HentRestgaeld
             return (client);
         }
 
-        private ValidatePartyResponse GetValidatePartyResponse()
-        {
-            ServiceReferenceTBIS.MainClient client = GetMainClient();
-            ValidatePartyResponse response = client.validateParty(userControlLogon1.PartID, userControlLogon1.Password);
-            return (response);
-        }
-
         private void ButtonTilbage_Click(object sender, EventArgs e)
         {
             wizardTabcontrol1.SelectedIndex -= 1;
@@ -116,7 +109,9 @@ namespace HentRestgaeld
             backgroundWorkerValidateParty.ReportProgress(0, "Validerer partid og password");
             try
             {
-                validatePartyResponse = GetValidatePartyResponse();
+                ServiceReferenceTBIS.MainClient client = GetMainClient();
+                validatePartyResponse = client.validateParty(userControlLogon1.PartID, userControlLogon1.Password);
+                // XMLUtils.WriteXML(validatePartyResponse, "validePartyResponse.xml");
                 backgroundWorkerValidateParty.ReportProgress(0, validatePartyResponse.backEndStatusText);
             }
             catch (Exception f) { backgroundWorkerValidateParty.ReportProgress(0, f.Message); }
@@ -190,34 +185,34 @@ namespace HentRestgaeld
             Process.Start(e.Link.LinkData as string);
         }
 
-        private void comboBoxDataType_SelectedIndexChanged(object sender, EventArgs e)
+        private void InsertUserControlOnTabPageInput()
         {
             dataType = (DataType)comboBoxDataType.SelectedIndex;
             tabPageInput.Controls.Clear();
             switch (dataType) 
             {
                 case DataType.AllePapirer:
-                    tabPageInput.Controls.Add(new UserControlAlle(userControlLogon1.Miljoe, userControlLogon1.PartID, userControlLogon1.Jnummer));
+                    tabPageInput.Controls.Add(new UserControlAlle(userControlLogon1.Miljoe, userControlLogon1.PartID, validatePartyResponse.rknetid));
                     rknet_utils = ((UserControlAlle)tabPageInput.Controls[0]).Alle_utils;
                     break;
                 case DataType.EgnePapirer: 
-                    tabPageInput.Controls.Add(new UserControlEgne(userControlLogon1.Miljoe, userControlLogon1.PartID, userControlLogon1.Jnummer));
+                    tabPageInput.Controls.Add(new UserControlEgne(userControlLogon1.Miljoe, userControlLogon1.PartID, validatePartyResponse.rknetid));
                     rknet_utils = ((UserControlEgne)tabPageInput.Controls[0]).egne_utils;
                     break;
                 case DataType.Omregningskurstabller:
-                    tabPageInput.Controls.Add(new UserControlOmregningstabel(userControlLogon1.Miljoe, userControlLogon1.PartID, userControlLogon1.Jnummer));
+                    tabPageInput.Controls.Add(new UserControlOmregningstabel(userControlLogon1.Miljoe, userControlLogon1.PartID, validatePartyResponse.rknetid));
                     rknet_utils = ((UserControlOmregningstabel)tabPageInput.Controls[0]).Omregningstabller_Utils;
                     break;
                 case DataType.Priser: 
-                    tabPageInput.Controls.Add(new UserControlPriser(userControlLogon1.Miljoe, userControlLogon1.PartID, userControlLogon1.Jnummer));
+                    tabPageInput.Controls.Add(new UserControlPriser(userControlLogon1.Miljoe, userControlLogon1.PartID, validatePartyResponse.rknetid));
                     rknet_utils = ((UserControlPriser)tabPageInput.Controls[0]).Priser_utils;
                     break;
                 case DataType.Restgaeld:
-                    tabPageInput.Controls.Add(new UserControlRestgaeld(userControlLogon1.Miljoe, userControlLogon1.PartID, userControlLogon1.Jnummer));
+                    tabPageInput.Controls.Add(new UserControlRestgaeld(userControlLogon1.Miljoe, userControlLogon1.PartID, validatePartyResponse.rknetid));
                     rknet_utils = ((UserControlRestgaeld)tabPageInput.Controls[0]).restgaeld_utils;
                     break;
                 case DataType.Satser:
-                    tabPageInput.Controls.Add(new UserControlSatser(userControlLogon1.Miljoe, userControlLogon1.PartID, userControlLogon1.Jnummer));
+                    tabPageInput.Controls.Add(new UserControlSatser(userControlLogon1.Miljoe, userControlLogon1.PartID, validatePartyResponse.rknetid));
                     rknet_utils = ((UserControlSatser)tabPageInput.Controls[0]).Satser_utils;
                     break; 
                 default: break;

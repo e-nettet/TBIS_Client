@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System.Text;
+using System.IO;
+
 
 namespace HentRestgaeld
 {
@@ -11,6 +13,5 @@ namespace HentRestgaeld
             File.WriteAllText(path, s);
             return (path);
         }
-
     }
 }
