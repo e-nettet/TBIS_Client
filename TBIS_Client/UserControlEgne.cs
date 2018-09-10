@@ -12,6 +12,7 @@ namespace HentRestgaeld
         {
             egne_utils = new Egne_Utils(miljoe, afsender_partid, jnummer);
             InitializeComponent();
+            Dock = DockStyle.Fill;
             comboBox1.DataSource = Enum.GetValues(typeof(FEgne6.Kodeliste4));
         }
 

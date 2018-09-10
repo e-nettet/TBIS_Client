@@ -13,11 +13,11 @@ namespace HentRestgaeld
         public UserControlLogon()
         {
             InitializeComponent();
+            Dock = DockStyle.Fill;
             comboBoxMiljoe.DataSource = Enum.GetValues(typeof(Miljoe));
         }
 
         public string PartID { get => partID; set => partID = value; }
-        public string ActAs { get => actAs; set => actAs= value; }
         public string Password { get => password; set => password = value; }
         public Miljoe Miljoe { get => miljoe; set => miljoe = value; }
 
@@ -36,9 +36,17 @@ namespace HentRestgaeld
             Password = textBoxPassword.Text;
         }
 
-        private void TextBox1_TextChanged(object sender, EventArgs e)
+        private string TextToPartyID(string text)
         {
-            actAs = textBoxActAs.Text;
+            string s = text;
+            s = s.Replace(":14", "");
+            s = ("5790000000000").Substring(0, 13- s.Length) + s + ":14";
+            return (s);
+        }
+
+        private void textBoxPartID_Leave(object sender, EventArgs e)
+        {
+            textBoxPartID.Text = TextToPartyID(textBoxPartID.Text);
         }
     }
 }

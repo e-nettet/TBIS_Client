@@ -18,6 +18,7 @@ namespace HentRestgaeld
         {
             satser_utils = new Satser_Utils(miljoe, afsender_partid, jnummer);
             InitializeComponent();
+            Dock = DockStyle.Fill;
             comboBoxForretningsomraade.DataSource = Enum.GetValues(typeof(FSatser6.Kodeliste12));
             comboBoxInstitut.DataSource = Enum.GetValues(typeof(FSatser6.Kodeliste4));
 

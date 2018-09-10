@@ -17,6 +17,7 @@ namespace HentRestgaeld
         public UserControlOmregningstabel(Miljoe miljoe, string afsender_partid, string jnummer)
         {
             InitializeComponent();
+            Dock = DockStyle.Fill;
             omregningstabller_Utils = new Omregningstabller_Utils(miljoe, afsender_partid, jnummer);
         }
 

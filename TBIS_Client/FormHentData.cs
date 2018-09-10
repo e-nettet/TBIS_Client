@@ -52,6 +52,7 @@ namespace HentRestgaeld
             {
                 case 0:
                     {
+
                         if (!backgroundWorkerValidateParty.IsBusy) { backgroundWorkerValidateParty.RunWorkerAsync(); }
                         break;
                     }
@@ -189,6 +190,7 @@ namespace HentRestgaeld
         {
             dataType = (DataType)comboBoxDataType.SelectedIndex;
             tabPageInput.Controls.Clear();
+
             switch (dataType) 
             {
                 case DataType.AllePapirer:

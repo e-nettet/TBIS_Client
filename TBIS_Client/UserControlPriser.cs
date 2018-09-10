@@ -18,6 +18,7 @@ namespace HentRestgaeld
         {
             priser_utils = new Priser_Utils(miljoe, afsender_partid, jnummer);
             InitializeComponent();
+            Dock = DockStyle.Fill;
             comboBoxForretningsområde.DataSource = Enum.GetValues(typeof(FPriser6.Kodeliste12));
             comboBoxInstitut.DataSource = Enum.GetValues(typeof(FPriser6.Kodeliste4));
         }

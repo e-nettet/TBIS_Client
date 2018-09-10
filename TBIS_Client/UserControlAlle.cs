@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HentRestgaeld
@@ -18,6 +11,7 @@ namespace HentRestgaeld
         {
             Alle_utils = new Alle_Utils(miljoe, afsender_partid, jnummer);
             InitializeComponent();
+            Dock = DockStyle.Fill;
         }
 
         public Alle_Utils Alle_utils { get => alle_utils; set => alle_utils = value; }
