@@ -11,80 +11,142 @@
 namespace HentRestgaeld.ServiceReferenceTBIS {
     
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://main.realkreditnettet.dk", ConfigurationName="ServiceReferenceTBIS.Main")]
-    public interface Main {
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://main.realkreditnettet.dk")]
+    public partial class error : object, System.ComponentModel.INotifyPropertyChanged {
         
-        // CODEGEN: Parameter 'doTransactionReturn' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="doTransaction", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Response))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="doTransactionReturn")]
-        HentRestgaeld.ServiceReferenceTBIS.doTransactionResponse doTransaction(HentRestgaeld.ServiceReferenceTBIS.doTransactionRequest request);
+        private errorLocations errorLocationsField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="doTransaction", ReplyAction="*")]
-        System.Threading.Tasks.Task<HentRestgaeld.ServiceReferenceTBIS.doTransactionResponse> doTransactionAsync(HentRestgaeld.ServiceReferenceTBIS.doTransactionRequest request);
+        private object errordetailsField;
         
-        // CODEGEN: Parameter 'getStatusTextReturn' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="getStatusText", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Response))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="getStatusTextReturn")]
-        HentRestgaeld.ServiceReferenceTBIS.getStatusTextResponse getStatusText(HentRestgaeld.ServiceReferenceTBIS.getStatusTextRequest request);
+        private string logcorrelationField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="getStatusText", ReplyAction="*")]
-        System.Threading.Tasks.Task<HentRestgaeld.ServiceReferenceTBIS.getStatusTextResponse> getStatusTextAsync(HentRestgaeld.ServiceReferenceTBIS.getStatusTextRequest request);
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public errorLocations errorLocations {
+            get {
+                return this.errorLocationsField;
+            }
+            set {
+                this.errorLocationsField = value;
+                this.RaisePropertyChanged("errorLocations");
+            }
+        }
         
-        // CODEGEN: Parameter 'changePasswordReturn' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="changePassword", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Response))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="changePasswordReturn")]
-        HentRestgaeld.ServiceReferenceTBIS.changePasswordResponse1 changePassword(HentRestgaeld.ServiceReferenceTBIS.changePasswordRequest request);
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public object errordetails {
+            get {
+                return this.errordetailsField;
+            }
+            set {
+                this.errordetailsField = value;
+                this.RaisePropertyChanged("errordetails");
+            }
+        }
         
-        [System.ServiceModel.OperationContractAttribute(Action="changePassword", ReplyAction="*")]
-        System.Threading.Tasks.Task<HentRestgaeld.ServiceReferenceTBIS.changePasswordResponse1> changePasswordAsync(HentRestgaeld.ServiceReferenceTBIS.changePasswordRequest request);
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string logcorrelation {
+            get {
+                return this.logcorrelationField;
+            }
+            set {
+                this.logcorrelationField = value;
+                this.RaisePropertyChanged("logcorrelation");
+            }
+        }
         
-        // CODEGEN: Parameter 'getLogMessageReturn' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="getLogMessage", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Response))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="getLogMessageReturn")]
-        HentRestgaeld.ServiceReferenceTBIS.getLogMessageResponse getLogMessage(HentRestgaeld.ServiceReferenceTBIS.getLogMessageRequest request);
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
-        [System.ServiceModel.OperationContractAttribute(Action="getLogMessage", ReplyAction="*")]
-        System.Threading.Tasks.Task<HentRestgaeld.ServiceReferenceTBIS.getLogMessageResponse> getLogMessageAsync(HentRestgaeld.ServiceReferenceTBIS.getLogMessageRequest request);
-        
-        // CODEGEN: Parameter 'validatePartyReturn' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="validateParty", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Response))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="validatePartyReturn")]
-        HentRestgaeld.ServiceReferenceTBIS.validatePartyResponse1 validateParty(HentRestgaeld.ServiceReferenceTBIS.validatePartyRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="validateParty", ReplyAction="*")]
-        System.Threading.Tasks.Task<HentRestgaeld.ServiceReferenceTBIS.validatePartyResponse1> validatePartyAsync(HentRestgaeld.ServiceReferenceTBIS.validatePartyRequest request);
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://model.realkreditnettet.dk")]
+    public enum errorLocations {
+        
+        /// <remarks/>
+        Body,
+        
+        /// <remarks/>
+        Header,
+        
+        /// <remarks/>
+        Unknown,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://model.realkreditnettet.dk")]
-    public partial class TransactionReponse : Response {
+    public partial class CVRNummerIdentifikatorType : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private string resultStringField;
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://model.realkreditnettet.dk")]
+    public partial class SimpleValidatePartyResponse : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private bool validField;
+        
+        private CVRNummerIdentifikatorType cvrField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=0)]
-        public string resultString {
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public bool valid {
             get {
-                return this.resultStringField;
+                return this.validField;
             }
             set {
-                this.resultStringField = value;
-                this.RaisePropertyChanged("resultString");
+                this.validField = value;
+                this.RaisePropertyChanged("valid");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public CVRNummerIdentifikatorType cvr {
+            get {
+                return this.cvrField;
+            }
+            set {
+                this.cvrField = value;
+                this.RaisePropertyChanged("cvr");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
     }
@@ -94,8 +156,9 @@ namespace HentRestgaeld.ServiceReferenceTBIS {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LogMessageResponse))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChangePasswordResponse))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(StatusTextResponse))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransactionBinaryResponse))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransactionReponse))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -169,7 +232,7 @@ namespace HentRestgaeld.ServiceReferenceTBIS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -221,7 +284,7 @@ namespace HentRestgaeld.ServiceReferenceTBIS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -244,7 +307,7 @@ namespace HentRestgaeld.ServiceReferenceTBIS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -253,7 +316,7 @@ namespace HentRestgaeld.ServiceReferenceTBIS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -287,6 +350,128 @@ namespace HentRestgaeld.ServiceReferenceTBIS {
                 this.RaisePropertyChanged("code");
             }
         }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://model.realkreditnettet.dk")]
+    public partial class TransactionBinaryResponse : Response {
+        
+        private byte[] resultBinaryField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, DataType="base64Binary", IsNullable=true, Order=0)]
+        public byte[] resultBinary {
+            get {
+                return this.resultBinaryField;
+            }
+            set {
+                this.resultBinaryField = value;
+                this.RaisePropertyChanged("resultBinary");
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://model.realkreditnettet.dk")]
+    public partial class TransactionReponse : Response {
+        
+        private string resultStringField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=0)]
+        public string resultString {
+            get {
+                return this.resultStringField;
+            }
+            set {
+                this.resultStringField = value;
+                this.RaisePropertyChanged("resultString");
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://main.realkreditnettet.dk", ConfigurationName="ServiceReferenceTBIS.Main")]
+    public interface Main {
+        
+        // CODEGEN: Parameter 'doTransactionReturn' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="doTransaction", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Response))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="doTransactionReturn")]
+        HentRestgaeld.ServiceReferenceTBIS.doTransactionResponse doTransaction(HentRestgaeld.ServiceReferenceTBIS.doTransactionRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="doTransaction", ReplyAction="*")]
+        System.Threading.Tasks.Task<HentRestgaeld.ServiceReferenceTBIS.doTransactionResponse> doTransactionAsync(HentRestgaeld.ServiceReferenceTBIS.doTransactionRequest request);
+        
+        // CODEGEN: Parameter 'doTransactionBinaryReturn' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="doTransactionBinary", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Response))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="doTransactionBinaryReturn")]
+        HentRestgaeld.ServiceReferenceTBIS.doTransactionBinaryResponse doTransactionBinary(HentRestgaeld.ServiceReferenceTBIS.doTransactionBinaryRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="doTransactionBinary", ReplyAction="*")]
+        System.Threading.Tasks.Task<HentRestgaeld.ServiceReferenceTBIS.doTransactionBinaryResponse> doTransactionBinaryAsync(HentRestgaeld.ServiceReferenceTBIS.doTransactionBinaryRequest request);
+        
+        // CODEGEN: Parameter 'getStatusTextReturn' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="getStatusText", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Response))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="getStatusTextReturn")]
+        HentRestgaeld.ServiceReferenceTBIS.getStatusTextResponse getStatusText(HentRestgaeld.ServiceReferenceTBIS.getStatusTextRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="getStatusText", ReplyAction="*")]
+        System.Threading.Tasks.Task<HentRestgaeld.ServiceReferenceTBIS.getStatusTextResponse> getStatusTextAsync(HentRestgaeld.ServiceReferenceTBIS.getStatusTextRequest request);
+        
+        // CODEGEN: Parameter 'changePasswordReturn' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="changePassword", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Response))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="changePasswordReturn")]
+        HentRestgaeld.ServiceReferenceTBIS.changePasswordResponse1 changePassword(HentRestgaeld.ServiceReferenceTBIS.changePasswordRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="changePassword", ReplyAction="*")]
+        System.Threading.Tasks.Task<HentRestgaeld.ServiceReferenceTBIS.changePasswordResponse1> changePasswordAsync(HentRestgaeld.ServiceReferenceTBIS.changePasswordRequest request);
+        
+        // CODEGEN: Parameter 'getLogMessageReturn' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="getLogMessage", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Response))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="getLogMessageReturn")]
+        HentRestgaeld.ServiceReferenceTBIS.getLogMessageResponse getLogMessage(HentRestgaeld.ServiceReferenceTBIS.getLogMessageRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="getLogMessage", ReplyAction="*")]
+        System.Threading.Tasks.Task<HentRestgaeld.ServiceReferenceTBIS.getLogMessageResponse> getLogMessageAsync(HentRestgaeld.ServiceReferenceTBIS.getLogMessageRequest request);
+        
+        // CODEGEN: Parameter 'validatePartyReturn' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="validateParty", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Response))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="validatePartyReturn")]
+        HentRestgaeld.ServiceReferenceTBIS.validatePartyResponse1 validateParty(HentRestgaeld.ServiceReferenceTBIS.validatePartyRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="validateParty", ReplyAction="*")]
+        System.Threading.Tasks.Task<HentRestgaeld.ServiceReferenceTBIS.validatePartyResponse1> validatePartyAsync(HentRestgaeld.ServiceReferenceTBIS.validatePartyRequest request);
+        
+        // CODEGEN: Parameter 'simpleValidatePartyReturn' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="simpleValidateParty", ReplyAction="*")]
+        [System.ServiceModel.FaultContractAttribute(typeof(HentRestgaeld.ServiceReferenceTBIS.error), Action="simpleValidateParty", Name="error")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Response))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="simpleValidatePartyReturn")]
+        HentRestgaeld.ServiceReferenceTBIS.simpleValidatePartyResponse1 simpleValidateParty(HentRestgaeld.ServiceReferenceTBIS.simpleValidatePartyRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="simpleValidateParty", ReplyAction="*")]
+        System.Threading.Tasks.Task<HentRestgaeld.ServiceReferenceTBIS.simpleValidatePartyResponse1> simpleValidatePartyAsync(HentRestgaeld.ServiceReferenceTBIS.simpleValidatePartyRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -342,6 +527,62 @@ namespace HentRestgaeld.ServiceReferenceTBIS {
         
         public doTransactionResponse(HentRestgaeld.ServiceReferenceTBIS.TransactionReponse doTransactionReturn) {
             this.doTransactionReturn = doTransactionReturn;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="doTransactionBinary", WrapperNamespace="http://main.realkreditnettet.dk", IsWrapped=true)]
+    public partial class doTransactionBinaryRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://main.realkreditnettet.dk", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
+        public string partyid;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://main.realkreditnettet.dk", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
+        public string password;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://main.realkreditnettet.dk", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
+        public string flowname;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://main.realkreditnettet.dk", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
+        public string serverid;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://main.realkreditnettet.dk", Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, DataType="base64Binary", IsNullable=true)]
+        public byte[] query;
+        
+        public doTransactionBinaryRequest() {
+        }
+        
+        public doTransactionBinaryRequest(string partyid, string password, string flowname, string serverid, byte[] query) {
+            this.partyid = partyid;
+            this.password = password;
+            this.flowname = flowname;
+            this.serverid = serverid;
+            this.query = query;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="doTransactionBinaryResponse", WrapperNamespace="http://main.realkreditnettet.dk", IsWrapped=true)]
+    public partial class doTransactionBinaryResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://main.realkreditnettet.dk", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
+        public HentRestgaeld.ServiceReferenceTBIS.TransactionBinaryResponse doTransactionBinaryReturn;
+        
+        public doTransactionBinaryResponse() {
+        }
+        
+        public doTransactionBinaryResponse(HentRestgaeld.ServiceReferenceTBIS.TransactionBinaryResponse doTransactionBinaryReturn) {
+            this.doTransactionBinaryReturn = doTransactionBinaryReturn;
         }
     }
     
@@ -519,6 +760,47 @@ namespace HentRestgaeld.ServiceReferenceTBIS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="simpleValidateParty", WrapperNamespace="http://main.realkreditnettet.dk", IsWrapped=true)]
+    public partial class simpleValidatePartyRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://main.realkreditnettet.dk", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string partyid;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://main.realkreditnettet.dk", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string password;
+        
+        public simpleValidatePartyRequest() {
+        }
+        
+        public simpleValidatePartyRequest(string partyid, string password) {
+            this.partyid = partyid;
+            this.password = password;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="simpleValidatePartyResponse", WrapperNamespace="http://main.realkreditnettet.dk", IsWrapped=true)]
+    public partial class simpleValidatePartyResponse1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://main.realkreditnettet.dk", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public HentRestgaeld.ServiceReferenceTBIS.SimpleValidatePartyResponse simpleValidatePartyReturn;
+        
+        public simpleValidatePartyResponse1() {
+        }
+        
+        public simpleValidatePartyResponse1(HentRestgaeld.ServiceReferenceTBIS.SimpleValidatePartyResponse simpleValidatePartyReturn) {
+            this.simpleValidatePartyReturn = simpleValidatePartyReturn;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface MainChannel : HentRestgaeld.ServiceReferenceTBIS.Main, System.ServiceModel.IClientChannel {
     }
@@ -575,6 +857,37 @@ namespace HentRestgaeld.ServiceReferenceTBIS {
             inValue.serverid = serverid;
             inValue.query = query;
             return ((HentRestgaeld.ServiceReferenceTBIS.Main)(this)).doTransactionAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        HentRestgaeld.ServiceReferenceTBIS.doTransactionBinaryResponse HentRestgaeld.ServiceReferenceTBIS.Main.doTransactionBinary(HentRestgaeld.ServiceReferenceTBIS.doTransactionBinaryRequest request) {
+            return base.Channel.doTransactionBinary(request);
+        }
+        
+        public HentRestgaeld.ServiceReferenceTBIS.TransactionBinaryResponse doTransactionBinary(string partyid, string password, string flowname, string serverid, byte[] query) {
+            HentRestgaeld.ServiceReferenceTBIS.doTransactionBinaryRequest inValue = new HentRestgaeld.ServiceReferenceTBIS.doTransactionBinaryRequest();
+            inValue.partyid = partyid;
+            inValue.password = password;
+            inValue.flowname = flowname;
+            inValue.serverid = serverid;
+            inValue.query = query;
+            HentRestgaeld.ServiceReferenceTBIS.doTransactionBinaryResponse retVal = ((HentRestgaeld.ServiceReferenceTBIS.Main)(this)).doTransactionBinary(inValue);
+            return retVal.doTransactionBinaryReturn;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<HentRestgaeld.ServiceReferenceTBIS.doTransactionBinaryResponse> HentRestgaeld.ServiceReferenceTBIS.Main.doTransactionBinaryAsync(HentRestgaeld.ServiceReferenceTBIS.doTransactionBinaryRequest request) {
+            return base.Channel.doTransactionBinaryAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<HentRestgaeld.ServiceReferenceTBIS.doTransactionBinaryResponse> doTransactionBinaryAsync(string partyid, string password, string flowname, string serverid, byte[] query) {
+            HentRestgaeld.ServiceReferenceTBIS.doTransactionBinaryRequest inValue = new HentRestgaeld.ServiceReferenceTBIS.doTransactionBinaryRequest();
+            inValue.partyid = partyid;
+            inValue.password = password;
+            inValue.flowname = flowname;
+            inValue.serverid = serverid;
+            inValue.query = query;
+            return ((HentRestgaeld.ServiceReferenceTBIS.Main)(this)).doTransactionBinaryAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -679,6 +992,31 @@ namespace HentRestgaeld.ServiceReferenceTBIS {
             inValue.partyid = partyid;
             inValue.password = password;
             return ((HentRestgaeld.ServiceReferenceTBIS.Main)(this)).validatePartyAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        HentRestgaeld.ServiceReferenceTBIS.simpleValidatePartyResponse1 HentRestgaeld.ServiceReferenceTBIS.Main.simpleValidateParty(HentRestgaeld.ServiceReferenceTBIS.simpleValidatePartyRequest request) {
+            return base.Channel.simpleValidateParty(request);
+        }
+        
+        public HentRestgaeld.ServiceReferenceTBIS.SimpleValidatePartyResponse simpleValidateParty(string partyid, string password) {
+            HentRestgaeld.ServiceReferenceTBIS.simpleValidatePartyRequest inValue = new HentRestgaeld.ServiceReferenceTBIS.simpleValidatePartyRequest();
+            inValue.partyid = partyid;
+            inValue.password = password;
+            HentRestgaeld.ServiceReferenceTBIS.simpleValidatePartyResponse1 retVal = ((HentRestgaeld.ServiceReferenceTBIS.Main)(this)).simpleValidateParty(inValue);
+            return retVal.simpleValidatePartyReturn;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<HentRestgaeld.ServiceReferenceTBIS.simpleValidatePartyResponse1> HentRestgaeld.ServiceReferenceTBIS.Main.simpleValidatePartyAsync(HentRestgaeld.ServiceReferenceTBIS.simpleValidatePartyRequest request) {
+            return base.Channel.simpleValidatePartyAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<HentRestgaeld.ServiceReferenceTBIS.simpleValidatePartyResponse1> simpleValidatePartyAsync(string partyid, string password) {
+            HentRestgaeld.ServiceReferenceTBIS.simpleValidatePartyRequest inValue = new HentRestgaeld.ServiceReferenceTBIS.simpleValidatePartyRequest();
+            inValue.partyid = partyid;
+            inValue.password = password;
+            return ((HentRestgaeld.ServiceReferenceTBIS.Main)(this)).simpleValidatePartyAsync(inValue);
         }
     }
 }

@@ -24,7 +24,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>10</ApplicationRevision>
+    <ApplicationRevision>11</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -209,6 +209,9 @@
     <None Include="Service References\ServiceReferenceTBIS\HentRestgaeld.ServiceReferenceTBIS.changePasswordResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\ServiceReferenceTBIS\HentRestgaeld.ServiceReferenceTBIS.doTransactionBinaryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ServiceReferenceTBIS\HentRestgaeld.ServiceReferenceTBIS.doTransactionResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -221,7 +224,16 @@
     <None Include="Service References\ServiceReferenceTBIS\HentRestgaeld.ServiceReferenceTBIS.LogMessageResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\ServiceReferenceTBIS\HentRestgaeld.ServiceReferenceTBIS.SimpleValidatePartyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceTBIS\HentRestgaeld.ServiceReferenceTBIS.simpleValidatePartyResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ServiceReferenceTBIS\HentRestgaeld.ServiceReferenceTBIS.StatusTextResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceTBIS\HentRestgaeld.ServiceReferenceTBIS.TransactionBinaryResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServiceReferenceTBIS\HentRestgaeld.ServiceReferenceTBIS.TransactionReponse.datasource">

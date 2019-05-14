@@ -52,14 +52,13 @@ namespace HentRestgaeld
             {
                 case 0:
                     {
-
                         if (!backgroundWorkerValidateParty.IsBusy) { backgroundWorkerValidateParty.RunWorkerAsync(); }
                         break;
                     }
                 case 1:
                     {
                         InsertUserControlOnTabPageInput();
-                        SetMessage("OK");
+                        SetMessage("OK - password udløber om " + validatePartyResponse.passwordExpireDays.ToString() + " dage.");
                         wizardTabcontrol1.SelectedIndex += 1;
                         EnableButtons(true);
                         break;
@@ -96,6 +95,8 @@ namespace HentRestgaeld
             MainClient client = new MainClient();
             System.ServiceModel.EndpointAddress addr = new System.ServiceModel.EndpointAddress(GetEndpointAddress());
             client.Endpoint.Address = addr;
+            client.ClientCredentials.UserName.UserName = userControlLogon1.PartID;
+            client.ClientCredentials.UserName.Password = userControlLogon1.Password;
             return (client);
         }
 
@@ -111,7 +112,8 @@ namespace HentRestgaeld
             try
             {
                 ServiceReferenceTBIS.MainClient client = GetMainClient();
-                validatePartyResponse = client.validateParty(userControlLogon1.PartID, userControlLogon1.Password);
+                ValidatePartyResponse validatePartyResponse = client.validateParty(userControlLogon1.PartID, userControlLogon1.Password);
+                this.validatePartyResponse = validatePartyResponse;
                 // XMLUtils.WriteXML(validatePartyResponse, "validePartyResponse.xml");
                 backgroundWorkerValidateParty.ReportProgress(0, validatePartyResponse.backEndStatusText);
             }
@@ -125,17 +127,17 @@ namespace HentRestgaeld
                 if (validatePartyResponse.backEndStatusCode == 0)
                 {
                     wizardTabcontrol1.SelectedIndex += 1;
+                    toolStripStatusLabel1.Text = "Password udløber om " + validatePartyResponse.passwordExpireDays.ToString() + " dage.";
                 }
             }
-            finally
-            {
-                EnableButtons(true);
-            }
+            catch (Exception f) { toolStripStatusLabel1.Text = f.Message; }
+            finally { EnableButtons(true); }
         }
 
         private void BackgroundWorkerValidateParty_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             toolStripStatusLabel1.Text = e.UserState.ToString();
+            
         }
 
         private void BackgroundWorkerHentData_DoWork(object sender, DoWorkEventArgs e)
