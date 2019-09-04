@@ -112,10 +112,9 @@ namespace HentRestgaeld
             try
             {
                 ServiceReferenceTBIS.MainClient client = GetMainClient();
-                ValidatePartyResponse validatePartyResponse = client.validateParty(userControlLogon1.PartID, userControlLogon1.Password);
-                this.validatePartyResponse = validatePartyResponse;
+                validatePartyResponse = client.validateParty(userControlLogon1.PartID, userControlLogon1.Password);
                 // XMLUtils.WriteXML(validatePartyResponse, "validePartyResponse.xml");
-                backgroundWorkerValidateParty.ReportProgress(0, validatePartyResponse.backEndStatusText);
+                backgroundWorkerValidateParty.ReportProgress(0, validatePartyResponse.backEndStatusCode.ToString() + " " + validatePartyResponse.backEndStatusText);
             }
             catch (Exception f) { backgroundWorkerValidateParty.ReportProgress(0, f.Message); }
         }
@@ -218,7 +217,20 @@ namespace HentRestgaeld
                 case DataType.Satser:
                     tabPageInput.Controls.Add(new UserControlSatser(userControlLogon1.Miljoe, userControlLogon1.PartID, validatePartyResponse.rknetid));
                     rknet_utils = ((UserControlSatser)tabPageInput.Controls[0]).Satser_utils;
-                    break; 
+                    break;
+                case DataType.EjendomSummarisk:
+                    tabPageInput.Controls.Add(new UserControlEjendomSummarisk(userControlLogon1.Miljoe, userControlLogon1.PartID, validatePartyResponse.rknetid));
+                    rknet_utils = ((UserControlEjendomSummarisk)tabPageInput.Controls[0]).TBGW_Utils;
+                    break;
+                case DataType.DokumentAktuel:
+                    tabPageInput.Controls.Add(new UserControlDokumentAktuelHent(userControlLogon1.Miljoe, userControlLogon1.PartID, validatePartyResponse.rknetid));
+                    rknet_utils = ((UserControlDokumentAktuelHent)tabPageInput.Controls[0]).TBGW_utils;
+                    break;
+                case DataType.IndskannetAkt:
+                    tabPageInput.Controls.Add(new UserControlIndskannetAkt(userControlLogon1.Miljoe, userControlLogon1.PartID, validatePartyResponse.rknetid));
+                    rknet_utils = ((UserControlIndskannetAkt)tabPageInput.Controls[0]).TBGW_utils;
+                    break;
+
                 default: break;
             }
         }

@@ -9,7 +9,7 @@ using System.Xml;
 
 namespace HentRestgaeld
 {
-    public enum DataType { Restgaeld, Omregningskurstabller, EgnePapirer, AllePapirer, Satser, Priser }
+    public enum DataType { Restgaeld, Omregningskurstabller, EgnePapirer, AllePapirer, Satser, Priser, EjendomSummarisk, IndskannetAkt, DokumentAktuel }
 
     public abstract class RKNet_Utils
     {
@@ -85,7 +85,17 @@ namespace HentRestgaeld
                 case DataType.Satser:
                     s = "F [rkn] Satser 6 XML";
                     break;
-                default:; break;
+
+                case DataType.EjendomSummarisk:
+                    s = "F [eTL] EjendomSummariskHent XML";
+                    break;
+                case DataType.IndskannetAkt:
+                    s = "F [eTL] EjdIndskanAktHent XML";
+                    break;
+                case DataType.DokumentAktuel:
+                    s = "F [eTL] DokumentAktuelHent XML";
+                    break;
+                default: break;
             }
             return (s);
         }

@@ -13,6 +13,7 @@ namespace HentRestgaeld
     public partial class UserControlSatser : UserControl
     {
         private Satser_Utils satser_utils;
+        public Satser_Utils Satser_utils { get => satser_utils; set => satser_utils = value; }
 
         public UserControlSatser(Miljoe miljoe, string afsender_partid, string jnummer)
         {
@@ -24,7 +25,6 @@ namespace HentRestgaeld
 
         }
 
-        public Satser_Utils Satser_utils { get => satser_utils; set => satser_utils = value; }
 
         private void comboBoxInstitut_SelectedIndexChanged(object sender, EventArgs e)
         {

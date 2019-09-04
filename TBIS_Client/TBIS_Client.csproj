@@ -78,6 +78,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Alle_Utils.cs" />
+    <Compile Include="Base64Utils.cs" />
+    <Compile Include="TBGW_Utils.cs" />
     <Compile Include="fpriser6.cs" />
     <Compile Include="fsatser6.cs" />
     <Compile Include="Priser_Utils.cs" />
@@ -115,11 +117,29 @@
     <Compile Include="UserControlAlle.Designer.cs">
       <DependentUpon>UserControlAlle.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControlDokumentAktuelHent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlDokumentAktuelHent.Designer.cs">
+      <DependentUpon>UserControlDokumentAktuelHent.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControlEgne.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControlEgne.Designer.cs">
       <DependentUpon>UserControlEgne.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlEjendomSummarisk.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlEjendomSummarisk.designer.cs">
+      <DependentUpon>UserControlEjendomSummarisk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlIndskannetAkt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlIndskannetAkt.designer.cs">
+      <DependentUpon>UserControlIndskannetAkt.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControlLogon.cs">
       <SubType>UserControl</SubType>
@@ -175,8 +195,17 @@
     <EmbeddedResource Include="UserControlAlle.resx">
       <DependentUpon>UserControlAlle.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControlDokumentAktuelHent.resx">
+      <DependentUpon>UserControlDokumentAktuelHent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlEgne.resx">
       <DependentUpon>UserControlEgne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlEjendomSummarisk.resx">
+      <DependentUpon>UserControlEjendomSummarisk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlIndskannetAkt.resx">
+      <DependentUpon>UserControlIndskannetAkt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlLogon.resx">
       <DependentUpon>UserControlLogon.cs</DependentUpon>

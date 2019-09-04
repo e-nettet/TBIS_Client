@@ -38,9 +38,9 @@
             this.tabPageLogin = new System.Windows.Forms.TabPage();
             this.userControlLogon1 = new HentRestgaeld.UserControlLogon();
             this.tabPageChoice = new System.Windows.Forms.TabPage();
+            this.comboBoxDataType = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBoxDataType = new System.Windows.Forms.ComboBox();
             this.tabPageInput = new System.Windows.Forms.TabPage();
             this.tabPageResult = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -143,7 +143,7 @@
             this.userControlLogon1.AutoSize = true;
             this.userControlLogon1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userControlLogon1.Location = new System.Drawing.Point(4, 5);
-            this.userControlLogon1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.userControlLogon1.Margin = new System.Windows.Forms.Padding(2);
             this.userControlLogon1.Miljoe = HentRestgaeld.Miljoe.Test;
             this.userControlLogon1.Name = "userControlLogon1";
             this.userControlLogon1.PartID = null;
@@ -157,13 +157,24 @@
             this.tabPageChoice.Controls.Add(this.label5);
             this.tabPageChoice.Controls.Add(this.tableLayoutPanel4);
             this.tabPageChoice.Location = new System.Drawing.Point(4, 29);
-            this.tabPageChoice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageChoice.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageChoice.Name = "tabPageChoice";
-            this.tabPageChoice.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageChoice.Padding = new System.Windows.Forms.Padding(2);
             this.tabPageChoice.Size = new System.Drawing.Size(947, 521);
             this.tabPageChoice.TabIndex = 3;
             this.tabPageChoice.Text = "tabPageChoice";
             this.tabPageChoice.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxDataType
+            // 
+            this.comboBoxDataType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxDataType.FormattingEnabled = true;
+            this.comboBoxDataType.Location = new System.Drawing.Point(148, 14);
+            this.comboBoxDataType.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.comboBoxDataType.Name = "comboBoxDataType";
+            this.comboBoxDataType.Size = new System.Drawing.Size(793, 28);
+            this.comboBoxDataType.TabIndex = 1;
             // 
             // label5
             // 
@@ -195,23 +206,12 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(0, 0);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
-            // comboBoxDataType
-            // 
-            this.comboBoxDataType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxDataType.FormattingEnabled = true;
-            this.comboBoxDataType.Location = new System.Drawing.Point(148, 14);
-            this.comboBoxDataType.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.comboBoxDataType.Name = "comboBoxDataType";
-            this.comboBoxDataType.Size = new System.Drawing.Size(793, 28);
-            this.comboBoxDataType.TabIndex = 1;
-            // 
             // tabPageInput
             // 
             this.tabPageInput.Location = new System.Drawing.Point(4, 29);
-            this.tabPageInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageInput.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageInput.Name = "tabPageInput";
-            this.tabPageInput.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageInput.Padding = new System.Windows.Forms.Padding(2);
             this.tabPageInput.Size = new System.Drawing.Size(947, 521);
             this.tabPageInput.TabIndex = 4;
             this.tabPageInput.Text = "tabPageInput";

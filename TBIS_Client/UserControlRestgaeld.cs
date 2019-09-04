@@ -19,6 +19,7 @@ namespace HentRestgaeld
         public UserControlRestgaeld(Miljoe miljoe, string afsender_partid, string jnummer)
         {
             restgaeld_utils = new Restgaeld_Utils(miljoe, afsender_partid, jnummer);
+            restgaeld_utils.Laaneidentifikation = ""; // Den må ikke være tom...
             InitializeComponent();
             comboBoxRealkreditinstitut.DataSource = Enum.GetValues(typeof(Kodeliste4));
         }

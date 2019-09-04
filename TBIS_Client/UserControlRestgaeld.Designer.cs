@@ -77,7 +77,7 @@
             this.textBoxKontrolkode.Location = new System.Drawing.Point(399, 112);
             this.textBoxKontrolkode.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.textBoxKontrolkode.Name = "textBoxKontrolkode";
-            this.textBoxKontrolkode.Size = new System.Drawing.Size(375, 26);
+            this.textBoxKontrolkode.Size = new System.Drawing.Size(375, 20);
             this.textBoxKontrolkode.TabIndex = 3;
             this.textBoxKontrolkode.TextChanged += new System.EventHandler(this.TextBoxKontrolkode_TextChanged);
             // 
@@ -87,7 +87,7 @@
             this.label10.Location = new System.Drawing.Point(8, 105);
             this.label10.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(94, 20);
+            this.label10.Size = new System.Drawing.Size(64, 13);
             this.label10.TabIndex = 7;
             this.label10.Text = "Kontrolkode";
             // 
@@ -97,7 +97,7 @@
             this.label6.Location = new System.Drawing.Point(8, 70);
             this.label6.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(103, 20);
+            this.label6.Size = new System.Drawing.Size(68, 13);
             this.label6.TabIndex = 6;
             this.label6.Text = "Lånenummer";
             // 
@@ -109,7 +109,7 @@
             this.textBoxLaanenummer.Location = new System.Drawing.Point(399, 77);
             this.textBoxLaanenummer.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.textBoxLaanenummer.Name = "textBoxLaanenummer";
-            this.textBoxLaanenummer.Size = new System.Drawing.Size(375, 26);
+            this.textBoxLaanenummer.Size = new System.Drawing.Size(375, 20);
             this.textBoxLaanenummer.TabIndex = 2;
             this.textBoxLaanenummer.TextChanged += new System.EventHandler(this.TextBoxLaanenummer_TextChanged);
             // 
@@ -121,7 +121,7 @@
             this.textBoxPantnummer.Location = new System.Drawing.Point(399, 42);
             this.textBoxPantnummer.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.textBoxPantnummer.Name = "textBoxPantnummer";
-            this.textBoxPantnummer.Size = new System.Drawing.Size(375, 26);
+            this.textBoxPantnummer.Size = new System.Drawing.Size(375, 20);
             this.textBoxPantnummer.TabIndex = 1;
             this.textBoxPantnummer.TextChanged += new System.EventHandler(this.TextBoxPantnummer_TextChanged);
             // 
@@ -131,7 +131,7 @@
             this.label9.Location = new System.Drawing.Point(8, 35);
             this.label9.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(233, 20);
+            this.label9.Size = new System.Drawing.Size(154, 13);
             this.label9.TabIndex = 3;
             this.label9.Text = "Ejendomsnummer/Pantnummer";
             // 
@@ -141,7 +141,7 @@
             this.label3.Location = new System.Drawing.Point(8, 0);
             this.label3.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 20);
+            this.label3.Size = new System.Drawing.Size(85, 13);
             this.label3.TabIndex = 10;
             this.label3.Text = "Realkreditinstitut";
             // 
@@ -154,7 +154,7 @@
             this.comboBoxRealkreditinstitut.Location = new System.Drawing.Point(399, 7);
             this.comboBoxRealkreditinstitut.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.comboBoxRealkreditinstitut.Name = "comboBoxRealkreditinstitut";
-            this.comboBoxRealkreditinstitut.Size = new System.Drawing.Size(375, 28);
+            this.comboBoxRealkreditinstitut.Size = new System.Drawing.Size(375, 21);
             this.comboBoxRealkreditinstitut.TabIndex = 0;
             this.comboBoxRealkreditinstitut.Text = "<Vælg realkreditinstitut>";
             this.comboBoxRealkreditinstitut.SelectedIndexChanged += new System.EventHandler(this.ComboBoxRealkreditinstitut_SelectedIndexChanged);
